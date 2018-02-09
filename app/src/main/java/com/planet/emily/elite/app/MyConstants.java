@@ -1,7 +1,7 @@
 package com.planet.emily.elite.app;
 
 /**
- * Created by emily on 2018/2/6.
+ * Created by emily on 2018/2/6
  */
 
 public class MyConstants {
