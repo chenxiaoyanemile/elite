@@ -2,12 +2,190 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg_chat_other"
     tools:context="com.planet.emily.elite.com.emily.home.MyProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="vertical"
+        tools:ignore="UselessParent">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:showDividers="middle">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="9.0dip"
+                    android:background="@drawable/bg_avatar_round">
+
+                    <TextView
+                        style="@style/Avatar"
+                        android:layout_width="71.0dip"
+                        android:layout_height="71.0dip"
+                        android:layout_gravity="center" />
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10.0dip"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:textColor="@color/dark_black"
+                    android:textSize="@dimen/text_size_xl"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Space
+                        android:layout_width="0.0dip"
+                        android:layout_height="1.0dip"
+                        android:layout_weight="1.0" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20.0dip"
+                        android:layout_marginTop="20.0dip" />
+
+                    <Space
+                        android:layout_width="0.0dip"
+                        android:layout_height="1.0dip"
+                        android:layout_weight="1.0" />
+
+                    <TextView
+                        android:layout_width="0.5dip"
+                        android:layout_height="25.0dip"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="25.0dip"
+                        android:background="@color/lavender_gray" />
+
+                    <TextView
+                        android:layout_width="0.0dip"
+                        android:layout_height="1.0dip"
+                        android:layout_weight="1.0" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20.0dip"
+                        android:layout_marginTop="20.0dip" />
+
+                    <Space
+                        android:layout_width="0.0dip"
+                        android:layout_height="1.0dip"
+                        android:layout_weight="1.0" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                style="@style/ForegroundTextItemWithArrow"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/option_item_height"
+                android:layout_marginTop="10.0dip"
+                android:drawablePadding="10.0dip"
+                android:drawableStart="@mipmap/ic_change"
+                android:text="@string/wallet"
+                tools:ignore="RtlHardcoded" />
+
+            <TextView
+                style="@style/ForegroundTextItemWithArrow"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/option_item_height"
+                android:layout_marginTop="10.0dip"
+                android:drawablePadding="10.0dip"
+                android:drawableStart="@mipmap/ic_gift_card"
+                android:text="@string/gift_card"
+                tools:ignore="RtlHardcoded" />
+
+            <TextView
+                style="@style/ForegroundTextItemWithArrow"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/option_item_height"
+                android:layout_marginTop="10.0dip"
+                android:drawablePadding="10.0dip"
+                android:drawableStart="@mipmap/ic_invite_code"
+                android:text="@string/invite_code" />
+
+            <TextView
+                style="@style/ForegroundTextItemWithArrow"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/option_item_height"
+                android:layout_marginTop="10.0dip"
+                android:drawablePadding="10.0dip"
+                android:drawableStart="@mipmap/ic_rank_group"
+                android:text="@string/active_group_rank"
+                tools:ignore="RtlHardcoded" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/option_item_height"
+                android:layout_marginTop="10.0dip"
+                android:background="@drawable/sel_bg_foreground_for_white_item"
+                android:foreground="@drawable/sel_touch_foreground"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20.0dip"
+                    android:drawablePadding="10.0dip"
+                    android:drawableStart="@mipmap/ic_my_settings"
+                    android:gravity="center_vertical"
+                    android:text="@string/settings"
+                    android:textColor="@color/dark_black"
+                    android:textSize="@dimen/text_size_l" />
+
+                <Space
+                    android:layout_width="0.0dip"
+                    android:layout_height="1.0dip"
+                    android:layout_weight="1.0" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10.0dip"
+                    android:src="@mipmap/ic_common_red_point" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20.0dip"
+                    android:src="@mipmap/ic_common_entrance_arrow" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/ForegroundTextItemWithArrow"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/option_item_height"
+                android:drawableLeft="@mipmap/ic_app_help"
+                android:drawablePadding="10.0dip"
+                android:drawableStart="@mipmap/ic_app_help"
+                android:text="@string/help_and_feedback"
+                tools:ignore="RtlHardcoded" />
+
+            <Space
+                android:layout_width="fill_parent"
+                android:layout_height="10.0dip" />
+        </LinearLayout>
+    </ScrollView>
 
 </FrameLayout>

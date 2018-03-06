@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v4.widget.Space
+        android:layout_height="0.0dip"
+        android:layout_weight="1.0"
+        android:layout_width="wrap_content" />
+
+    <TextView
+        android:drawableTop="@mipmap/ic_empty_group"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="@string/empty_group_tip"
+        android:textColor="@color/tiny_gray"
+        android:textSize="@dimen/text_size_m" />
+
+    <FrameLayout
+        android:layout_height="0.0dip"
+        android:layout_weight="1.0"
+        android:layout_width="fill_parent">
+
+        <Button
+            android:background="@drawable/sel_primary_button_background"
+            android:layout_gravity="center"
+            android:layout_height="40.0dip"
+            android:layout_width="200.0dip"
+            android:drawablePadding="5.0dip"
+            android:text="@string/create_group"
+            android:textColor="#ffffffff"
+            android:textSize="@dimen/text_size_m" />
+    </FrameLayout>
+
+    <TextView
+        android:drawableStart="@mipmap/ic_xmq_blog_logo"
+        android:drawablePadding="10.0dip"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40.0dip"
+        android:layout_width="wrap_content"
+        android:padding="5.0dip"
+        android:text="@string/xmq_blog"
+        android:textColor="@color/bg_chat_other"
+        android:textSize="@dimen/text_size_m" />
+
+</LinearLayout>
