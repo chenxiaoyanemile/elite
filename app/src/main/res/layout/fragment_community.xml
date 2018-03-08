@@ -45,7 +45,7 @@
         <android.support.v4.widget.Space
             android:layout_width="wrap_content"
             android:layout_height="0.0dip"
-            android:layout_weight="1.0" />
+            android:layout_weight="0.5" />
 
         <TextView
             android:layout_width="match_parent"
@@ -63,7 +63,7 @@
 
             <Button
                 android:layout_width="200.0dip"
-                android:layout_height="40.0dip"
+                android:layout_height="30.0dip"
                 android:layout_gravity="center"
                 android:background="@drawable/sel_primary_button_background"
                 android:drawablePadding="5.0dip"
@@ -81,7 +81,7 @@
             android:drawableStart="@mipmap/ic_xmq_blog_logo"
             android:padding="5.0dip"
             android:text="@string/xmq_blog"
-            android:textColor="@color/bg_chat_other"
+            android:textColor="@color/translucent_black"
             android:textSize="@dimen/text_size_m" />
 
     </LinearLayout>

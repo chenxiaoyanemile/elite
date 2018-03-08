@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector>
+    <item n1:drawable="@mipmap/ic_groups_activated" n1:state_activated="true"
+      xmlns:n1="http://schemas.android.com/apk/res/android" />
+    <item n2:drawable="@mipmap/ic_groups"
+      xmlns:n2="http://schemas.android.com/apk/res/android" />
+</selector>
