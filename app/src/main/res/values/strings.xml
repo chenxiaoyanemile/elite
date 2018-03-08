@@ -9,6 +9,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="community_title">知识星球</string>
+
     <string name="a_month_ago">一个月前</string>
     <string name="a_week_ago">一周前</string>
     <string name="abc_action_bar_home_description">Navigate home</string>
