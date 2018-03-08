@@ -16,10 +16,16 @@
         <item name="android:lineSpacingExtra">15.0sp</item>
     </style>
 
-    <style name="btn_style" parent="Base.TextAppearance.AppCompat.Title">
-        <item name="textColor">@color/primary_green</item>
+    <style name="btn_style">
+        <item name="android:background">@drawable/sel_primary_button_background</item>
         <item name="textSize">13.5sp</item>
+        <item name="textColor">@color/white</item>
         <item name="android:gravity">center</item>
+    </style>
+
+    <style name="et_style" parent="Base.V7.Widget.AppCompat.EditText">
+        <item name="textColor">@color/tiny_gray</item>
+        <item name="textSize">13.5sp</item>
     </style>
 
     <style name="Animation.AppCompat.Dialog" parent="@style/Base.Animation.AppCompat.Dialog" />

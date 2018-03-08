@@ -62,14 +62,13 @@
             android:layout_weight="1.0">
 
             <Button
+                style="@style/btn_style"
                 android:layout_width="200.0dip"
                 android:layout_height="30.0dip"
                 android:layout_gravity="center"
-                android:background="@drawable/sel_primary_button_background"
                 android:drawablePadding="5.0dip"
                 android:text="@string/create_group"
-                android:textColor="#ffffffff"
-                android:textSize="@dimen/text_size_m" />
+                android:textColor="@color/white" />
         </FrameLayout>
 
         <TextView
