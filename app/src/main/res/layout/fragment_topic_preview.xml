@@ -1,0 +1,130 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.planet.emily.elite.com.emily.home.TopicPreviewFragment">
+
+    <android.support.v4.widget.NestedScrollView
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent">
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:orientation="vertical"
+            android:paddingBottom="20.0dip">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent" />
+
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:orientation="vertical"
+                android:paddingLeft="20.0dip"
+                android:paddingRight="20.0dip">
+
+                <LinearLayout
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15.0dip"
+                    android:layout_marginTop="15.0dip"
+                    android:layout_width="fill_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12.0dip"
+                        android:layout_width="wrap_content"
+                        android:textColor="#ffb3b3b3"
+                        android:textSize="@dimen/text_size_m" />
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:textColor="#ffb3b3b3"
+                        android:textSize="@dimen/text_size_m" />
+
+                    <TextView
+                        android:gravity="end"
+                        android:layout_gravity="end"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:layout_width="0.0dip"
+                        android:text="@string/some_contents_have_been_hidden"
+                        android:textColor="@color/primary"
+                        android:textSize="@dimen/text_size_m" />
+                </LinearLayout>
+
+                <TextView
+                    android:background="@color/gray_dcdcdc"
+                    android:layout_height="1.0px"
+                    android:layout_marginBottom="25.0dip"
+                    android:layout_width="fill_parent" />
+
+                <TextView
+                    android:background="@drawable/sel_primary_button_background"
+                    android:gravity="center"
+                    android:layout_height="45.0dip"
+                    android:layout_width="fill_parent"
+                    android:text="@string/view_more_content"
+                    android:textColor="@color/white"
+                    android:textSize="18.0sp" />
+
+                <LinearLayout
+                    android:background="@drawable/sel_bg_group_info"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25.0dip"
+                    android:layout_width="fill_parent"
+                    android:orientation="horizontal"
+                    android:paddingLeft="15.0dip"
+                    android:paddingRight="15.0dip">
+
+                    <ImageView
+                        android:layout_height="68.0dip"
+                        android:layout_marginEnd="10.0dip"
+                        android:layout_marginTop="20.0dip"
+                        android:layout_width="68.0dip"
+                        android:contentDescription="@string/hello" />
+
+                    <LinearLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="fill_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:drawablePadding="9.0dip"
+                            android:layout_marginEnd="@mipmap/ic_common_entrance_arrow"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="25.0dip"
+                            android:layout_width="fill_parent"
+                            android:singleLine="true"
+                            android:textColor="#ff333333"
+                            android:textSize="18.0sp" />
+
+                        <TextView
+                            android:ellipsize="end"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8.0dip"
+                            android:layout_width="fill_parent"
+                            android:lineSpacingMultiplier="1.2"
+                            android:maxLines="3"
+                            android:textColor="#ff4d4d4d"
+                            android:textSize="12.0sp" />
+
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="20.0dip"
+                            android:layout_marginTop="8.0dip"
+                            android:layout_width="wrap_content"
+                            android:textColor="#ffb3b3b3"
+                            android:textSize="12.0sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</FrameLayout>

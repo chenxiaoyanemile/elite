@@ -129,4 +129,5 @@
     <color name="translucent_black">#19000000</color>
     <color name="translucent_gray">#60dcdcdc</color>
     <color name="white">@android:color/white</color>
+    <color name="sel_primary_text_press">#7f16b998</color>
 </resources>
