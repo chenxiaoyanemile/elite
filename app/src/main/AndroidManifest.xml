@@ -22,7 +22,9 @@
         <activity android:name=".com.emily.login.LoginActivity" />
         <activity android:name=".com.emily.my.CollectionActivity" />
         <activity android:name=".com.emily.my.PublishActivity" />
-        <activity android:name=".com.emily.my.GiftActivity"></activity>
+        <activity android:name=".com.emily.my.GiftActivity" />
+        <activity android:name=".com.emily.my.WalletActivity" />
+        <activity android:name=".com.emily.my.WelcomeActivity"></activity>
     </application>
 
 </manifest>

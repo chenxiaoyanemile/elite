@@ -124,6 +124,7 @@
                 tools:ignore="RtlHardcoded" />
 
             <TextView
+                android:id="@+id/tv_welcome"
                 style="@style/ForegroundTextItemWithArrow"
                 android:layout_width="fill_parent"
                 android:layout_height="@dimen/option_item_height"
@@ -133,6 +134,7 @@
                 android:text="@string/invite_code" />
 
             <TextView
+                android:id="@+id/tv_start"
                 style="@style/ForegroundTextItemWithArrow"
                 android:layout_width="fill_parent"
                 android:layout_height="@dimen/option_item_height"
@@ -143,6 +145,7 @@
                 tools:ignore="RtlHardcoded" />
 
             <LinearLayout
+                android:id="@+id/ly_set"
                 android:layout_width="fill_parent"
                 android:layout_height="@dimen/option_item_height"
                 android:layout_marginTop="10.0dip"
@@ -171,18 +174,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10.0dip"
-                    android:src="@mipmap/ic_common_red_point"
-                    android:contentDescription="@string/hello" />
+                    android:contentDescription="@string/hello"
+                    android:src="@mipmap/ic_common_red_point" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20.0dip"
-                    android:src="@mipmap/ic_common_entrance_arrow"
-                    android:contentDescription="@string/hello" />
+                    android:contentDescription="@string/hello"
+                    android:src="@mipmap/ic_common_entrance_arrow" />
             </LinearLayout>
 
             <TextView
+                android:id="@+id/tv_help"
                 style="@style/ForegroundTextItemWithArrow"
                 android:layout_width="fill_parent"
                 android:layout_height="@dimen/option_item_height"

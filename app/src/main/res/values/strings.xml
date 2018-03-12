@@ -945,7 +945,7 @@
     <string name="topic_recommendation_may_show_up_here">"优质的精华主题有可能出现
 在这里，让更多用户看到。"</string>
     <string name="total_reward">总赏金：</string>
-    <string name="transaction_detail">交易明细</string>
+    <string name="transaction_detail">明细</string>
     <string name="transaction_details">交易详情</string>
     <string name="transaction_number">交易单号</string>
     <string name="tw_traffic_permit">台湾通行证</string>
@@ -1036,4 +1036,5 @@
     <string name="item_publish_time">2017/9/19</string>
     <string name="item_collection">历经一个多月，我终于在南京找到了一份非常棒的 android 开发工作了，当时也询问···</string>
     <string name="name_collecton">小之</string>
+    <string name="wallet_cash">¥ 0</string>
 </resources>
