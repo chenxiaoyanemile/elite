@@ -1030,4 +1030,10 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="publish_topic">#求职# Android 开发</string>
+    <string name="publish_content">热爱 Android 开发 ···</string>
+    <string name="item_publish_topic">招聘/求职/跳槽</string>
+    <string name="item_publish_time">2017/9/19</string>
+    <string name="item_collection">历经一个多月，我终于在南京找到了一份非常棒的 android 开发工作了，当时也询问···</string>
+    <string name="name_collecton">小之</string>
 </resources>

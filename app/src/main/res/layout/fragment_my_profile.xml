@@ -62,11 +62,12 @@
                         android:layout_weight="1.0" />
 
                     <TextView
+                        android:id="@+id/tv_publish"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="20.0dip"
                         android:layout_marginTop="20.0dip"
-                        android:text="@string/my_publishes"/>
+                        android:text="@string/my_publishes" />
 
                     <android.support.v4.widget.Space
                         android:layout_width="0.0dip"
@@ -86,11 +87,12 @@
                         android:layout_weight="1.0" />
 
                     <TextView
+                        android:id="@+id/tv_collection"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="20.0dip"
                         android:layout_marginTop="20.0dip"
-                        android:text="@string/my_subscriptions"/>
+                        android:text="@string/my_subscriptions" />
 
                     <android.support.v4.widget.Space
                         android:layout_width="0.0dip"
@@ -100,6 +102,7 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/tv_wallet"
                 style="@style/ForegroundTextItemWithArrow"
                 android:layout_width="fill_parent"
                 android:layout_height="@dimen/option_item_height"
@@ -110,6 +113,7 @@
                 tools:ignore="RtlHardcoded" />
 
             <TextView
+                android:id="@+id/tv_gift"
                 style="@style/ForegroundTextItemWithArrow"
                 android:layout_width="fill_parent"
                 android:layout_height="@dimen/option_item_height"

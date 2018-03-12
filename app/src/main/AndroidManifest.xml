@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.planet.emily.elite">
 
-    <uses-permission  android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".app.MyApplication"
@@ -20,6 +20,9 @@
         </activity>
         <activity android:name=".com.emily.login.RegisteredActivity" />
         <activity android:name=".com.emily.login.LoginActivity" />
+        <activity android:name=".com.emily.my.CollectionActivity" />
+        <activity android:name=".com.emily.my.PublishActivity" />
+        <activity android:name=".com.emily.my.GiftActivity"></activity>
     </application>
 
 </manifest>
