@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_chat_other"
+    android:background="@color/background_all"
     tools:context="com.planet.emily.elite.com.emily.home.MyProfileFragment">
 
     <ScrollView

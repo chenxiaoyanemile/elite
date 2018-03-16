@@ -1037,4 +1037,6 @@
     <string name="item_collection">历经一个多月，我终于在南京找到了一份非常棒的 android 开发工作了，当时也询问···</string>
     <string name="name_collecton">小之</string>
     <string name="wallet_cash">¥ 0</string>
+    <string name="topic_one_text">招聘/求职/跳槽</string>
+    <string name="topic_one_user">emily chen</string>
 </resources>

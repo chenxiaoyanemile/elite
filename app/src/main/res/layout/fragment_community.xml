@@ -2,40 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_all"
     tools:context="com.planet.emily.elite.com.emily.home.CommunityFragment">
 
-    <android.support.v7.widget.Toolbar
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/primary_green"
-        android:title="@string/app_name" />
-
-    <TextView
-        style="@style/btn_style"
-        android:layout_width="fill_parent"
-        android:layout_height="40.0dip"
-        android:background="#fff5f6f7"
-        android:text="@string/community_title"
-        android:textColor="@color/primary_green" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
-        android:title="@string/loading_groups"
-        android:visibility="gone" />
-
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone">
-
-        <android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clipToPadding="false"
-            android:scrollbarStyle="insideOverlay"
-            android:scrollbars="vertical" />
-    </android.support.v4.widget.SwipeRefreshLayout>
+    <include layout="@layout/toolbar_my_community"></include>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -73,8 +43,8 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_gravity="center"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginBottom="40.0dip"
             android:drawablePadding="10.0dip"
             android:drawableStart="@mipmap/ic_xmq_blog_logo"
@@ -84,7 +54,6 @@
             android:textSize="@dimen/text_size_m" />
 
     </LinearLayout>
-
 
 
 </FrameLayout>
