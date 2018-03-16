@@ -41,21 +41,21 @@ public class HomeActivity extends AppCompatActivity {
 
         models.add(
                 new NavigationTabBar.Model.Builder(
-                        getResources().getDrawable(R.drawable.ic_third),
+                        getResources().getDrawable(R.drawable.sel_groups_tab_item),
                         Color.parseColor(colors[0]))
                         .title(MyConstants.MESSAGE_BAR)
                         .build()
         );
         models.add(
                 new NavigationTabBar.Model.Builder(
-                        getResources().getDrawable(R.drawable.ic_fourth),
+                        getResources().getDrawable(R.drawable.sel_dynamics_tab_item),
                         Color.parseColor(colors[0]))
                         .title(MyConstants.TOPIC_BAR)
                         .build()
         );
         models.add(
                 new NavigationTabBar.Model.Builder(
-                        getResources().getDrawable(R.drawable.ic_first),
+                        getResources().getDrawable(R.drawable.sel_me_tab_item),
                         Color.parseColor(colors[0]))
                         .title(MyConstants.MY_PROFILE_BAR)
                         .build()

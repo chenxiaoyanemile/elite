@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:n1="http://schemas.android.com/apk/res/android"
+    n1:layout_width="fill_parent"
+    n1:layout_height="fill_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    n1:background="#fff5f6f7"
+    n1:gravity="center_horizontal"
+    n1:orientation="vertical">
+
+    <include layout="@layout/toolbar_my_wallet" />
+
+    <TextView
+        n1:layout_width="match_parent"
+        n1:layout_height="0.5dp"
+        n1:layout_marginTop="3dp"
+        n1:background="@color/material_grey_300"
+        tools:ignore="PrivateResource" />
+
+    <TextView
+        n1:layout_width="wrap_content"
+        n1:layout_height="wrap_content"
+        n1:layout_marginTop="40.0dip"
+        n1:drawablePadding="7.5dip"
+        n1:drawableStart="@mipmap/ic_money"
+        n1:text="@string/my_money"
+        n1:textColor="@color/gray"
+        n1:textSize="@dimen/text_size_xl" />
+
+    <TextView
+        n1:layout_width="wrap_content"
+        n1:layout_height="wrap_content"
+        n1:layout_marginTop="15.0dip"
+        n1:textColor="@color/black_333333"
+        n1:textSize="36.0sp"
+        n1:text="@string/wallet_cash"/>
+
+    <LinearLayout
+        n1:layout_width="fill_parent"
+        n1:layout_height="wrap_content"
+        n1:layout_marginBottom="40.0dip"
+        n1:layout_marginTop="42.5dip"
+        n1:background="@color/white"
+        n1:orientation="vertical"
+        n1:padding="20.0dip">
+
+        <TextView
+            n1:layout_width="fill_parent"
+            n1:layout_height="wrap_content"
+            n1:text="@string/withdrawable_money" />
+
+        <TextView
+            n1:layout_width="fill_parent"
+            n1:layout_height="wrap_content"
+            n1:layout_marginTop="25.0dip"
+            n1:text="@string/balancing_money" />
+    </LinearLayout>
+
+    <TextView
+        n1:layout_width="wrap_content"
+        n1:layout_height="wrap_content"
+        n1:drawablePadding="5.0dip"
+        n1:drawableStart="@mipmap/ic_send_message_failed"
+        n1:gravity="center"
+        n1:text="@string/need_bind_wechat"
+        n1:textColor="@color/orange"
+        n1:textSize="@dimen/text_size_m" />
+
+    <Button
+        style="@style/btn_style"
+        n1:layout_width="fill_parent"
+        n1:layout_height="45.0dip"
+        n1:layout_marginLeft="20.0dip"
+        n1:layout_marginRight="20.0dip"
+        n1:layout_marginTop="10.0dip"
+        n1:text="@string/withdraw"
+        n1:textSize="@dimen/text_size_xxl" />
+
+    <TextView
+        n1:layout_width="wrap_content"
+        n1:layout_height="wrap_content"
+        n1:layout_marginTop="15.0dip"
+        n1:textColor="@color/gray"
+        n1:textSize="@dimen/text_size_m" />
+
+    <Space
+        n1:layout_width="fill_parent"
+        n1:layout_height="0.0dip"
+        n1:layout_weight="1.0" />
+
+    <TextView
+        n1:layout_width="wrap_content"
+        n1:layout_height="wrap_content"
+        n1:layout_gravity="bottom|center"
+        n1:layout_marginBottom="30.0dip"
+        n1:text="@string/usual_question"
+        n1:textColor="@color/green"
+        n1:textSize="@dimen/text_size_xl" />
+</LinearLayout>

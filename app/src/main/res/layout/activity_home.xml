@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white_bg_fff"
+    android:background="@color/background_all"
     android:orientation="vertical">
 
 
@@ -18,7 +18,7 @@
         android:id="@+id/ntb_horizontal"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        app:ntb_bg_color="@color/pink_light_20"
+        app:ntb_bg_color="@color/white"
         app:ntb_badge_gravity="top"
         app:ntb_badge_position="right"
         app:ntb_badged="true"

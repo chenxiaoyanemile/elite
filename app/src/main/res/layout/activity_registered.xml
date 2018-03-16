@@ -27,6 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/user_name"
+                style="@style/et_style"
                 tools:ignore="TextFields" />
         </LinearLayout>
 
@@ -42,6 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/user_password"
+                style="@style/et_style"
                 android:textStyle="bold"
                 android:inputType="textPassword"
                 tools:ignore="TextFields" />
@@ -54,7 +56,9 @@
             android:layout_marginBottom="24dp"
             android:layout_marginTop="24dp"
             android:padding="12dp"
-            android:text="@string/user_registered" />
+            android:text="@string/user_registered"
+            style="@style/btn_style"
+            android:textColor="@color/white"/>
 
 
     </LinearLayout>

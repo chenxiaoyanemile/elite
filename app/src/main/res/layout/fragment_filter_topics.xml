@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:n1="http://schemas.android.com/apk/res/android"
+    n1:layout_width="fill_parent"
+    n1:layout_height="wrap_content"
+    n1:layout_marginLeft="20.0dip"
+    n1:layout_marginRight="20.0dip"
+    n1:background="@color/white"
+    n1:gravity="center_horizontal"
+    n1:orientation="vertical"
+    n1:paddingBottom="35.0dip">
+
+    <TextView
+        n1:layout_width="wrap_content"
+        n1:layout_height="wrap_content"
+        n1:layout_marginTop="25.0dip"
+        n1:text="@string/view_by_filter_content"
+        n1:textColor="#ffb3b3b3"
+        n1:textSize="@dimen/text_size_l" />
+
+    <LinearLayout
+        n1:layout_width="fill_parent"
+        n1:layout_height="wrap_content"
+        n1:layout_marginTop="35.0dip"
+        n1:divider="@drawable/shape_divider_1px_gray"
+        n1:dividerPadding="4.0dip"
+        n1:showDividers="middle"
+        n1:weightSum="2.0">
+
+        <TextView
+            n1:layout_width="fill_parent"
+            n1:layout_height="wrap_content"
+            n1:layout_weight="1.0"
+            n1:gravity="center"
+            n1:text="@string/all_topics"
+            n1:textColor="@color/sel_primary_text_press"
+            n1:textSize="@dimen/text_size_xl" />
+
+        <TextView
+            n1:layout_width="fill_parent"
+            n1:layout_height="wrap_content"
+            n1:layout_weight="1.0"
+            n1:gravity="center"
+            n1:text="@string/image_topics"
+            n1:textColor="@color/sel_primary_text_press"
+            n1:textSize="@dimen/text_size_xl" />
+    </LinearLayout>
+
+    <LinearLayout
+        n1:layout_width="fill_parent"
+        n1:layout_height="wrap_content"
+        n1:layout_marginTop="35.0dip"
+        n1:divider="@drawable/shape_divider_1px_gray"
+        n1:dividerPadding="4.0dip"
+        n1:showDividers="middle"
+        n1:weightSum="2.0">
+
+        <TextView
+            n1:layout_width="fill_parent"
+            n1:layout_height="wrap_content"
+            n1:layout_weight="1.0"
+            n1:gravity="center"
+            n1:text="@string/file_topics"
+            n1:textColor="@color/sel_primary_text_press"
+            n1:textSize="@dimen/text_size_xl" />
+
+        <TextView
+            n1:layout_width="fill_parent"
+            n1:layout_height="wrap_content"
+            n1:layout_weight="1.0"
+            n1:gravity="center"
+            n1:text="@string/question_and_answer_topics"
+            n1:textColor="@color/sel_primary_text_press"
+            n1:textSize="@dimen/text_size_xl" />
+    </LinearLayout>
+
+    <LinearLayout
+        n1:layout_width="fill_parent"
+        n1:layout_height="wrap_content"
+        n1:layout_marginTop="35.0dip"
+        n1:divider="@drawable/shape_divider_1px_gray"
+        n1:dividerPadding="4.0dip"
+        n1:showDividers="middle"
+        n1:weightSum="2.0">
+
+        <TextView
+            n1:layout_width="fill_parent"
+            n1:layout_height="wrap_content"
+            n1:layout_weight="1.0"
+            n1:gravity="center"
+            n1:text="@string/group_owner_topics"
+            n1:textColor="@color/sel_primary_text_press"
+            n1:textSize="@dimen/text_size_xl" />
+
+        <TextView
+            n1:layout_width="fill_parent"
+            n1:layout_height="wrap_content"
+            n1:layout_weight="1.0"
+            n1:gravity="center"
+            n1:text="@string/did_not_answer_questions"
+            n1:textColor="@color/sel_primary_text_press"
+            n1:textSize="@dimen/text_size_xl"
+            n1:visibility="invisible" />
+    </LinearLayout>
+</LinearLayout>

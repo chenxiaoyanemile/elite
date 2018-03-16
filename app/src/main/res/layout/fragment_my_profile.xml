@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_chat_other"
+    android:background="@color/background_all"
     tools:context="com.planet.emily.elite.com.emily.home.MyProfileFragment">
 
     <ScrollView
@@ -31,10 +31,11 @@
                     android:layout_marginTop="9.0dip"
                     android:background="@drawable/bg_avatar_round">
 
-                    <TextView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         style="@style/Avatar"
                         android:layout_width="71.0dip"
                         android:layout_height="71.0dip"
+                        android:src="@mipmap/im_me"
                         android:layout_gravity="center" />
                 </FrameLayout>
 
@@ -45,6 +46,7 @@
                     android:layout_marginTop="10.0dip"
                     android:gravity="center"
                     android:maxLines="1"
+                    android:text="@string/app_name"
                     android:textColor="@color/dark_black"
                     android:textSize="@dimen/text_size_xl"
                     android:textStyle="bold" />
@@ -54,18 +56,20 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <Space
+                    <android.support.v4.widget.Space
                         android:layout_width="0.0dip"
                         android:layout_height="1.0dip"
                         android:layout_weight="1.0" />
 
                     <TextView
+                        android:id="@+id/tv_publish"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="20.0dip"
-                        android:layout_marginTop="20.0dip" />
+                        android:layout_marginTop="20.0dip"
+                        android:text="@string/my_publishes" />
 
-                    <Space
+                    <android.support.v4.widget.Space
                         android:layout_width="0.0dip"
                         android:layout_height="1.0dip"
                         android:layout_weight="1.0" />
@@ -77,18 +81,20 @@
                         android:layout_marginBottom="25.0dip"
                         android:background="@color/lavender_gray" />
 
-                    <TextView
+                    <android.support.v4.widget.Space
                         android:layout_width="0.0dip"
                         android:layout_height="1.0dip"
                         android:layout_weight="1.0" />
 
                     <TextView
+                        android:id="@+id/tv_collection"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="20.0dip"
-                        android:layout_marginTop="20.0dip" />
+                        android:layout_marginTop="20.0dip"
+                        android:text="@string/my_subscriptions" />
 
-                    <Space
+                    <android.support.v4.widget.Space
                         android:layout_width="0.0dip"
                         android:layout_height="1.0dip"
                         android:layout_weight="1.0" />
@@ -96,6 +102,7 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/tv_wallet"
                 style="@style/ForegroundTextItemWithArrow"
                 android:layout_width="fill_parent"
                 android:layout_height="@dimen/option_item_height"
@@ -106,6 +113,7 @@
                 tools:ignore="RtlHardcoded" />
 
             <TextView
+                android:id="@+id/tv_gift"
                 style="@style/ForegroundTextItemWithArrow"
                 android:layout_width="fill_parent"
                 android:layout_height="@dimen/option_item_height"
@@ -116,6 +124,7 @@
                 tools:ignore="RtlHardcoded" />
 
             <TextView
+                android:id="@+id/tv_welcome"
                 style="@style/ForegroundTextItemWithArrow"
                 android:layout_width="fill_parent"
                 android:layout_height="@dimen/option_item_height"
@@ -125,6 +134,7 @@
                 android:text="@string/invite_code" />
 
             <TextView
+                android:id="@+id/tv_start"
                 style="@style/ForegroundTextItemWithArrow"
                 android:layout_width="fill_parent"
                 android:layout_height="@dimen/option_item_height"
@@ -135,6 +145,7 @@
                 tools:ignore="RtlHardcoded" />
 
             <LinearLayout
+                android:id="@+id/ly_set"
                 android:layout_width="fill_parent"
                 android:layout_height="@dimen/option_item_height"
                 android:layout_marginTop="10.0dip"
@@ -154,7 +165,7 @@
                     android:textColor="@color/dark_black"
                     android:textSize="@dimen/text_size_l" />
 
-                <Space
+                <android.support.v4.widget.Space
                     android:layout_width="0.0dip"
                     android:layout_height="1.0dip"
                     android:layout_weight="1.0" />
@@ -163,16 +174,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10.0dip"
+                    android:contentDescription="@string/hello"
                     android:src="@mipmap/ic_common_red_point" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20.0dip"
+                    android:contentDescription="@string/hello"
                     android:src="@mipmap/ic_common_entrance_arrow" />
             </LinearLayout>
 
             <TextView
+                android:id="@+id/tv_help"
                 style="@style/ForegroundTextItemWithArrow"
                 android:layout_width="fill_parent"
                 android:layout_height="@dimen/option_item_height"
@@ -182,7 +196,7 @@
                 android:text="@string/help_and_feedback"
                 tools:ignore="RtlHardcoded" />
 
-            <Space
+            <android.support.v4.widget.Space
                 android:layout_width="fill_parent"
                 android:layout_height="10.0dip" />
         </LinearLayout>
