@@ -1039,4 +1039,5 @@
     <string name="wallet_cash">¥ 0</string>
     <string name="topic_one_text">招聘/求职/跳槽</string>
     <string name="topic_one_user">emily chen</string>
+    <string name="title_activity_dynamics_fragment">DynamicsFragment</string>
 </resources>

@@ -24,7 +24,10 @@
         <activity android:name=".com.emily.my.PublishActivity" />
         <activity android:name=".com.emily.my.GiftActivity" />
         <activity android:name=".com.emily.my.WalletActivity" />
-        <activity android:name=".com.emily.my.WelcomeActivity"></activity>
+        <activity android:name=".com.emily.my.WelcomeActivity" />
+        <activity
+            android:name=".com.emily.dynamics.DynamicsFragment"
+            android:label="@string/title_activity_dynamics_fragment"></activity>
     </application>
 
 </manifest>
