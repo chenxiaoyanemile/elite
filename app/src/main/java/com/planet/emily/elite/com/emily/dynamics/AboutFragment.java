@@ -8,13 +8,12 @@ import android.view.ViewGroup;
 
 import com.planet.emily.elite.R;
 
-import butterknife.ButterKnife;
 
-public class DynamicsFragment extends Fragment {
+public class AboutFragment extends Fragment {
 
-    public static DynamicsFragment newInstance(){
+    public static AboutFragment newInstance(){
         Bundle args = new Bundle();
-        DynamicsFragment fragment = new DynamicsFragment();
+        AboutFragment fragment = new AboutFragment();
         fragment.setArguments(args);
         return fragment;
     }
@@ -24,12 +23,8 @@ public class DynamicsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.activity_dynamics_fragment, container, false);
-        ButterKnife.bind(this, view);
-        return view;
+        return inflater.inflate(R.layout.fragment_about, container, false);
     }
-
-
 
 
 }

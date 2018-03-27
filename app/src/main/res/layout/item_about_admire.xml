@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ly_set"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:layout_marginTop="10dp"
+    android:background="@drawable/sel_bg_foreground_for_white_item"
+    android:foreground="@drawable/sel_touch_foreground"
+    android:orientation="horizontal"
+    tools:context="com.planet.emily.elite.com.emily.dynamics.AboutFragment">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:drawablePadding="10.0dip"
+        android:drawableStart="@mipmap/ic_like"
+        android:text="@string/received_likes"
+        android:gravity="center_vertical"
+        android:textColor="@color/dark_black"
+        android:textSize="@dimen/text_size_l" />
+
+    <android.support.v4.widget.Space
+        android:layout_width="0.0dip"
+        android:layout_height="1.0dip"
+        android:layout_weight="1.0" />
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:contentDescription="@string/hello"
+        android:padding="10dp"
+        android:src="@mipmap/ic_common_entrance_arrow" />
+
+
+</LinearLayout>
