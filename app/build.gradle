@@ -37,6 +37,7 @@ dependencies {
     //view
     compile 'de.hdodenhof:circleimageview:2.2.0'
     compile 'devlight.io:navigationtabbar:1.2.5'
+    compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
     //data
     compile 'org.greenrobot:greendao:3.2.2'
     compile 'org.greenrobot:eventbus:3.1.1'

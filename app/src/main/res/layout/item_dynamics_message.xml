@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginTop="10dp"
+    android:orientation="horizontal"
+    android:background="@color/white"
+    tools:context="com.planet.emily.elite.com.emily.dynamics.DynamicsFragment">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        style="@style/Avatar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@mipmap/im_me" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="6dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/name_collecton"
+                android:textColor="@color/blue_567895"
+                android:layout_marginEnd="10dp"
+                android:textSize="@dimen/text_size_xl" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/letter"
+                android:layout_marginEnd="10dp"
+                android:textColor="@color/blue_567895"
+                android:textSize="@dimen/text_size_xl" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/item_topic"
+                android:textColor="@color/black_333333"
+                android:textSize="@dimen/text_size_xl" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/item_collection"
+            android:textSize="@dimen/text_size_xl"
+            android:textColor="@color/black_333333"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/item_publish_time"
+                android:textSize="@dimen/text_size_s"
+                android:layout_weight="0.5"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/topic_one_text"
+                android:gravity="right"
+                android:textSize="@dimen/text_size_s"
+                android:layout_weight="0.5"
+                tools:ignore="RtlHardcoded" />
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

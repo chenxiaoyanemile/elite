@@ -14,7 +14,7 @@ public class VPFragmentAdapter extends FragmentPagerAdapter{
 
     private List<Fragment> mFragments;
 
-    public VPFragmentAdapter(FragmentManager fm, List<Fragment> fragments) {
+    VPFragmentAdapter(FragmentManager fm, List<Fragment> fragments) {
         super(fm);
         // TODO Auto-generated constructor stub
         mFragments = fragments;
