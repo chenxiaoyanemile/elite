@@ -15,7 +15,16 @@
         android:background="@color/material_grey_300"
         tools:ignore="PrivateResource" />
 
-    <include layout="@layout/item_my_collection"/>
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/layout_collection_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_collection_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 
 </LinearLayout>

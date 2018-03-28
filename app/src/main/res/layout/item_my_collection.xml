@@ -9,11 +9,12 @@
     android:background="@drawable/shape_item_my_publish">
 
     <TextView
+        android:id="@+id/tv_collection_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/item_collection"
         android:textColor="@color/black"
-        android:textSize="@dimen/text_size_xxl"/>
+        android:textSize="@dimen/text_size_xxl" />
 
 
     <LinearLayout
@@ -24,28 +25,31 @@
         android:weightSum="1">
 
         <TextView
+            android:id="@+id/tv_collection_topic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="0.2"
             android:text="@string/item_publish_topic"
             android:textColor="@color/green"
-            android:textSize="@dimen/text_size_l"
-            android:layout_weight="0.2"/>
+            android:textSize="@dimen/text_size_l" />
 
         <TextView
+            android:id="@+id/tv_collection_author"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="0.8"
             android:text="@string/name_collecton"
             android:textColor="@color/gray"
-            android:textSize="@dimen/text_size_l"
-            android:layout_weight="0.8"/>
+            android:textSize="@dimen/text_size_l" />
 
         <TextView
+            android:id="@+id/tv_collection_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="@string/item_publish_time"
             android:textColor="@color/gray"
-            android:textSize="@dimen/text_size_l"
-            android:layout_weight="1"/>
+            android:textSize="@dimen/text_size_l" />
     </LinearLayout>
 
 </LinearLayout>
