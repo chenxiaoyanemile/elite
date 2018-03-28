@@ -5,7 +5,9 @@
     android:background="@color/background_all"
     tools:context="com.planet.emily.elite.com.emily.home.CommunityFragment">
 
-    <include layout="@layout/toolbar_my_community"></include>
+    <include layout="@layout/toolbar_my_community">
+
+    </include>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"

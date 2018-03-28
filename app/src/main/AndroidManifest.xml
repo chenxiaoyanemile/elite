@@ -25,7 +25,8 @@
         <activity android:name=".com.emily.my.GiftActivity" />
         <activity android:name=".com.emily.my.WalletActivity" />
         <activity android:name=".com.emily.my.WelcomeActivity" />
-        <activity android:name=".com.emily.my.MyPublishDetailsActivity"></activity>
+        <activity android:name=".com.emily.my.MyPublishDetailsActivity" />
+        <activity android:name=".com.emily.dynamics.GetAdmireActivity"></activity>
     </application>
 
 </manifest>

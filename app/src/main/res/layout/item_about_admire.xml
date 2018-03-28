@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/ly_set"
     android:layout_width="match_parent"
     android:layout_height="60dp"
     android:layout_marginTop="10dp"
+    android:id="@+id/ll_admire"
     android:background="@drawable/sel_bg_foreground_for_white_item"
     android:foreground="@drawable/sel_touch_foreground"
     android:orientation="horizontal"
