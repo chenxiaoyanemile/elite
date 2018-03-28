@@ -11,9 +11,9 @@ import android.widget.TextView;
 
 import com.planet.emily.elite.R;
 import com.planet.emily.elite.bean.MyPublishItem;
+import com.planet.emily.elite.com.emily.my.adapter.MyPublishRecyclerViewAdapter;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

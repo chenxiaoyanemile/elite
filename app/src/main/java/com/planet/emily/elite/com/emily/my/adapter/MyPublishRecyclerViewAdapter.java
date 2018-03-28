@@ -1,4 +1,4 @@
-package com.planet.emily.elite.com.emily.my;
+package com.planet.emily.elite.com.emily.my.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -11,7 +11,6 @@ import com.planet.emily.elite.R;
 import com.planet.emily.elite.bean.MyPublishItem;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by emily on 2018/3/28
@@ -25,13 +24,13 @@ public class MyPublishRecyclerViewAdapter extends RecyclerView.Adapter<MyPublish
 
     private ArrayList<MyPublishItem> publishItems = new ArrayList<>();
 
-    MyPublishRecyclerViewAdapter(Context context) {
+    public MyPublishRecyclerViewAdapter(Context context) {
 
         layoutInflater = LayoutInflater.from(context);
 
     }
 
-    void setPublishItems(ArrayList<MyPublishItem> publishItems) {
+    public void setPublishItems(ArrayList<MyPublishItem> publishItems) {
         this.publishItems = publishItems;
         notifyItemMoved(0, publishItems.size());
     }
@@ -94,7 +93,7 @@ public class MyPublishRecyclerViewAdapter extends RecyclerView.Adapter<MyPublish
 
     private OnItemClickListener onItemClickListener;
 
-    void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
     }
 }
