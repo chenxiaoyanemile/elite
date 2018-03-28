@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="24dp"
+    android:layout_marginTop="24dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImageView"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@mipmap/im_me" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="17dp"
+            android:layout_toEndOf="@+id/circleImageView"
+            android:text="@string/name_collecton"
+            android:textColor="@color/create_question"
+            android:textSize="@dimen/text_size_xl" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textView"
+            android:layout_below="@+id/textView"
+            android:text="@string/item_publish_time"
+            android:textSize="@dimen/text_size_s" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/item_content"
+        android:textColor="@color/black_333333"
+        android:textSize="@dimen/text_size_xl" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_thumb_in_topic_like_members"
+            android:contentDescription="@string/hello"
+            android:layout_gravity="center_vertical"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/name_collecton"
+            android:layout_marginStart="6dp"
+            android:textSize="@dimen/text_size_m"
+            android:textColor="@color/create_question"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp">
+
+        <TextView
+            style="@style/ForegroundTextItemWithArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_item_admire"
+            android:layout_marginTop="10.0dip"
+            android:layout_marginEnd="12dp"
+            android:drawablePadding="10.0dip"
+            android:drawableStart="@mipmap/ic_topic_detail_top_liked"
+            android:text="@string/like"
+            android:textColor="@color/white"
+            tools:ignore="RtlHardcoded" />
+
+        <TextView
+            style="@style/ForegroundTextItemWithArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_item_praise"
+            android:layout_marginTop="10.0dip"
+            android:drawablePadding="10.0dip"
+            android:layout_marginEnd="12dp"
+            android:drawableStart="@mipmap/ic_topic_detail_admire"
+            android:text="@string/admire"
+            android:textColor="@color/white"
+            tools:ignore="RtlHardcoded" />
+
+        <TextView
+            style="@style/ForegroundTextItemWithArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_item_share"
+            android:layout_marginTop="10.0dip"
+            android:drawablePadding="10.0dip"
+            android:drawableStart="@mipmap/ic_topic_detail_share"
+            android:text="@string/share"
+            android:textColor="@color/white"
+            tools:ignore="RtlHardcoded" />
+    </LinearLayout>
+
+
+
+</LinearLayout>

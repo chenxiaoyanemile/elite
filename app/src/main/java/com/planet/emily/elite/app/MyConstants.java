@@ -9,4 +9,5 @@ public class MyConstants {
     public static final String MESSAGE_BAR = "Tribe";
     public static final String TOPIC_BAR = "Message";
     public static final String MY_PROFILE_BAR = "You";
+    public static final String NA = "123";
 }

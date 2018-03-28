@@ -731,7 +731,7 @@
     <string name="re_answer">重答</string>
     <string name="re_open">重新打开</string>
     <string name="read_and_agree">我已经阅读并同意</string>
-    <string name="read_details">进入详情</string>
+    <string name="read_details">详情</string>
     <string name="read_gift_card_info">了解礼品卡</string>
     <string name="real_name">真实姓名</string>
     <string name="received_likes">收到的赞</string>
@@ -1042,4 +1042,5 @@
     <string name="title_activity_dynamics_fragment">DynamicsFragment</string>
     <string name="letter">:</string>
     <string name="item_topic">#求职# #上海#</string>
+    <string name="item_content">学习 android 开发近一个月，最近两天写了个练手项目：模仿开发 ofo 共享单车，写了篇博客分享，欢迎大家提意见。</string>
 </resources>
