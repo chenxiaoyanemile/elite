@@ -30,7 +30,6 @@ public class MessageFragment extends Fragment {
     ViewPager vp_message;
 
     private List<Fragment> fragmentList;
-    private View view;
     private List<String> titleList;
 
     @Override
