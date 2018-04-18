@@ -63,7 +63,7 @@ public class PlanetActivity extends AppCompatActivity {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
                 if (verticalOffset <= -head_layout.getHeight() / 2) {
-                    mCollapsingToolbarLayout.setTitle("区块链社区");
+                    mCollapsingToolbarLayout.setTitle("629实验室");
                 } else {
                     mCollapsingToolbarLayout.setTitle(" ");
                 }
@@ -83,7 +83,7 @@ public class PlanetActivity extends AppCompatActivity {
         //toolbar_tab.setupWithViewPager(main_vp_container);
         loadBlurAndSetStatusBar();
 
-        ImageView head_iv = (ImageView) findViewById(R.id.head_iv);
+        ImageView head_iv = findViewById(R.id.head_iv);
         Glide.with(this).load(R.mipmap.planet_bg).bitmapTransform(new RoundedCornersTransformation(this,
                 90, 0)).into(head_iv);
     }

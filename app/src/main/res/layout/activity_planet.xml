@@ -51,18 +51,18 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="涩郎"
+                            android:text="@string/planet_name"
                             android:textColor="#ffffff"
-                            android:textSize="16sp"
+                            android:textSize="@dimen/text_size_xxl"
                             android:textStyle="bold"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
-                            android:text="Android开发工程师 @ 非著名程序员"
+                            android:text="@string/planet_description"
                             android:textColor="#ffffff"
-                            android:textSize="13sp"
+                            android:textSize="@dimen/text_size_m"
                             android:textStyle="bold"/>
                     </LinearLayout>
 
@@ -82,15 +82,16 @@
                     android:layout_marginEnd="40dp"
                     android:ellipsize="end"
                     android:maxLines="2"
-                    android:text="关注我（微博@涩郎，微信公众号：非著名程序员），我与你闲扯技术大话，笑谈科技人生。以幽默诙谐的态度，面对乏味无聊的技术，用扯淡的方式，分享技术的内涵。谈的是技术，更是我们的人生。"
+                    android:text="@string/planet_principe"
                     android:textColor="#ffffff"
-                    android:textSize="12sp"/>
+                    android:textSize="@dimen/text_size_s"/>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:padding="20dp">
+                    android:layout_marginStart="10dp"
+                    android:padding="10dp">
 
                     <LinearLayout
                         android:id="@+id/one"
@@ -103,7 +104,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="分享"
+                            android:text="@string/planet_share"
                             android:textColor="#ffffff"
                             android:textSize="12sp"
                             android:textStyle="bold"/>
@@ -111,7 +112,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="50篇"
+                            android:text="@string/planet_share_number"
                             android:textColor="#ffffff"
                             android:textSize="12sp"
                             android:textStyle="bold"/>
@@ -129,7 +130,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="获得收藏"
+                            android:text="@string/planet_collection"
                             android:textColor="#ffffff"
                             android:textSize="12sp"
                             android:textStyle="bold"/>
@@ -137,7 +138,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="3000次"
+                            android:text="@string/planet_collection_number"
                             android:textColor="#ffffff"
                             android:textSize="12sp"
                             android:textStyle="bold"/>
@@ -154,7 +155,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="被阅读"
+                            android:text="@string/planet_reading"
                             android:textColor="#ffffff"
                             android:textSize="12sp"
                             android:textStyle="bold"/>
@@ -162,7 +163,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="60000次"
+                            android:text="@string/planet_read_number"
                             android:textColor="#ffffff"
                             android:textSize="12sp"
                             android:textStyle="bold"/>
@@ -178,7 +179,7 @@
                         android:paddingLeft="6dp"
                         android:paddingRight="6dp"
                         android:paddingTop="3dp"
-                        android:text="设置"
+                        android:text="@string/planet_setting"
                         android:textColor="#ffffff"
                         android:textSize="12sp"/>
                 </RelativeLayout>
@@ -202,9 +203,9 @@
             android:background="#ffffff"
             android:fillViewport="false"
             app:layout_scrollFlags="scroll"
-            app:tabIndicatorColor="#0835f8"
+            app:tabIndicatorColor="@color/green"
             app:tabIndicatorHeight="2.0dp"
-            app:tabSelectedTextColor="#0835f8"
+            app:tabSelectedTextColor="@color/green"
             app:tabTextColor="#ced0d3">
 
             <android.support.design.widget.TabItem
@@ -215,22 +216,22 @@
             <android.support.design.widget.TabItem
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="分享"/>
+                android:text="@string/planet_project"/>
 
             <android.support.design.widget.TabItem
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="收藏"/>
+                android:text="@string/planet_problem"/>
 
             <android.support.design.widget.TabItem
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="关注"/>
+                android:text="@string/planet_manage"/>
 
             <android.support.design.widget.TabItem
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="关注者"/>
+                android:text="@string/planet_member"/>
 
 
         </android.support.design.widget.TabLayout>
