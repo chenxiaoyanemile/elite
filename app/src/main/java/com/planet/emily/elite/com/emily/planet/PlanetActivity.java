@@ -7,6 +7,7 @@ import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -23,6 +24,9 @@ import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.jaeger.library.StatusBarUtil;
 import com.planet.emily.elite.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import jp.wasabeef.glide.transformations.BlurTransformation;
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
@@ -43,7 +47,7 @@ public class PlanetActivity extends AppCompatActivity {
 
     }
 
-    private void initUI(){
+    private void initUI() {
         AppBarLayout app_bar_layout = findViewById(R.id.app_bar_layout);
         Toolbar mToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
@@ -55,9 +59,9 @@ public class PlanetActivity extends AppCompatActivity {
             }
         });
         head_layout = findViewById(R.id.head_layout);
-        root_layout =  findViewById(R.id.root_layout);
+        root_layout = findViewById(R.id.root_layout);
         //使用CollapsingToolbarLayout必须把title设置到CollapsingToolbarLayout上，设置到Toolbar上则不会显示
-        mCollapsingToolbarLayout =  findViewById(R.id
+        mCollapsingToolbarLayout = findViewById(R.id
                 .collapsing_toolbar_layout);
         app_bar_layout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
@@ -69,11 +73,18 @@ public class PlanetActivity extends AppCompatActivity {
                 }
             }
         });
-        toolbar_tab =  findViewById(R.id.toolbar_tab);
-        main_vp_container =  findViewById(R.id.main_vp_container);
+        toolbar_tab = findViewById(R.id.toolbar_tab);
+        main_vp_container = findViewById(R.id.main_vp_container);
 
 
-        ViewPagerAdapter vpAdapter = new ViewPagerAdapter(getSupportFragmentManager(), this);
+        List<Fragment> fragments = new ArrayList<>();
+        fragments.add(new BacklogFragment());
+        fragments.add(new ProjectFragment());
+        fragments.add(new IssuesFragment());
+        fragments.add(new ManagementFragment());
+        fragments.add(new MembersFragment());
+
+        ViewPagerAdapter vpAdapter = new ViewPagerAdapter(getSupportFragmentManager(), fragments);
         main_vp_container.setAdapter(vpAdapter);
         main_vp_container.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener
                 (toolbar_tab));
