@@ -95,7 +95,7 @@ public class PlanetActivity extends AppCompatActivity {
         loadBlurAndSetStatusBar();
 
         ImageView head_iv = findViewById(R.id.head_iv);
-        Glide.with(this).load(R.mipmap.planet_bg).bitmapTransform(new RoundedCornersTransformation(this,
+        Glide.with(this).load(R.mipmap.bg_sq_group_cover).bitmapTransform(new RoundedCornersTransformation(this,
                 90, 0)).into(head_iv);
     }
 
@@ -104,7 +104,7 @@ public class PlanetActivity extends AppCompatActivity {
      */
     private void loadBlurAndSetStatusBar() {
         StatusBarUtil.setTranslucent(PlanetActivity.this, StatusBarUtil.DEFAULT_STATUS_BAR_ALPHA);
-        Glide.with(this).load(R.mipmap.planet_bg).bitmapTransform(new BlurTransformation(this, 100))
+        Glide.with(this).load(R.mipmap.bg_login_fragment_header).bitmapTransform(new BlurTransformation(this, 100))
                 .into(new SimpleTarget<GlideDrawable>() {
                     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
                     @Override
@@ -115,7 +115,7 @@ public class PlanetActivity extends AppCompatActivity {
                     }
                 });
 
-        Glide.with(this).load(R.mipmap.planet_bg).bitmapTransform(new BlurTransformation(this, 100))
+        Glide.with(this).load(R.mipmap.bg_login_fragment_header).bitmapTransform(new BlurTransformation(this, 100))
                 .into(new SimpleTarget<GlideDrawable>() {
                     @Override
                     public void onResourceReady(GlideDrawable resource, GlideAnimation<? super
