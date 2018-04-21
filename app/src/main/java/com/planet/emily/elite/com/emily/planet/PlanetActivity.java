@@ -94,9 +94,8 @@ public class PlanetActivity extends AppCompatActivity {
         //toolbar_tab.setupWithViewPager(main_vp_container);
         loadBlurAndSetStatusBar();
 
-        ImageView head_iv = findViewById(R.id.head_iv);
-        Glide.with(this).load(R.mipmap.bg_sq_group_cover).bitmapTransform(new RoundedCornersTransformation(this,
-                90, 0)).into(head_iv);
+       // ImageView head_iv = findViewById(R.id.head_iv);
+       // Glide.with(this).load(R.mipmap.bg_sq_group_cover).bitmapTransform(new RoundedCornersTransformation(this,90, 0)).into(head_iv);
     }
 
     /**
@@ -135,12 +134,6 @@ public class PlanetActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         String msg = "";
         switch (item.getItemId()) {
-            case R.id.webview:
-                msg += "博客跳转";
-                break;
-            case R.id.weibo:
-                msg += "微博跳转";
-                break;
             case R.id.action_settings:
                 msg += "设置";
                 break;

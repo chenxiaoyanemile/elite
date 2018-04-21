@@ -18,7 +18,7 @@
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapsing_toolbar_layout"
             android:layout_width="match_parent"
-            android:layout_height="270dp"
+            android:layout_height="240dp"
             android:background="@color/green"
             app:collapsedTitleTextAppearance="@style/ToolBarTitleText"
             app:contentScrim="#46a8ba"
@@ -43,147 +43,41 @@
                     android:padding="20dp">
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:layout_centerVertical="true"
                         android:orientation="vertical">
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/planet_name"
                             android:textColor="#ffffff"
                             android:textSize="@dimen/text_size_xxl"
-                            android:textStyle="bold"/>
+                            android:textStyle="bold"
+                            android:gravity="center"/>
+
+                        <View
+                            android:layout_width="28dp"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="20dp"
+                            android:background="@color/white"
+                            android:layout_gravity="center"/>
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="3dp"
+                            android:layout_marginTop="20dp"
                             android:text="@string/planet_description"
                             android:textColor="#ffffff"
                             android:textSize="@dimen/text_size_m"
-                            android:textStyle="bold"/>
+                            android:textStyle="bold"
+                            android:gravity="center"/>
                     </LinearLayout>
 
-                    <ImageView
-                        android:id="@+id/head_iv"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:scaleType="centerCrop"/>
                 </RelativeLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="40dp"
-                    android:ellipsize="end"
-                    android:maxLines="2"
-                    android:text="@string/planet_principe"
-                    android:textColor="#ffffff"
-                    android:textSize="@dimen/text_size_s"/>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginStart="10dp"
-                    android:padding="10dp">
-
-                    <LinearLayout
-                        android:id="@+id/one"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_centerVertical="true"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/planet_share"
-                            android:textColor="#ffffff"
-                            android:textSize="12sp"
-                            android:textStyle="bold"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/planet_share_number"
-                            android:textColor="#ffffff"
-                            android:textSize="12sp"
-                            android:textStyle="bold"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/two"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="10dp"
-                        android:layout_toEndOf="@id/one"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/planet_collection"
-                            android:textColor="#ffffff"
-                            android:textSize="12sp"
-                            android:textStyle="bold"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/planet_collection_number"
-                            android:textColor="#ffffff"
-                            android:textSize="12sp"
-                            android:textStyle="bold"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="10dp"
-                        android:layout_toEndOf="@id/two"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/planet_reading"
-                            android:textColor="#ffffff"
-                            android:textSize="12sp"
-                            android:textStyle="bold"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/planet_read_number"
-                            android:textColor="#ffffff"
-                            android:textSize="12sp"
-                            android:textStyle="bold"/>
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:background="@drawable/setting_bg"
-                        android:paddingBottom="3dp"
-                        android:paddingLeft="6dp"
-                        android:paddingRight="6dp"
-                        android:paddingTop="3dp"
-                        android:text="@string/planet_setting"
-                        android:textColor="#ffffff"
-                        android:textSize="12sp"/>
-                </RelativeLayout>
             </LinearLayout>
 
             <android.support.v7.widget.Toolbar
