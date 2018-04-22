@@ -50,10 +50,7 @@ public class MyPublishRecyclerViewAdapter extends RecyclerView.Adapter<MyPublish
         holder.item_publish_community.setText(publishItems.get(0).getCommunity());
         holder.item_publish_time.setText(publishItems.get(0).getPublish_time());
 
-
         holder.itemView.setTag(position);
-
-
     }
 
     @Override

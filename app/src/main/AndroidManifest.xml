@@ -31,7 +31,8 @@
         <activity android:name=".com.emily.planet.TicketActivity" />
         <activity android:name=".com.emily.planet.CreatePlanetActivity" />
         <activity android:name=".com.emily.planet.UsuallyProblemActivity" />
-        <activity android:name=".com.emily.planet.CreateNextStepActivity"></activity>
+        <activity android:name=".com.emily.planet.CreateNextStepActivity" />
+        <activity android:name=".com.emily.dynamics.CommentActivity"></activity>
     </application>
 
 </manifest>

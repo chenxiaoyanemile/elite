@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.planet.emily.elite.R;
 import com.planet.emily.elite.bean.MyPublishItem;
+import com.planet.emily.elite.com.emily.dynamics.CommentActivity;
 import com.planet.emily.elite.com.emily.my.adapter.MyPublishRecyclerViewAdapter;
 
 import java.util.ArrayList;
@@ -53,7 +54,7 @@ public class PublishActivity extends AppCompatActivity {
         myPublishRecyclerViewAdapter.setOnItemClickListener(new MyPublishRecyclerViewAdapter.OnItemClickListener() {
             @Override
             public void OnItemClick(View view, int position) {
-                Intent in = new Intent(PublishActivity.this, MyPublishDetailsActivity.class);
+                Intent in = new Intent(PublishActivity.this, CommentActivity.class);
                 startActivity(in);
                 finish();
 

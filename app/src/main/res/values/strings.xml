@@ -913,7 +913,7 @@
     <string name="topic_by">的主题</string>
     <string name="topic_by_who">%1$s的主题</string>
     <string name="topic_count">主题 %1$d</string>
-    <string name="topic_detail_comment_count">评论(%1$d)</string>
+    <string name="topic_detail_comment_count">评论</string>
     <string name="topic_not_exist">主题不存在或被删除</string>
     <string name="topic_recommendation_may_show_up_here">"优质的精华主题有可能出现
 在这里，让更多用户看到。"</string>
@@ -1038,4 +1038,6 @@
     <string name="algorithm">算法</string>
     <string name="network">网络</string>
     <string name="development">研发</string>
+    <string name="comment_like">点赞</string>
+    <string name="text_xomment">我是图文消息主体部分</string>
 </resources>
