@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_all"
+    tools:context=".com.emily.planet.CreateNextStepActivity">
+
+    <include layout="@layout/toolbar_next_step"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="3dp"
+        android:background="@color/material_grey_300"
+        tools:ignore="PrivateResource" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="56dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:src="@mipmap/ic_logo_about"
+            android:layout_width="wrap_content"
+            android:layout_height="72dp"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription=""
+            tools:ignore="ContentDescription"
+            app:civ_border_width="2dp"
+            app:civ_border_color="#ffffff"/>
+
+        <EditText
+            android:layout_width="120dp"
+            android:layout_height="72dp"
+            android:hint="@string/group_name"
+            android:textSize="@dimen/text_size_l"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:layout_marginTop="10dp"
+            android:hint="@string/choose_category_notify"
+            android:textSize="@dimen/text_size_l"
+            android:gravity="center" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="8dp"
+            >
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_xl"
+                android:text="@string/study"
+                android:layout_weight="1"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_xl"
+                android:text="@string/product"
+                android:layout_weight="1"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_xl"
+                android:text="@string/development"
+                android:layout_weight="1"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_xl"
+                android:text="@string/algorithm"
+                android:layout_weight="1"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_xl"
+                android:text="@string/network"
+                android:layout_weight="1"/>
+
+
+        </RadioGroup>
+
+        <android.support.design.widget.TextInputEditText
+            style="@android:style/TextAppearance.Material.Widget.DropDownHint"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textMultiLine"
+            android:layout_marginBottom="24dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/setting_bg"
+            android:hint="@string/group_description_hint"
+            android:gravity="start|top"
+            android:textScaleX="1.0"/>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

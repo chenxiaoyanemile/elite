@@ -13,37 +13,7 @@
 
     <string name="a_month_ago">一个月前</string>
     <string name="a_week_ago">一周前</string>
-    <string name="abc_action_bar_home_description">Navigate home</string>
-    <string name="abc_action_bar_home_description_format">%1$s, %2$s</string>
-    <string name="abc_action_bar_home_subtitle_description_format">%1$s, %2$s, %3$s</string>
-    <string name="abc_action_bar_up_description">Navigate up</string>
-    <string name="abc_action_menu_overflow_description">More options</string>
-    <string name="abc_action_mode_done">Done</string>
-    <string name="abc_activity_chooser_view_see_all">See all</string>
-    <string name="abc_activitychooserview_choose_application">Choose an app</string>
-    <string name="abc_capital_off">OFF</string>
-    <string name="abc_capital_on">ON</string>
-    <string name="abc_font_family_body_1_material">sans-serif</string>
-    <string name="abc_font_family_body_2_material">sans-serif-medium</string>
-    <string name="abc_font_family_button_material">sans-serif-medium</string>
-    <string name="abc_font_family_caption_material">sans-serif</string>
-    <string name="abc_font_family_display_1_material">sans-serif</string>
-    <string name="abc_font_family_display_2_material">sans-serif</string>
-    <string name="abc_font_family_display_3_material">sans-serif</string>
-    <string name="abc_font_family_display_4_material">sans-serif-light</string>
-    <string name="abc_font_family_headline_material">sans-serif</string>
-    <string name="abc_font_family_menu_material">sans-serif</string>
-    <string name="abc_font_family_subhead_material">sans-serif</string>
-    <string name="abc_font_family_title_material">sans-serif-medium</string>
-    <string name="abc_search_hint">Search…</string>
-    <string name="abc_searchview_description_clear">Clear query</string>
-    <string name="abc_searchview_description_query">Search query</string>
-    <string name="abc_searchview_description_search">Search</string>
-    <string name="abc_searchview_description_submit">Submit query</string>
-    <string name="abc_searchview_description_voice">Voice search</string>
-    <string name="abc_shareactionprovider_share_with">Share with</string>
-    <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
-    <string name="abc_toolbar_collapse_description">Collapse</string>
+
     <string name="about">关于</string>
     <string name="about_distribution">关于「分享有赏」</string>
     <string name="about_file">关于文件</string>
@@ -226,7 +196,7 @@
     <string name="create">创建</string>
     <string name="create_deadline_group_des_1">有效期：%1$s至%2$s</string>
     <string name="create_deadline_group_des_2">创建成功后，可改为固定时长</string>
-    <string name="create_free_group">创建免费星球</string>
+    <string name="create_free_group">创建开放星球</string>
     <string name="create_group">创建星球</string>
     <string name="create_group_failed">创建星球失败</string>
     <string name="create_group_select_type_notice">创建成功后不可修改星球属性</string>
@@ -392,7 +362,7 @@
     <string name="force_offline_tip">讨论功能已被另一设备占用，正在重新连接</string>
     <string name="force_upgrade_message">您的知识星球版本太旧，不能继续使用，请下载并安装最新的版本</string>
     <string name="forever">永久</string>
-    <string name="free">免费</string>
+    <string name="free">公开</string>
     <string name="free_join_group">免费加入星球</string>
     <string name="free_question">免费提问</string>
     <string name="free_question_expired_tips">该问题已过72小时未被回答</string>
@@ -427,7 +397,7 @@
     <string name="group_background_invalid">星球背景没有设置或无效</string>
     <string name="group_category_invalid">星球分类没有设置或无效</string>
     <string name="group_cover_color_invalid">星球背景没有设置或无效</string>
-    <string name="group_description_hint">星球简介(选填)</string>
+    <string name="group_description_hint">星球简介(选填,30字以内)</string>
     <string name="group_guest_no_abstract">星主有点懒，未介绍嘉宾</string>
     <string name="group_hashtag_management">标签管理</string>
     <string name="group_info">%1$s创建，已有%2$s成员</string>
@@ -668,7 +638,7 @@
     <string name="path_password_eye_mask_visible">M2,4.27 L2,4.27 L4.54,1.73 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_strike_through">M3.27,4.27 L19.74,20.74</string>
     <string name="pause">暂停</string>
-    <string name="pay">付费</string>
+    <string name="pay">私密</string>
     <string name="pay_cancel">支付被取消</string>
     <string name="pay_error">支付出错</string>
     <string name="pay_failed">支付失败</string>
@@ -767,9 +737,12 @@
     <string name="renew_group_warn">续期提醒</string>
     <string name="renew_license">续期许可</string>
     <string name="renew_notice">续费须知</string>
-    <string name="renew_notice_item1">1.设置续期表示你同意 《知识星球用户协议》 和 《知识星球星主规则》；</string>
-    <string name="renew_notice_item2">2.设置续期后，续费用户和新加入用户可以查看上一周期的内容和新内容；</string>
-    <string name="renew_notice_item3">3.星球内未续费的用户能查看其付费有效期的内容，但无法再参与星球内互动(发表、提问、评论等操作)；</string>
+    <string name="renew_notice_item1">1.公开和私密指的是什么？</string>
+    <string name="renew_notice_item1_content">答：公开是指星球允许任何人加入（不需要认证），私密是指星球加入人员由创建人主导。</string>
+    <string name="renew_notice_item2">2.知识星球会收取手续费吗？</string>
+    <string name="renew_notice_item2_content">答：不会，这是知识星球创建者送给高效研发团队的礼物。</string>
+    <string name="renew_notice_item3">3.知识星球的内容会被泄露吗？</string>
+    <string name="renew_notice_item3_content">答：不会，因为平台不以盈利为目的，不存在商业合作。</string>
     <string name="renew_notice_item4">4.嘉宾和管理员不需要续费；</string>
     <string name="renew_notice_item5">5.若上一付费周期截止后，星主仍未设置续期，星球内用户将继续正常参与星球内互动，新用户则无法加入星球。</string>
     <string name="renew_payment">续费</string>
@@ -1059,4 +1032,10 @@
     <string name="planet_member">成员</string>
     <string name="create_issue">Create Issue</string>
     <string name="save_ticket">Save</string>
+    <string name="study">科研</string>
+    <string name="product">产品</string>
+    <string name="i_t">I T</string>
+    <string name="algorithm">算法</string>
+    <string name="network">网络</string>
+    <string name="development">研发</string>
 </resources>

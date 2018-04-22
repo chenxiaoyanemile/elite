@@ -4,6 +4,7 @@
 
 
     <!-- 圆角 -->
+    <solid android:color="#ffffff" />
 
     <corners
 

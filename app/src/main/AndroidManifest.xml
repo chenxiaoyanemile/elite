@@ -28,7 +28,10 @@
         <activity android:name=".com.emily.my.MyPublishDetailsActivity" />
         <activity android:name=".com.emily.dynamics.GetAdmireActivity" />
         <activity android:name=".com.emily.planet.PlanetActivity" />
-        <activity android:name=".com.emily.planet.TicketActivity"></activity>
+        <activity android:name=".com.emily.planet.TicketActivity" />
+        <activity android:name=".com.emily.planet.CreatePlanetActivity" />
+        <activity android:name=".com.emily.planet.UsuallyProblemActivity" />
+        <activity android:name=".com.emily.planet.CreateNextStepActivity"></activity>
     </application>
 
 </manifest>

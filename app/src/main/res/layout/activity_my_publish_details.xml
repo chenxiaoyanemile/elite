@@ -35,7 +35,10 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="4dp"
             android:background="@drawable/shape_edit_comment"
-            android:hint="@string/input_your_viewpoint" />
+            android:hint="@string/input_your_viewpoint"
+            android:gravity="start|top"
+            android:textScaleX="1.0"
+            android:inputType="textMultiLine"/>
     </LinearLayout>
 
 
