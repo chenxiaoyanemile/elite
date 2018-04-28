@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.planet.emily.elite.R;
 import com.planet.emily.elite.com.emily.my.CollectionActivity;
+import com.planet.emily.elite.com.emily.my.PlanetSortingActivity;
 import com.planet.emily.elite.com.emily.my.PublishActivity;
 import com.planet.emily.elite.com.emily.my.WalletActivity;
 
@@ -108,6 +109,8 @@ public class MyProfileFragment extends Fragment {
     }
 
     private void assertStart(){
+        Intent intent = new Intent(getActivity(), PlanetSortingActivity.class);
+        startActivity(intent);
 
     }
 

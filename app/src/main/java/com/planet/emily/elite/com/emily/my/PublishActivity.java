@@ -45,7 +45,6 @@ public class PublishActivity extends AppCompatActivity {
     }
 
     private void initUI() {
-
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         myPublishRecyclerViewAdapter = new MyPublishRecyclerViewAdapter(this);
         myPublishRecyclerViewAdapter.setPublishItems(publishItems);

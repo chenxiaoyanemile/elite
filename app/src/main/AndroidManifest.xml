@@ -32,7 +32,8 @@
         <activity android:name=".com.emily.planet.CreatePlanetActivity" />
         <activity android:name=".com.emily.planet.UsuallyProblemActivity" />
         <activity android:name=".com.emily.planet.CreateNextStepActivity" />
-        <activity android:name=".com.emily.dynamics.CommentActivity"></activity>
+        <activity android:name=".com.emily.dynamics.CommentActivity" />
+        <activity android:name=".com.emily.my.PlanetSortingActivity"></activity>
     </application>
 
 </manifest>
