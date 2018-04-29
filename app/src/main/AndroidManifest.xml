@@ -40,7 +40,9 @@
         <activity android:name=".com.emily.my.HelpActivity" />
         <activity android:name=".com.emily.my.OriginActivity" />
         <activity android:name=".com.emily.planet.CreateIssueActivity" />
-        <activity android:name=".com.emily.planet.PlanetProfileActivity"></activity>
+        <activity android:name=".com.emily.planet.PlanetProfileActivity" />
+        <activity android:name=".com.emily.planet.CreateShareActivity" />
+        <activity android:name=".com.emily.planet.CreateVersionActivity"></activity>
     </application>
 
 </manifest>

@@ -13,7 +13,7 @@
         tools:ignore="UselessParent">
 
         <TextView
-            android:id="@+id/tv_gift"
+            android:id="@+id/tv_share"
             style="@style/ForegroundTextItemWithArrow"
             android:layout_width="fill_parent"
             android:layout_height="@dimen/option_item_height"
@@ -24,7 +24,7 @@
             tools:ignore="RtlHardcoded" />
 
         <TextView
-            android:id="@+id/tv_start"
+            android:id="@+id/tv_version"
             style="@style/ForegroundTextItemWithArrow"
             android:layout_width="fill_parent"
             android:layout_height="@dimen/option_item_height"
@@ -35,7 +35,7 @@
             tools:ignore="RtlHardcoded" />
 
         <TextView
-            android:id="@+id/tv_welcome"
+            android:id="@+id/tv_issue"
             style="@style/ForegroundTextItemWithArrow"
             android:layout_width="fill_parent"
             android:layout_height="@dimen/option_item_height"
