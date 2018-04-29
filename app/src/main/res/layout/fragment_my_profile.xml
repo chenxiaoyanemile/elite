@@ -190,7 +190,6 @@
                 style="@style/ForegroundTextItemWithArrow"
                 android:layout_width="fill_parent"
                 android:layout_height="@dimen/option_item_height"
-                android:drawableLeft="@mipmap/ic_app_help"
                 android:drawablePadding="10.0dip"
                 android:drawableStart="@mipmap/ic_app_help"
                 android:text="@string/help_and_feedback"

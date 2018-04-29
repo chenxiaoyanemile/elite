@@ -6,7 +6,7 @@
     android:orientation="horizontal">
 
     <TextView
-        android:id="@+id/tv_back_collection"
+        android:id="@+id/tv_back_rule"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@mipmap/ic_back_green"
@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="@string/my_subscriptions"
+            android:text="@string/app_story"
             android:textColor="@color/black"
             android:textSize="@dimen/text_size_xxl" />
     </RelativeLayout>

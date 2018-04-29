@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".com.emily.my.RuleActivity">
+
+    <include layout="@layout/toolbar_rule" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="vertical"
+        tools:ignore="UselessParent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/rule_item_03"
+                android:textSize="@dimen/text_size_xxl"
+                android:textColor="@color/black_333333"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/rule_item_04"
+                android:textSize="@dimen/text_size_xxl"
+                android:textColor="@color/black_333333"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/rule_item_05"
+                android:textSize="@dimen/text_size_xl"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/rule_item_06"
+                android:textSize="@dimen/text_size_xl"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/rule_item_07"
+                android:textSize="@dimen/text_size_xl"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/rule_item_08"
+                android:textSize="@dimen/text_size_xl"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/rule_item_09"
+                android:layout_marginTop="10dp"
+                android:textSize="@dimen/text_size_xl"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/rule_item_10"
+                android:layout_marginTop="10dp"
+                android:textSize="@dimen/text_size_xl"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/rule_item_11"
+                android:layout_marginTop="10dp"
+                android:textSize="@dimen/text_size_xxl"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/rule_item_12"
+                android:layout_marginTop="10dp"
+                android:textSize="@dimen/text_size_xl"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/rule_item_13"
+                android:layout_marginTop="10dp"
+                android:textSize="@dimen/text_size_xl"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/rule_item_14"
+                android:layout_marginTop="10dp"
+                android:textSize="@dimen/text_size_xl"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/rule_item_15"
+                android:layout_marginTop="10dp"
+                android:textSize="@dimen/text_size_xl"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/rule_item_01"
+                android:layout_marginTop="10dp"
+                android:textSize="@dimen/text_size_xxl"
+                android:textColor="@color/black_333333"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/rule_item_02"
+                android:layout_marginTop="10dp"
+                android:textSize="@dimen/text_size_xxl"
+                android:layout_marginBottom="16dp"
+                android:textColor="@color/black_333333"/>
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</LinearLayout>

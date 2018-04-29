@@ -10,10 +10,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.planet.emily.elite.R;
+import com.planet.emily.elite.com.emily.my.AboutActivity;
 import com.planet.emily.elite.com.emily.my.CollectionActivity;
+import com.planet.emily.elite.com.emily.my.HelpActivity;
 import com.planet.emily.elite.com.emily.my.PlanetSortingActivity;
 import com.planet.emily.elite.com.emily.my.PublishActivity;
+import com.planet.emily.elite.com.emily.my.RuleActivity;
+import com.planet.emily.elite.com.emily.my.SetActivity;
 import com.planet.emily.elite.com.emily.my.WalletActivity;
+import com.planet.emily.elite.com.emily.my.WelcomeActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -84,6 +89,16 @@ public class MyProfileFragment extends Fragment {
         assertSet();
     }
 
+    @OnClick(R.id.tv_help)
+    public void clickHelp(){
+        assertHelp();
+    }
+
+    private void assertHelp() {
+        Intent intent = new Intent(getContext(), HelpActivity.class);
+        startActivity(intent);
+    }
+
 
     private void assertPublish() {
         Intent intent = new Intent(getContext(), PublishActivity.class);
@@ -96,16 +111,20 @@ public class MyProfileFragment extends Fragment {
     }
 
     private void assertWallet(){
-        Intent intent = new Intent(getContext(), WalletActivity.class);
+        Intent intent = new Intent(getContext(), RuleActivity.class);
         startActivity(intent);
     }
 
     private void assertGift(){
 
+        Intent intent = new Intent(getContext(), AboutActivity.class);
+        startActivity(intent);
+
     }
 
     private void assertSet(){
-
+        Intent intent = new Intent(getContext(), SetActivity.class);
+        startActivity(intent);
     }
 
     private void assertStart(){
@@ -115,6 +134,8 @@ public class MyProfileFragment extends Fragment {
     }
 
     private void assertWelcome(){
+        Intent intent = new Intent(getActivity(), WelcomeActivity.class);
+        startActivity(intent);
 
     }
 

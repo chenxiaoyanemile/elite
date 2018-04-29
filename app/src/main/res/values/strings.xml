@@ -155,6 +155,7 @@
     <string name="choose_group_type">选择星球属性</string>
     <string name="clause_url">https://support.zsxq.com/</string>
     <string name="clear_cache">清理缓存</string>
+    <string name="cache">16.25M</string>
     <string name="clear_cache_notify">确认要清除缓存？</string>
     <string name="click_to_publish_question">"点这里可以向星
 主和嘉宾提问~"</string>
@@ -381,7 +382,7 @@
     <string name="get_members_failed">加载星球成员失败</string>
     <string name="get_share_link_failed">获取分享链接失败</string>
     <string name="get_topics_failed">加载主题失败</string>
-    <string name="gift_card">礼品卡</string>
+    <string name="gift_card">关于星球</string>
     <string name="gift_card_activity_button_text">赠送给好友</string>
     <string name="gift_card_activity_title">赠送好友</string>
     <string name="gift_card_empty_notice">没有购买礼品卡</string>
@@ -964,7 +965,7 @@
     <string name="waiting_check_order">订单确认中，请稍候…</string>
     <string name="waiting_manager_examine">申请已发送，等待管理员审核</string>
     <string name="waiting_renew">待续费</string>
-    <string name="wallet">钱包</string>
+    <string name="wallet">知识星球准则</string>
     <string name="want_to_delete_comment">删除评论后，评论下所有回复都会被删除</string>
     <string name="we_chat">微信</string>
     <string name="we_chat_account_been_used">该微信帐号已经被使用</string>
@@ -1040,4 +1041,33 @@
     <string name="development">研发</string>
     <string name="comment_like">点赞</string>
     <string name="text_xomment">我是图文消息主体部分</string>
+    <string name="version">V1.0.0</string>
+
+    <string name="rule_item_01">  知识星球一直致力于为用户提供文明健康、规范有序的网络环境，含淫秽、色情、低俗、暴力、时政、新闻、盗版和引诱信息的星球，不仅违反了《知识星球用户协议》和《知识星球星主规则》相关规范，也违反了国家法律法规，我们坚决进行清理、清退。</string>
+    <string name="rule_item_02">  我们都希望有一个健康的网络环境，作为运营者，对淫秽、色情、低俗、暴力、时政、新闻、盗版和引诱信息"零容忍"，清除星球内此类有害新闻、锁定星球和封禁相关账号是我们的权限和义务。而对于每一个用户，也希望你们和我们一起维护和营造健康纯净的知识星球环。</string>
+    <string name="rule_item_03">  星主行为规范：本规则所述信息内容是指星球范围内，星主、星球内成员在使用知识星球服务过程中所制作、复制、发布、传播的任何内容，包括但不限于知识星球账号、昵称、星球介绍、星球内交流分享中等以网页、文字、图片、音频、图标、电子文件等形式在知识星球平台范围内发布、传送、传播的全部内容。</string>
+    <string name="rule_item_04">  星主应保证其对所制作、复制、发布、传播的信息内容拥有完整有效的知识产权授权，且星主理解并统一为保障文明、健康、和谐的星球生态环境，星主应在制作、复制、发布、传播信息内容过程中遵从如下规定，</string>
+    <string name="rule_item_05">(i)      反对宪法确定的基本原则的内容；</string>
+    <string name="rule_item_06">(ii)     危害国家统一、主权和领土完整的内容；</string>
+    <string name="rule_item_07">(iii)   泄露国家秘密、危害国家安全或者损害国家荣誉和利益的内容；</string>
+    <string name="rule_item_08">(iv)   煽动民族仇恨、民族歧视，破坏民族团结，或者侵害民族风俗、习惯的内容；</string>
+    <string name="rule_item_09">(v)     宣扬邪教、迷信的内容；</string>
+    <string name="rule_item_10">(vi)   发布散布谣言，扰乱社会秩序，破坏社会稳定的内容；</string>
+    <string name="rule_item_11">(vii)  发布宣扬淫秽、赌博、暴力或者教唆犯罪的内容；</string>
+    <string name="rule_item_12">(viii)  发布侮辱或者诽谤他人，侵害他人合法权益的内容；</string>
+    <string name="rule_item_13">(ix)   发布危害社会公德或者民族优秀文化传统的内容；</string>
+    <string name="rule_item_14">(x)     发布不符合国家相关法律法规规定的广告，包括但不限于发布国家禁止发布的广告内容，未事先经过有关部门的审查但法律法规要求审查的广告内容等；</string>
+    <string name="rule_item_15">(xi)   发布其他法律、行政法规和国家规定禁止的内容。</string>
+    <string name="IsPlanet">知识星球是什么？</string>
+    <string name="planet_origin_01">知识星球是创作者为高校科研团队提供的一个知识共享的平台，实现高校科研团队知识共享的工具</string>
+    <string name="planet_origin_02">你们为什么做知识星球？</string>
+    <string name="planet_origin_03">创新是知识经济时代的灵魂，高校科研团队作为国家创新主体的重要组成部分，肩负着发展科学技术和培养人才的重要使命。高校科研团队是典型的知识型团队，知识在团队活动中起着重要作用，团队的发展离不开知识的共享，知识共享是知识创造的前提和基础。</string>
+    <string name="planet_origin_04">谁会是知识星球合适的用户</string>
+    <string name="planet_origin_05">我们的用户可能是来自高效实验室的科研团队，也可以是学生自由组合的科研团队...他们形成一个圈子，有共同的爱好与目标，有互动的欲望，在一起，就能创造更大的价值</string>
+    <string name="planet_origin_06">知识星球能带来什么好处？</string>
+    <string name="planet_origin_07">1.更方便地聚集团队成员做轻松和纯粹的讨论；2.团队项目可以得到高效的管理；</string>
+    <string name="planet_origin_08">知识星球的含义是什么？</string>
+    <string name="planet_origin_09">我们希望每一个内容创造者都能创建自己的星球，将知识散布到星球的每一个角落</string>
+
+
 </resources>

@@ -33,7 +33,12 @@
         <activity android:name=".com.emily.planet.UsuallyProblemActivity" />
         <activity android:name=".com.emily.planet.CreateNextStepActivity" />
         <activity android:name=".com.emily.dynamics.CommentActivity" />
-        <activity android:name=".com.emily.my.PlanetSortingActivity"></activity>
+        <activity android:name=".com.emily.my.PlanetSortingActivity" />
+        <activity android:name=".com.emily.my.RuleActivity" />
+        <activity android:name=".com.emily.my.AboutActivity" />
+        <activity android:name=".com.emily.my.SetActivity" />
+        <activity android:name=".com.emily.my.HelpActivity" />
+        <activity android:name=".com.emily.my.OriginActivity"></activity>
     </application>
 
 </manifest>
