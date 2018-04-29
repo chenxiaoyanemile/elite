@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.planet.emily.elite.R;
+import com.planet.emily.elite.com.emily.planet.adapter.MyAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

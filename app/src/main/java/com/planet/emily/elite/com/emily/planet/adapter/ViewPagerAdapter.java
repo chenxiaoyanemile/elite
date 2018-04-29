@@ -1,6 +1,6 @@
-package com.planet.emily.elite.com.emily.planet;
+package com.planet.emily.elite.com.emily.planet.adapter;
 
-import android.content.Context;
+
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -12,7 +12,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     private String tabTitles[] = new String[]{"", "分享", "收藏", "关注", "关注者"};
     private List<Fragment> mFragments;
 
-    ViewPagerAdapter(FragmentManager fm, List<Fragment> fragments) {
+    public ViewPagerAdapter(FragmentManager fm, List<Fragment> fragments) {
         super(fm);
         mFragments = fragments;
     }

@@ -38,7 +38,9 @@
         <activity android:name=".com.emily.my.AboutActivity" />
         <activity android:name=".com.emily.my.SetActivity" />
         <activity android:name=".com.emily.my.HelpActivity" />
-        <activity android:name=".com.emily.my.OriginActivity"></activity>
+        <activity android:name=".com.emily.my.OriginActivity" />
+        <activity android:name=".com.emily.planet.CreateIssueActivity" />
+        <activity android:name=".com.emily.planet.PlanetProfileActivity"></activity>
     </application>
 
 </manifest>

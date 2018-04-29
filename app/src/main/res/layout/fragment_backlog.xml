@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".com.emily.planet.BacklogFragment">
 
-    <include layout="@layout/item_backlog">
+    <include layout="@layout/item_issues">
 
     </include>
 

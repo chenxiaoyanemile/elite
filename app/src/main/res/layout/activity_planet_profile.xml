@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_marginTop="26dp"
+    tools:context=".com.emily.planet.PlanetProfileActivity">
+
+    <ImageView
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@mipmap/ic_group_setting_owner"
+        android:contentDescription="@string/hello" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:src="@mipmap/ic_lion"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@string/hello"
+        tools:ignore="ContentDescription"
+        app:civ_border_width="2dp"
+        app:civ_border_color="#ffffff"/>
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="72dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:hint="@string/planet_name"
+        android:textColor="#000000"
+        android:textSize="@dimen/text_size_xxl" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="72dp"
+        android:hint="@string/id_63269474"
+        android:textSize="@dimen/text_size_l"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="36dp"
+        android:drawableStart="@mipmap/ic_share_group_qr_code"
+        android:background="@drawable/shape_item_share"
+        android:text="@string/share_group"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_l"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center" />
+
+
+
+</LinearLayout>

@@ -1,4 +1,4 @@
-package com.planet.emily.elite.com.emily.planet;
+package com.planet.emily.elite.com.emily.planet.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -11,7 +11,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     // 数据集
     private List<String> mDataset;
 
-    MyAdapter(List<String> dataset) {
+    public MyAdapter(List<String> dataset) {
         super();
         mDataset = dataset;
     }

@@ -3,12 +3,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_all"
     tools:context=".com.emily.planet.ManagementFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+        <TextView
+            android:id="@+id/tv_gift"
+            style="@style/ForegroundTextItemWithArrow"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/option_item_height"
+            android:layout_marginTop="10.0dip"
+            android:drawablePadding="10.0dip"
+            android:drawableStart="@mipmap/ic_publish"
+            android:text="@string/create_share"
+            tools:ignore="RtlHardcoded" />
+
+        <TextView
+            android:id="@+id/tv_start"
+            style="@style/ForegroundTextItemWithArrow"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/option_item_height"
+            android:layout_marginTop="10.0dip"
+            android:drawablePadding="10.0dip"
+            android:drawableStart="@mipmap/ic_guest_prerogative_tag"
+            android:text="@string/create_versions"
+            tools:ignore="RtlHardcoded" />
+
+        <TextView
+            android:id="@+id/tv_welcome"
+            style="@style/ForegroundTextItemWithArrow"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/option_item_height"
+            android:layout_marginTop="10.0dip"
+            android:drawablePadding="10.0dip"
+            android:drawableStart="@mipmap/ic_question"
+            android:text="@string/create_issues" />
+
+
+    </LinearLayout>
 
 </FrameLayout>

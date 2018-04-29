@@ -1,6 +1,7 @@
 package com.planet.emily.elite.com.emily.planet;
 
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
@@ -14,7 +15,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -24,12 +24,12 @@ import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.jaeger.library.StatusBarUtil;
 import com.planet.emily.elite.R;
+import com.planet.emily.elite.com.emily.planet.adapter.ViewPagerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import jp.wasabeef.glide.transformations.BlurTransformation;
-import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 public class PlanetActivity extends AppCompatActivity {
 
@@ -135,12 +135,18 @@ public class PlanetActivity extends AppCompatActivity {
         String msg = "";
         switch (item.getItemId()) {
             case R.id.action_settings:
-                msg += "设置";
+                assertSetPlanetProfile();
                 break;
         }
         if (!msg.equals("")) {
             Toast.makeText(PlanetActivity.this, msg, Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void assertSetPlanetProfile(){
+        Intent intent = new Intent(PlanetActivity.this, PlanetProfileActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

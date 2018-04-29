@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/background_all">
+
+
+    <ImageView
+        android:id="@+id/circle"
+        android:layout_width="20dp"
+        android:layout_height="14dp"
+        android:layout_marginTop="2dp"
+        android:contentDescription="@string/hello"
+        android:src="@mipmap/ic_guest_prerogative_tag" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/circle"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/shape_item_my_publish"
+        android:orientation="vertical"
+        android:padding="2dp">
+
+        <TextView
+            style="@style/planet_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Version: V 2.1.1" />
+
+        <TextView
+            style="@style/planet_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status: RELEASED" />
+
+        <TextView
+            style="@style/planet_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time: 18/Jul/2018" />
+
+        <TextView
+            style="@style/planet_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description: This version aims to tackle the remaining crash issues found on fabric" />
+    </LinearLayout>
+
+</RelativeLayout>
+

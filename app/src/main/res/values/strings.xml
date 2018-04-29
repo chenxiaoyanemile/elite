@@ -685,7 +685,9 @@
     <string name="profile">个人资料</string>
     <string name="propose_his_opinion">发表了观点</string>
     <string name="protection">护照</string>
-    <string name="publish">发表</string>
+    <string name="create_share">知识分享</string>
+    <string name="create_issues">新建提问</string>
+    <string name="create_versions">新建版本</string>
     <string name="publish_add_hash_tag">+ 添加标签</string>
     <string name="publish_text_too_long_notify">文字过长，请裁剪后再发表</string>
     <string name="publish_topic_hint">说点什么…</string>
@@ -1063,11 +1065,13 @@
     <string name="planet_origin_02">你们为什么做知识星球？</string>
     <string name="planet_origin_03">创新是知识经济时代的灵魂，高校科研团队作为国家创新主体的重要组成部分，肩负着发展科学技术和培养人才的重要使命。高校科研团队是典型的知识型团队，知识在团队活动中起着重要作用，团队的发展离不开知识的共享，知识共享是知识创造的前提和基础。</string>
     <string name="planet_origin_04">谁会是知识星球合适的用户</string>
-    <string name="planet_origin_05">我们的用户可能是来自高效实验室的科研团队，也可以是学生自由组合的科研团队...他们形成一个圈子，有共同的爱好与目标，有互动的欲望，在一起，就能创造更大的价值</string>
+    <string name="planet_origin_05">我们的用户可能是来自高效实验室的科研团队，也可以是学生自由组合的科研团队…他们形成一个圈子，有共同的爱好与目标，有互动的欲望，在一起，就能创造更大的价值</string>
     <string name="planet_origin_06">知识星球能带来什么好处？</string>
     <string name="planet_origin_07">1.更方便地聚集团队成员做轻松和纯粹的讨论；2.团队项目可以得到高效的管理；</string>
     <string name="planet_origin_08">知识星球的含义是什么？</string>
     <string name="planet_origin_09">我们希望每一个内容创造者都能创建自己的星球，将知识散布到星球的每一个角落</string>
+    <string name="user_phone">15602282655</string>
+    <string name="id_63269474">ID:63269474</string>
 
 
 </resources>
