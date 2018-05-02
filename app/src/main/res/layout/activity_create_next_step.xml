@@ -24,22 +24,24 @@
         android:paddingTop="56dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:src="@mipmap/ic_logo_about"
+            android:id="@+id/cv_planet_avatar"
             android:layout_width="wrap_content"
             android:layout_height="72dp"
             android:layout_gravity="center_horizontal"
             android:contentDescription=""
-            tools:ignore="ContentDescription"
+            android:src="@mipmap/ic_logo_about"
+            app:civ_border_color="#ffffff"
             app:civ_border_width="2dp"
-            app:civ_border_color="#ffffff"/>
+            tools:ignore="ContentDescription" />
 
         <EditText
+            android:id="@+id/et_planet_name"
             android:layout_width="120dp"
             android:layout_height="72dp"
-            android:hint="@string/group_name"
-            android:textSize="@dimen/text_size_l"
             android:layout_gravity="center_horizontal"
-            android:gravity="center" />
+            android:gravity="center"
+            android:hint="@string/group_name"
+            android:textSize="@dimen/text_size_l" />
 
         <TextView
             android:layout_width="match_parent"
@@ -58,56 +60,67 @@
             >
 
             <RadioButton
+                android:id="@+id/rb_study"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/text_size_xl"
+                android:layout_weight="1"
                 android:text="@string/study"
-                android:layout_weight="1"/>
+                android:textSize="@dimen/text_size_xl"
+                android:onClick="onRadioButtonClicked"/>
 
             <RadioButton
+                android:id="@+id/rb_product"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/text_size_xl"
+                android:layout_weight="1"
                 android:text="@string/product"
-                android:layout_weight="1"/>
+                android:textSize="@dimen/text_size_xl"
+                android:onClick="onRadioButtonClicked"/>
 
             <RadioButton
+                android:id="@+id/rb_development"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/text_size_xl"
+                android:layout_weight="1"
                 android:text="@string/development"
-                android:layout_weight="1"/>
+                android:textSize="@dimen/text_size_xl"
+                android:onClick="onRadioButtonClicked"/>
 
             <RadioButton
+                android:id="@+id/rb_algorithm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/text_size_xl"
+                android:layout_weight="1"
                 android:text="@string/algorithm"
-                android:layout_weight="1"/>
+                android:textSize="@dimen/text_size_xl"
+                android:onClick="onRadioButtonClicked"/>
 
             <RadioButton
+                android:id="@+id/rb_network"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/text_size_xl"
+                android:layout_weight="1"
                 android:text="@string/network"
-                android:layout_weight="1"/>
+                android:textSize="@dimen/text_size_xl"
+                android:onClick="onRadioButtonClicked"/>
 
 
         </RadioGroup>
 
         <android.support.design.widget.TextInputEditText
+            android:id="@+id/et_description"
             style="@android:style/TextAppearance.Material.Widget.DropDownHint"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="textMultiLine"
             android:layout_marginBottom="24dp"
             android:layout_marginEnd="12dp"
             android:layout_marginStart="12dp"
             android:layout_marginTop="24dp"
             android:background="@drawable/setting_bg"
-            android:hint="@string/group_description_hint"
             android:gravity="start|top"
-            android:textScaleX="1.0"/>
+            android:hint="@string/group_description_hint"
+            android:inputType="textMultiLine"
+            android:textScaleX="1.0" />
 
 
     </LinearLayout>
