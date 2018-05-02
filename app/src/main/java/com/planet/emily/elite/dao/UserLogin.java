@@ -14,11 +14,13 @@ public class UserLogin {
     private Long id;
     private String name;
     private String password;
-    @Generated(hash = 954780243)
-    public UserLogin(Long id, String name, String password) {
+    private String number;
+    @Generated(hash = 474259103)
+    public UserLogin(Long id, String name, String password, String number) {
         this.id = id;
         this.name = name;
         this.password = password;
+        this.number = number;
     }
     @Generated(hash = 180802810)
     public UserLogin() {
@@ -40,5 +42,11 @@ public class UserLogin {
     }
     public void setPassword(String password) {
         this.password = password;
+    }
+    public String getNumber() {
+        return this.number;
+    }
+    public void setNumber(String number) {
+        this.number = number;
     }
 }

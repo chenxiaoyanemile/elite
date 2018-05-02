@@ -18,10 +18,12 @@ public class RegisteredActivity extends AppCompatActivity {
 
     private EditText input_name;
     private EditText input_password;
+    private EditText et_input_number;
     private Button btn_registered;
 
     private String username;
     private String password;
+    private String number;
 
     private UserLogin mUser;
 
@@ -36,22 +38,27 @@ public class RegisteredActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                username = input_name.getText().toString();
-                password = input_password.getText().toString();
+                username = input_name.getText().toString().trim();
+                password = input_password.getText().toString().trim();
+                number = et_input_number.getText().toString().trim();
 
-                if (isNotEmpty(username) && isNotEmpty(password)) {
+                if (isNotEmpty(username) && isNotEmpty(password) && isNotEmpty(number)) {
                     mUser.setName(username);
                     mUser.setPassword(password);
+                    mUser.setName(number);
 
                     Toast.makeText(RegisteredActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
                     EventBus.getDefault().post("你好啊？");
                     startAction();
                 } else {
-                    if (isEmpty(username) && isNotEmpty(password)) {
-                        Toast.makeText(RegisteredActivity.this, "姓名为空", Toast.LENGTH_SHORT).show();
+                    if (isEmpty(username) && isNotEmpty(password) && isNotEmpty(number)) {
+                        Toast.makeText(RegisteredActivity.this, "姓名不能为空！", Toast.LENGTH_SHORT).show();
                     }
-                    if (isEmpty(password) && isNotEmpty(username)) {
-                        Toast.makeText(RegisteredActivity.this, "密码为空", Toast.LENGTH_SHORT).show();
+                    if (isEmpty(password) && isNotEmpty(username) && isNotEmpty(number)) {
+                        Toast.makeText(RegisteredActivity.this, "密码不能为空！", Toast.LENGTH_SHORT).show();
+                    }
+                    if (isEmpty(number) && isNotEmpty(password) && isNotEmpty(username)){
+                        Toast.makeText(RegisteredActivity.this, "电话号码不能为空！", Toast.LENGTH_SHORT).show();
                     }
 
                 }
@@ -63,6 +70,7 @@ public class RegisteredActivity extends AppCompatActivity {
     private void initView() {
         input_name = findViewById(R.id.et_input_name);
         input_password = findViewById(R.id.et_input_password);
+        et_input_number = findViewById(R.id.et_input_number);
         btn_registered = findViewById(R.id.btn_registered);
 
     }

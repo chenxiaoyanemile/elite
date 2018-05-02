@@ -2,7 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.planet.emily.elite">
 
+
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".app.MyApplication"
@@ -11,7 +17,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".com.emily.home.HomeActivity">
+        <activity android:name=".com.emily.home.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -42,7 +48,8 @@
         <activity android:name=".com.emily.planet.CreateIssueActivity" />
         <activity android:name=".com.emily.planet.PlanetProfileActivity" />
         <activity android:name=".com.emily.planet.CreateShareActivity" />
-        <activity android:name=".com.emily.planet.CreateVersionActivity"></activity>
+        <activity android:name=".com.emily.planet.CreateVersionActivity" />
+        <activity android:name=".com.emily.home.HomeActivity"></activity>
     </application>
 
 </manifest>

@@ -32,7 +32,7 @@ public class MyApplication extends Application{
     }
 
     private void setDatabase(){
-        DaoMaster.DevOpenHelper mHelper = new DaoMaster.DevOpenHelper(getApplicationContext(), "user", null);
+        DaoMaster.DevOpenHelper mHelper = new DaoMaster.DevOpenHelper(getApplicationContext(), "user_info", null);
         mDatabase = mHelper.getWritableDatabase();
         DaoMaster mDaoMaster = new DaoMaster(mDatabase);
         mDaoSession = mDaoMaster.newSession();
