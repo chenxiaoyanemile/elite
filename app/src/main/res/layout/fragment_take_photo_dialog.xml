@@ -11,7 +11,7 @@
         android:orientation="vertical"
         tools:ignore="UselessParent">
 
-        <com.koko.dating.chat.font.LatoRegularTextView
+        <TextView
             android:id="@+id/take_photo_btn"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -23,7 +23,7 @@
             android:textSize="@dimen/text_size_xxl"
             tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
 
-        <com.koko.dating.chat.font.LatoRegularTextView
+        <TextView
             android:id="@+id/choose_photo_btn"
             android:layout_width="match_parent"
             android:layout_height="0dp"

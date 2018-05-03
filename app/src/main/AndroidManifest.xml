@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.planet.emily.elite">
 
 
@@ -23,6 +24,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <!-- file provider for Android N -->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.example.asd.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
         <activity android:name=".com.emily.home.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -56,6 +69,10 @@
         <activity android:name=".com.emily.planet.CreateShareActivity" />
         <activity android:name=".com.emily.planet.CreateVersionActivity" />
         <activity android:name=".com.emily.home.HomeActivity"></activity>
+
     </application>
+
+
+
 
 </manifest>

@@ -1,22 +1,36 @@
 package com.planet.emily.elite.com.emily.login;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.planet.emily.elite.R;
+import com.planet.emily.elite.app.MyConstants;
+import com.planet.emily.elite.com.emily.base.TakePhotoDialog;
+import com.planet.emily.elite.util.PhotoHelper;
+
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
 import de.hdodenhof.circleimageview.CircleImageView;
+import rx.Observer;
 
 
 public class RegisteredActivity extends AppCompatActivity {
@@ -39,6 +53,13 @@ public class RegisteredActivity extends AppCompatActivity {
 
     BmobUser user = new BmobUser();
 
+    private TakePhotoDialog takePhotoDialog;
+    private PhotoHelper photoHelper;
+    private String takePhotoPath;
+
+    static final int REQUEST_IMAGE_CAPTURE = 1;
+    static final int MY_PERMISSIONS_REQUEST_READ_CONTACTS = 1;
+
 
 
     @Override
@@ -48,7 +69,9 @@ public class RegisteredActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         Bmob.initialize(this, "889470321947c301aff932fc7d9a9e64");
 
+        photoHelper = new PhotoHelper();
 
+        getPermissions();
 
         btn_registered.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,86 +102,76 @@ public class RegisteredActivity extends AppCompatActivity {
         });
     }
 
-/*
+    public void getPermissions(){
+        if (ContextCompat.checkSelfPermission(RegisteredActivity.this,
+                Manifest.permission.CAMERA)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            if (ActivityCompat.shouldShowRequestPermissionRationale(RegisteredActivity.this,
+                    Manifest.permission.CAMERA)) {
+
+
+            } else {
+
+                ActivityCompat.requestPermissions(RegisteredActivity.this,
+                        new String[]{Manifest.permission.CAMERA},
+                        MY_PERMISSIONS_REQUEST_READ_CONTACTS);
+            }
+        }
+    }
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_READ_CONTACTS: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+
+                } else {
+
+
+                }
+                return;
+            }
+
+        }
+    }
+
     @OnClick(R.id.cv_take_photo)
-    public void takePhoto() {
+    public void takePhotoDialog() {
         FragmentManager fm = getSupportFragmentManager();
         takePhotoDialog = (TakePhotoDialog) fm.findFragmentByTag("takePhoto");
         if (takePhotoDialog == null) {
             takePhotoDialog = TakePhotoDialog.newInstance(new TakePhotoDialog.Callback() {
                 @Override
                 public void takePhoto() {
-
-                    rxPermissions
-                            .request(Manifest.permission.CAMERA)
-                            .subscribe(new Subscriber<Boolean>() {
-                                @Override
-                                public void onCompleted() {
-                                    Intent takePhotoIntent = photoHelper.getTakePhotoIntent();
-                                    if (takePhotoIntent != null) {
-                                        takePhotoPath = photoHelper.getPhotoPath();
-                                        startActivityForResult(takePhotoIntent, PhotoHelper.REQUEST_TAKE_PHOTO);
-                                    }
-                                    hideDialog();
-                                }
-
-                                @Override
-                                public void onError(Throwable e) {
-
-                                    showPhotoAccessDialog = true;
-
-                                }
-
-                                @Override
-                                public void onNext(Boolean granted) {
-                                    if (granted) {
-                                        // All requested permissions are granted
-                                    } else {
-                                        // At least one permission is denied
-                                    }
-                                }
-                            });
-
+                    Intent takePhotoIntent = photoHelper.getTakePhotoIntent();
+                    if (takePhotoIntent != null) {
+                        takePhotoPath = photoHelper.getPhotoPath();
+                        startActivityForResult(takePhotoIntent, PhotoHelper.REQUEST_TAKE_PHOTO);
+                    }
+                    hideDialog();
                 }
 
                 @Override
                 public void choosePhoto() {
-                    rxPermissions
-                            .request(Manifest.permission.CAMERA)
-                            .subscribe(new Subscriber<Boolean>() {
-                                @Override
-                                public void onCompleted() {
-                                    Intent takePhotoIntent = photoHelper.getTakePhotoIntent();
-                                    if (takePhotoIntent != null) {
-                                        takePhotoPath = photoHelper.getPhotoPath();
-                                        startActivityForResult(takePhotoIntent, PhotoHelper.REQUEST_TAKE_PHOTO);
-                                    }
-                                    hideDialog();
-                                }
-
-                                @Override
-                                public void onError(Throwable e) {
-
-                                    showPhotoAccessDialog = true;
-
-                                }
-
-                                @Override
-                                public void onNext(Boolean granted) {
-                                    if (granted) {
-                                        // All requested permissions are granted
-                                    } else {
-                                        // At least one permission is denied
-                                    }
-                                }
-                            });
+                    Intent choosePhotoIntent = photoHelper.getChoosePhotoIntent();
+                    if (choosePhotoIntent != null) {
+                        startActivityForResult(choosePhotoIntent, PhotoHelper.REQUEST_CHOOSE_PHOTO);
+                    }
+                    hideDialog();
                 }
             });
+
         }
         takePhotoDialog.show(fm, "takePhoto");
-    }*/
+    }
 
-   /* @Override
+    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         hideDialog();
         if (requestCode == PhotoHelper.REQUEST_TAKE_PHOTO && resultCode == RESULT_OK) {
@@ -168,8 +181,14 @@ public class RegisteredActivity extends AppCompatActivity {
         }
     }
 
+    public void takePhoto() {
+        if (!TextUtils.isEmpty(takePhotoPath)) {
+            showPhoto(takePhotoPath);
+        }
+    }
+
     public void choosePhoto(Uri data) {
-        takePhotoPath = photoHelper.getPathFromMediaUri(data, getBaseContext());
+        String takePhotoPath = photoHelper.getPathFromMediaUri(data, getBaseContext());
         if (!TextUtils.isEmpty(takePhotoPath)) {
             showPhoto(takePhotoPath);
         }
@@ -195,7 +214,7 @@ public class RegisteredActivity extends AppCompatActivity {
         if (takePhotoDialog != null) {
             takePhotoDialog.dismissAllowingStateLoss();
         }
-    }*/
+    }
 
     private void sendRegisterMsg() {
         user.setUsername(username);
@@ -214,6 +233,15 @@ public class RegisteredActivity extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if (takePhotoPath != null) {
+            outState.putString(PhotoHelper.TAKE_PHOTO_PATH, takePhotoPath);
+        }
+    }
+
 
     private void toast(String msg) {
         Toast.makeText(RegisteredActivity.this, msg, Toast.LENGTH_SHORT).show();
