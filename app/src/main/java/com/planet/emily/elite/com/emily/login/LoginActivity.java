@@ -13,10 +13,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.planet.emily.elite.R;
+import com.planet.emily.elite.bean.UserInfo;
 import com.planet.emily.elite.com.emily.home.HomeActivity;
 
 import cn.bmob.v3.Bmob;
-import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.LogInListener;
 
@@ -77,9 +77,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
 
     public void Login(String phone, String psw) {
-        BmobUser.loginByAccount(phone, psw, new LogInListener<BmobUser>() {
+        UserInfo.loginByAccount(phone, psw, new LogInListener<UserInfo>() {
             @Override
-            public void done(BmobUser user, BmobException e) {
+            public void done(UserInfo user, BmobException e) {
                 if (user != null) {
                     Log.d("Bmob", user.toString());
                     toast("登录成功！");

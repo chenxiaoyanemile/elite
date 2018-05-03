@@ -18,19 +18,22 @@ import android.widget.Toast;
 
 import com.planet.emily.elite.R;
 import com.planet.emily.elite.app.MyConstants;
+import com.planet.emily.elite.bean.UserInfo;
 import com.planet.emily.elite.com.emily.base.TakePhotoDialog;
 import com.planet.emily.elite.util.PhotoHelper;
 
+import java.io.File;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.datatype.BmobFile;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
+import cn.bmob.v3.listener.UploadFileListener;
 import de.hdodenhof.circleimageview.CircleImageView;
-import rx.Observer;
 
 
 public class RegisteredActivity extends AppCompatActivity {
@@ -51,7 +54,6 @@ public class RegisteredActivity extends AppCompatActivity {
     private String number;
 
 
-    BmobUser user = new BmobUser();
 
     private TakePhotoDialog takePhotoDialog;
     private PhotoHelper photoHelper;
@@ -59,7 +61,6 @@ public class RegisteredActivity extends AppCompatActivity {
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
     static final int MY_PERMISSIONS_REQUEST_READ_CONTACTS = 1;
-
 
 
     @Override
@@ -81,19 +82,20 @@ public class RegisteredActivity extends AppCompatActivity {
                 password = input_password.getText().toString().trim();
                 number = et_input_number.getText().toString().trim();
 
-                if (isNotEmpty(username) && isNotEmpty(password) && isNotEmpty(number)) {
-
-                    sendRegisterMsg();
-
+                if (isNotEmpty(username) && isNotEmpty(password) && isNotEmpty(number) && isNotEmpty(takePhotoPath)) {
+                    savePhoto();
                 } else {
-                    if (isEmpty(username) && isNotEmpty(password) && isNotEmpty(number)) {
-                        Toast.makeText(RegisteredActivity.this, "姓名不能为空！", Toast.LENGTH_SHORT).show();
+                    if (isEmpty(username) && isNotEmpty(password) && isNotEmpty(number) && isNotEmpty(takePhotoPath)) {
+                        toast("姓名不能为空！");
                     }
-                    if (isEmpty(password) && isNotEmpty(username) && isNotEmpty(number)) {
-                        Toast.makeText(RegisteredActivity.this, "密码不能为空！", Toast.LENGTH_SHORT).show();
+                    if (isEmpty(password) && isNotEmpty(username) && isNotEmpty(number) && isNotEmpty(takePhotoPath)) {
+                        toast("密码不能为空！");
                     }
-                    if (isEmpty(number) && isNotEmpty(password) && isNotEmpty(username)) {
-                        Toast.makeText(RegisteredActivity.this, "电话号码不能为空！", Toast.LENGTH_SHORT).show();
+                    if (isEmpty(number) && isNotEmpty(password) && isNotEmpty(username) && isNotEmpty(takePhotoPath)) {
+                        toast("电话号码不能为空！");
+                    }
+                    if (isEmpty(takePhotoPath) && isNotEmpty(password) && isNotEmpty(username) && isNotEmpty(number)) {
+                        toast("请选择美美的头像哦！");
                     }
 
                 }
@@ -102,7 +104,7 @@ public class RegisteredActivity extends AppCompatActivity {
         });
     }
 
-    public void getPermissions(){
+    public void getPermissions() {
         if (ContextCompat.checkSelfPermission(RegisteredActivity.this,
                 Manifest.permission.CAMERA)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -126,16 +128,11 @@ public class RegisteredActivity extends AppCompatActivity {
                                            String permissions[], int[] grantResults) {
         switch (requestCode) {
             case MY_PERMISSIONS_REQUEST_READ_CONTACTS: {
-                // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
-
                 } else {
-
-
                 }
-                return;
             }
 
         }
@@ -216,13 +213,29 @@ public class RegisteredActivity extends AppCompatActivity {
         }
     }
 
-    private void sendRegisterMsg() {
+    public void savePhoto(){
+        final BmobFile file = new BmobFile(new File(takePhotoPath));
+        file.upload(new UploadFileListener() {
+            @Override
+            public void done(BmobException e) {
+                if (e == null){
+                    sendRegisterMsg(file);
+                }
+
+            }
+        });
+    }
+
+
+    private void sendRegisterMsg(BmobFile file) {
+        UserInfo user = new UserInfo();
         user.setUsername(username);
         user.setPassword(password);
         user.setMobilePhoneNumber(number);
-        user.signUp(new SaveListener<BmobUser>() {
+        user.setPhoto(file);
+        user.signUp(new SaveListener<UserInfo>() {
             @Override
-            public void done(BmobUser s, BmobException e) {
+            public void done(UserInfo s, BmobException e) {
                 if (e == null) {
                     toast("注册成功!");
                     startAction();
@@ -233,6 +246,7 @@ public class RegisteredActivity extends AppCompatActivity {
         });
 
     }
+
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
