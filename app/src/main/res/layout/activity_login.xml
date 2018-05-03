@@ -35,10 +35,10 @@
             android:layout_marginTop="8dp">
 
             <EditText
-                android:id="@+id/input_name"
+                android:id="@+id/input_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/user_name"
+                android:hint="@string/phone_number"
                 style="@style/et_style"
                 tools:ignore="TextFields" />
         </LinearLayout>

@@ -12,6 +12,7 @@ import com.planet.emily.elite.app.MyConstants;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.bmob.v3.Bmob;
 import devlight.io.library.ntb.NavigationTabBar;
 
 public class HomeActivity extends AppCompatActivity {
@@ -20,6 +21,8 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        Bmob.initialize(this,"889470321947c301aff932fc7d9a9e64");
+
         initUI();
     }
 

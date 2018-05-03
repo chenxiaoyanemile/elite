@@ -1,0 +1,38 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+        <com.koko.dating.chat.font.LatoRegularTextView
+            android:id="@+id/take_photo_btn"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:paddingLeft="16dp"
+            android:text="拍摄一张照片"
+            android:textColor="@color/green"
+            android:textSize="@dimen/text_size_xxl"
+            tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+
+        <com.koko.dating.chat.font.LatoRegularTextView
+            android:id="@+id/choose_photo_btn"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:paddingStart="16dp"
+            android:text="从相册中选择一张照片"
+            android:textColor="@color/green"
+            android:textSize="@dimen/text_size_xxl"
+            tools:ignore="HardcodedText,RtlHardcoded" />
+    </LinearLayout>
+</FrameLayout>

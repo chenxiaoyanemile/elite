@@ -26,6 +26,10 @@
     <item name="abc_button_padding_vertical_material" type="dimen">
         @dimen/abc_control_padding_material
     </item>
+    <dimen name="dialog_default_width">306dp</dimen>
+    <dimen name="dialog_report_user_profile_height">374dp</dimen>
+    <dimen name="take_photo_dialog_height">127dp</dimen>
+
     <dimen name="abc_cascading_menus_min_smallest_width">720.0dip</dimen>
     <dimen name="abc_config_prefDialogWidth">320.0dip</dimen>
     <dimen name="abc_control_corner_material">2.0dip</dimen>

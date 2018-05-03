@@ -9,30 +9,46 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.planet.emily.elite.R;
-import com.planet.emily.elite.dao.UserLogin;
 
-import org.greenrobot.eventbus.EventBus;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import cn.bmob.v3.Bmob;
+import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.SaveListener;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class RegisteredActivity extends AppCompatActivity {
 
-    private EditText input_name;
-    private EditText input_password;
-    private EditText et_input_number;
-    private Button btn_registered;
+    @BindView(R.id.et_input_name)
+    EditText input_name;
+    @BindView(R.id.et_input_password)
+    EditText input_password;
+    @BindView(R.id.et_input_number)
+    EditText et_input_number;
+    @BindView(R.id.btn_registered)
+    Button btn_registered;
+    @BindView(R.id.cv_take_photo)
+    CircleImageView iv_photo;
 
     private String username;
     private String password;
     private String number;
 
-    private UserLogin mUser;
+
+    BmobUser user = new BmobUser();
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registered);
-        initView();
-        mUser = new UserLogin();
+        ButterKnife.bind(this);
+        Bmob.initialize(this, "889470321947c301aff932fc7d9a9e64");
+
+
 
         btn_registered.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,13 +59,9 @@ public class RegisteredActivity extends AppCompatActivity {
                 number = et_input_number.getText().toString().trim();
 
                 if (isNotEmpty(username) && isNotEmpty(password) && isNotEmpty(number)) {
-                    mUser.setName(username);
-                    mUser.setPassword(password);
-                    mUser.setName(number);
 
-                    Toast.makeText(RegisteredActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
-                    EventBus.getDefault().post("你好啊？");
-                    startAction();
+                    sendRegisterMsg();
+
                 } else {
                     if (isEmpty(username) && isNotEmpty(password) && isNotEmpty(number)) {
                         Toast.makeText(RegisteredActivity.this, "姓名不能为空！", Toast.LENGTH_SHORT).show();
@@ -57,7 +69,7 @@ public class RegisteredActivity extends AppCompatActivity {
                     if (isEmpty(password) && isNotEmpty(username) && isNotEmpty(number)) {
                         Toast.makeText(RegisteredActivity.this, "密码不能为空！", Toast.LENGTH_SHORT).show();
                     }
-                    if (isEmpty(number) && isNotEmpty(password) && isNotEmpty(username)){
+                    if (isEmpty(number) && isNotEmpty(password) && isNotEmpty(username)) {
                         Toast.makeText(RegisteredActivity.this, "电话号码不能为空！", Toast.LENGTH_SHORT).show();
                     }
 
@@ -67,12 +79,144 @@ public class RegisteredActivity extends AppCompatActivity {
         });
     }
 
-    private void initView() {
-        input_name = findViewById(R.id.et_input_name);
-        input_password = findViewById(R.id.et_input_password);
-        et_input_number = findViewById(R.id.et_input_number);
-        btn_registered = findViewById(R.id.btn_registered);
+/*
+    @OnClick(R.id.cv_take_photo)
+    public void takePhoto() {
+        FragmentManager fm = getSupportFragmentManager();
+        takePhotoDialog = (TakePhotoDialog) fm.findFragmentByTag("takePhoto");
+        if (takePhotoDialog == null) {
+            takePhotoDialog = TakePhotoDialog.newInstance(new TakePhotoDialog.Callback() {
+                @Override
+                public void takePhoto() {
 
+                    rxPermissions
+                            .request(Manifest.permission.CAMERA)
+                            .subscribe(new Subscriber<Boolean>() {
+                                @Override
+                                public void onCompleted() {
+                                    Intent takePhotoIntent = photoHelper.getTakePhotoIntent();
+                                    if (takePhotoIntent != null) {
+                                        takePhotoPath = photoHelper.getPhotoPath();
+                                        startActivityForResult(takePhotoIntent, PhotoHelper.REQUEST_TAKE_PHOTO);
+                                    }
+                                    hideDialog();
+                                }
+
+                                @Override
+                                public void onError(Throwable e) {
+
+                                    showPhotoAccessDialog = true;
+
+                                }
+
+                                @Override
+                                public void onNext(Boolean granted) {
+                                    if (granted) {
+                                        // All requested permissions are granted
+                                    } else {
+                                        // At least one permission is denied
+                                    }
+                                }
+                            });
+
+                }
+
+                @Override
+                public void choosePhoto() {
+                    rxPermissions
+                            .request(Manifest.permission.CAMERA)
+                            .subscribe(new Subscriber<Boolean>() {
+                                @Override
+                                public void onCompleted() {
+                                    Intent takePhotoIntent = photoHelper.getTakePhotoIntent();
+                                    if (takePhotoIntent != null) {
+                                        takePhotoPath = photoHelper.getPhotoPath();
+                                        startActivityForResult(takePhotoIntent, PhotoHelper.REQUEST_TAKE_PHOTO);
+                                    }
+                                    hideDialog();
+                                }
+
+                                @Override
+                                public void onError(Throwable e) {
+
+                                    showPhotoAccessDialog = true;
+
+                                }
+
+                                @Override
+                                public void onNext(Boolean granted) {
+                                    if (granted) {
+                                        // All requested permissions are granted
+                                    } else {
+                                        // At least one permission is denied
+                                    }
+                                }
+                            });
+                }
+            });
+        }
+        takePhotoDialog.show(fm, "takePhoto");
+    }*/
+
+   /* @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        hideDialog();
+        if (requestCode == PhotoHelper.REQUEST_TAKE_PHOTO && resultCode == RESULT_OK) {
+            takePhoto();
+        } else if (requestCode == PhotoHelper.REQUEST_CHOOSE_PHOTO && resultCode == RESULT_OK) {
+            choosePhoto(data.getData());
+        }
+    }
+
+    public void choosePhoto(Uri data) {
+        takePhotoPath = photoHelper.getPathFromMediaUri(data, getBaseContext());
+        if (!TextUtils.isEmpty(takePhotoPath)) {
+            showPhoto(takePhotoPath);
+        }
+    }
+
+    public void showPhoto(String photoPath) {
+        if (TextUtils.isEmpty(photoPath)) {
+            return;
+        }
+        Bitmap compressBitmap = PhotoHelper.compressPhoto(photoPath, MyConstants.DEFAULT_AVATAR_WIDTH, MyConstants.DEFAULT_AVATAR_HEIGHT);
+        if (compressBitmap != null) {
+
+            showPhotoWindow(compressBitmap);
+        }
+    }
+
+    private void showPhotoWindow(Bitmap photoBitmap) {
+
+        iv_photo.setImageBitmap(photoBitmap);
+    }
+
+    private void hideDialog() {
+        if (takePhotoDialog != null) {
+            takePhotoDialog.dismissAllowingStateLoss();
+        }
+    }*/
+
+    private void sendRegisterMsg() {
+        user.setUsername(username);
+        user.setPassword(password);
+        user.setMobilePhoneNumber(number);
+        user.signUp(new SaveListener<BmobUser>() {
+            @Override
+            public void done(BmobUser s, BmobException e) {
+                if (e == null) {
+                    toast("注册成功!");
+                    startAction();
+                } else {
+                    toast("注册失败" + e.toString());
+                }
+            }
+        });
+
+    }
+
+    private void toast(String msg) {
+        Toast.makeText(RegisteredActivity.this, msg, Toast.LENGTH_SHORT).show();
     }
 
 
@@ -82,13 +226,10 @@ public class RegisteredActivity extends AppCompatActivity {
         finish();
     }
 
-    /**
-     * is not null
-     *
-     * @return string
-     */
+
     private boolean isNotEmpty(String s) {
-        return s != null && !s.equals("") || s.length() > 0;
+        assert s != null;
+        return !s.equals("");
     }
 
 
