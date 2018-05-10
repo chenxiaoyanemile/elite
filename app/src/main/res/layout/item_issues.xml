@@ -6,120 +6,176 @@
     android:background="@color/background_all"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <LinearLayout
+        android:id="@+id/item_problem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        android:layout_below="@+id/layout">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/circleImageView"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:src="@mipmap/im_me" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/circleImageView"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@mipmap/im_me" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="17dp"
+                android:layout_toEndOf="@+id/circleImageView"
+                android:text="@string/name_collecton"
+                android:textColor="@color/create_question"
+                android:textSize="@dimen/text_size_xl" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/textView"
+                android:layout_below="@+id/textView"
+                android:text="@string/item_publish_time"
+                android:textSize="@dimen/text_size_s" />
+
+        </RelativeLayout>
 
         <TextView
-            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="17dp"
-            android:layout_toEndOf="@+id/circleImageView"
-            android:text="@string/name_collecton"
-            android:textColor="@color/create_question"
+            android:text="@string/item_content"
+            android:textColor="@color/black_333333"
             android:textSize="@dimen/text_size_xl" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_thumb_in_topic_like_members"
+                android:contentDescription="@string/hello"
+                android:layout_gravity="center_vertical"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/name_collecton"
+                android:layout_marginStart="6dp"
+                android:textSize="@dimen/text_size_m"
+                android:textColor="@color/create_question"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rl_enroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp">
+
+            <TextView
+                android:id="@+id/chat"
+                style="@style/ForegroundTextItemWithArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_item_admire"
+                android:layout_marginTop="10.0dip"
+                android:layout_marginEnd="12dp"
+                android:drawablePadding="10.0dip"
+                android:drawableStart="@mipmap/ic_topic_detail_top_liked"
+                android:text="@string/like"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"/>
+
+            <TextView
+                android:id="@+id/comment"
+                style="@style/ForegroundTextItemWithArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_item_praise"
+                android:layout_marginTop="10.0dip"
+                android:drawablePadding="10.0dip"
+                android:layout_marginEnd="12dp"
+                android:drawableStart="@mipmap/ic_topic_comment_pressed"
+                android:text="@string/comment"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_comment"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:visibility="gone"
+        android:layout_alignParentBottom="true">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray" />
         <TextView
+            android:id="@+id/hide_down"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/textView"
-            android:layout_below="@+id/textView"
-            android:text="@string/item_publish_time"
-            android:textSize="@dimen/text_size_s" />
+            android:text="隐藏"
+            android:textSize="13sp"
+            android:textColor="@color/deep_blue"
+            android:drawableBottom="@mipmap/ic_ctr_distribution_button_activated"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"/>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/gray"
+            android:layout_toEndOf="@id/hide_down"
+            android:layout_marginStart="10dp"/>
 
+        <EditText
+            android:id="@+id/comment_content"
+            android:layout_width="240dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_toEndOf="@id/hide_down"
+            android:background="@null"
+            android:hint="@string/input_your_viewpoint"
+            android:inputType="textMultiLine|textImeMultiLine"
+            android:singleLine="true"
+            android:textSize="15sp" />
+        <Button
+            android:id="@+id/comment_send"
+            android:layout_width="50dp"
+            android:layout_height="35dp"
+            android:layout_margin="5dp"
+            android:text="@string/send"
+            android:textSize="13sp"
+            android:textColor="@color/white"
+            android:background="@color/green"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="15dp"/>
     </RelativeLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/item_content"
-        android:textColor="@color/black_333333"
-        android:textSize="@dimen/text_size_xl" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
-        tools:ignore="UseCompoundDrawables">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:contentDescription="@string/hello"
-            android:src="@mipmap/ic_thumb_in_topic_like_members" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:text="@string/name_collecton"
-            android:textColor="@color/create_question"
-            android:textSize="@dimen/text_size_m" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginStart="24dp"
-        android:orientation="horizontal">
-
-        <TextView
-            style="@style/ForegroundTextItemWithArrow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="12dp"
-            android:layout_marginTop="10.0dip"
-            android:background="@drawable/shape_item_admire"
-            android:drawablePadding="10.0dip"
-            android:drawableStart="@mipmap/ic_topic_detail_top_liked"
-            android:text="@string/like"
-            android:textColor="@color/white"
-            tools:ignore="RtlHardcoded" />
-
-        <TextView
-            style="@style/ForegroundTextItemWithArrow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="12dp"
-            android:layout_marginTop="10.0dip"
-            android:background="@drawable/shape_item_praise"
-            android:drawablePadding="10.0dip"
-            android:drawableStart="@mipmap/ic_topic_detail_admire"
-            android:text="@string/admire"
-            android:textColor="@color/white"
-            tools:ignore="RtlHardcoded" />
-
-        <TextView
-            style="@style/ForegroundTextItemWithArrow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10.0dip"
-            android:background="@drawable/shape_item_share"
-            android:drawablePadding="10.0dip"
-            android:drawableStart="@mipmap/ic_topic_detail_share"
-            android:text="@string/share"
-            android:textColor="@color/white"
-            tools:ignore="RtlHardcoded" />
-    </LinearLayout>
-
 
 </LinearLayout>

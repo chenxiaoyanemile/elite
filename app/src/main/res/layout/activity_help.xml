@@ -15,14 +15,15 @@
         tools:ignore="PrivateResource" />
 
     <EditText
+        android:id="@+id/et_input_feedback"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:hint="@string/say_something"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/setting_bg"
         android:gravity="start"
-        android:background="@drawable/setting_bg"/>
+        android:hint="@string/say_something" />
 
 
 </LinearLayout>

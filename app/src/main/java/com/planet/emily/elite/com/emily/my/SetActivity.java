@@ -1,12 +1,11 @@
 package com.planet.emily.elite.com.emily.my;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import com.planet.emily.elite.R;
-import com.planet.emily.elite.util.DataCleanManager;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -27,26 +26,41 @@ public class SetActivity extends AppCompatActivity {
 
 
     @OnClick(R.id.ly_setting)
-    public void clickSetting(){
+    public void clickSetting() {
 
     }
 
 
     @OnClick(R.id.ly_set_clean)
-    public void clickClean(){
+    public void clickClean() {
 
 
     }
 
     @OnClick(R.id.ly_set_version)
-    public void clickVersion(){
+    public void clickVersion() {
 
     }
 
     @OnClick(R.id.ly_set_origin)
-    public void clickOrigin(){
+    public void clickOrigin() {
         Intent intent = new Intent(SetActivity.this, OriginActivity.class);
         startActivity(intent);
+        finish();
+    }
+
+    @OnClick(R.id.btn_logout)
+    public void clickLogout(){
+
+    }
+
+    @OnClick(R.id.tv_back_set)
+    public void clickBack() {
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
         finish();
     }
 }

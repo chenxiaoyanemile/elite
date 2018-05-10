@@ -1,13 +1,14 @@
 package com.planet.emily.elite.com.emily.dynamics;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -15,44 +16,54 @@ import android.widget.Toast;
 
 import com.planet.emily.elite.R;
 import com.planet.emily.elite.bean.Comment;
+import com.planet.emily.elite.com.emily.planet.PlanetActivity;
 import com.planet.emily.elite.view.MyCommentAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class CommentActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView comment;
-    private TextView hide_down;
-    private EditText comment_content;
-    private Button comment_send;
-    private LinearLayout rl_enroll;
-    private RelativeLayout rl_comment;
+    @BindView(R.id.comment)
+    TextView comment;
+
+    @BindView(R.id.hide_down)
+    TextView hide_down;
+
+    @BindView(R.id.comment_content)
+    EditText comment_content;
+
+    @BindView(R.id.comment_send)
+    Button comment_send;
+
+    @BindView(R.id.rl_comment)
+    RelativeLayout rl_comment;
+
     private MyCommentAdapter myCommentAdapter;
     private List<Comment> data;
+    private Activity activity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comment);
+        ButterKnife.bind(this);
         initView();
     }
 
     private void initView() {
         // 初始化评论列表
-        ListView comment_list = (ListView) findViewById(R.id.comment_list);
+        ListView comment_list = findViewById(R.id.comment_list);
         // 初始化数据
         data = new ArrayList<>();
         // 初始化适配器
         myCommentAdapter = new MyCommentAdapter(getApplicationContext(), data);
         // 为评论列表设置适配器
         comment_list.setAdapter(myCommentAdapter);
-        comment = (TextView) findViewById(R.id.comment);
-        hide_down = (TextView) findViewById(R.id.hide_down);
-        comment_content = (EditText) findViewById(R.id.comment_content);
-        comment_send = (Button) findViewById(R.id.comment_send);
-        rl_enroll = (LinearLayout) findViewById(R.id.rl_enroll);
-        rl_comment = (RelativeLayout) findViewById(R.id.rl_comment);
         setListener();
     }
 
@@ -105,4 +116,24 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
             Toast.makeText(getApplicationContext(), "评论成功！", Toast.LENGTH_SHORT).show();
         }
     }
+
+    @OnClick(R.id.tv_return)
+    public void clickReturn() {
+
+    }
+
+
+    @OnClick(R.id.tv_enter)
+    public void clickEnter() {
+        Intent intent = new Intent(CommentActivity.this, PlanetActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+
+    }
+
+
 }

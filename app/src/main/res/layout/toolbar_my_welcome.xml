@@ -7,11 +7,12 @@
     android:orientation="horizontal">
 
     <TextView
+        android:id="@+id/tv_back_welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:background="@mipmap/ic_back_green"
-        android:padding="3dp"
-        android:layout_marginStart="10dp"/>
+        android:padding="3dp" />
 
     <RelativeLayout
         android:layout_width="match_parent"

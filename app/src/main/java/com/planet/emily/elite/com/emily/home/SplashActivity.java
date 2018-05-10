@@ -12,8 +12,6 @@ import com.planet.emily.elite.com.emily.login.LoginActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private SharedPreferences preferences;
-
     private boolean isLogin;
 
     private static final int SPLASH_DELAY = 3000;
@@ -32,7 +30,7 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        preferences = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences preferences = getPreferences(Context.MODE_PRIVATE);
         isLogin = preferences.getBoolean("isLogin", false);
     }
 

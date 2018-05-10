@@ -170,13 +170,13 @@
     </LinearLayout>
 
     <android.support.v7.widget.AppCompatButton
-        android:id="@+id/btn_registered"
+        android:id="@+id/btn_logout"
+        style="@style/btn_style"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
         android:padding="12dp"
         android:text="@string/logout"
-        style="@style/btn_style"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white" />
 
 </LinearLayout>

@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.planet.emily.elite.R;
 import com.planet.emily.elite.bean.MyCollectionItem;
+import com.planet.emily.elite.com.emily.dynamics.CommentActivity;
 import com.planet.emily.elite.com.emily.my.adapter.MyCollectionRecyclerViewAdapter;
 
 import java.util.ArrayList;
@@ -52,7 +53,7 @@ public class CollectionActivity extends AppCompatActivity {
         myCollectionRecyclerViewAdapter.setOnItemClickListener(new MyCollectionRecyclerViewAdapter.OnItemClickListener() {
             @Override
             public void OnItemClick(View view, int position) {
-                Intent in = new Intent(CollectionActivity.this, MyPublishDetailsActivity.class);
+                Intent in = new Intent(CollectionActivity.this, CommentActivity.class);
                 startActivity(in);
                 finish();
 

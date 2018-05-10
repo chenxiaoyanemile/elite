@@ -28,7 +28,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.bmob.v3.Bmob;
-import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.datatype.BmobFile;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
@@ -54,12 +53,10 @@ public class RegisteredActivity extends AppCompatActivity {
     private String number;
 
 
-
     private TakePhotoDialog takePhotoDialog;
     private PhotoHelper photoHelper;
-    private String takePhotoPath;
+    private String takePhotoPath = "";
 
-    static final int REQUEST_IMAGE_CAPTURE = 1;
     static final int MY_PERMISSIONS_REQUEST_READ_CONTACTS = 1;
 
 
@@ -68,7 +65,11 @@ public class RegisteredActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registered);
         ButterKnife.bind(this);
+
+
+        //初始化 Bmob SDK ，使用时请将第二个参数 app key 替换成自己在 Bmob 服务器创建的 Application ID
         Bmob.initialize(this, "889470321947c301aff932fc7d9a9e64");
+
 
         photoHelper = new PhotoHelper();
 
@@ -84,6 +85,7 @@ public class RegisteredActivity extends AppCompatActivity {
 
                 if (isNotEmpty(username) && isNotEmpty(password) && isNotEmpty(number) && isNotEmpty(takePhotoPath)) {
                     savePhoto();
+
                 } else {
                     if (isEmpty(username) && isNotEmpty(password) && isNotEmpty(number) && isNotEmpty(takePhotoPath)) {
                         toast("姓名不能为空！");
@@ -103,6 +105,7 @@ public class RegisteredActivity extends AppCompatActivity {
             }
         });
     }
+
 
     public void getPermissions() {
         if (ContextCompat.checkSelfPermission(RegisteredActivity.this,
@@ -124,8 +127,7 @@ public class RegisteredActivity extends AppCompatActivity {
 
 
     @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           String permissions[], int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
         switch (requestCode) {
             case MY_PERMISSIONS_REQUEST_READ_CONTACTS: {
                 if (grantResults.length > 0
@@ -197,15 +199,10 @@ public class RegisteredActivity extends AppCompatActivity {
         }
         Bitmap compressBitmap = PhotoHelper.compressPhoto(photoPath, MyConstants.DEFAULT_AVATAR_WIDTH, MyConstants.DEFAULT_AVATAR_HEIGHT);
         if (compressBitmap != null) {
-
-            showPhotoWindow(compressBitmap);
+            iv_photo.setImageBitmap(compressBitmap);
         }
     }
 
-    private void showPhotoWindow(Bitmap photoBitmap) {
-
-        iv_photo.setImageBitmap(photoBitmap);
-    }
 
     private void hideDialog() {
         if (takePhotoDialog != null) {
@@ -213,12 +210,12 @@ public class RegisteredActivity extends AppCompatActivity {
         }
     }
 
-    public void savePhoto(){
+    public void savePhoto() {
         final BmobFile file = new BmobFile(new File(takePhotoPath));
         file.upload(new UploadFileListener() {
             @Override
             public void done(BmobException e) {
-                if (e == null){
+                if (e == null) {
                     sendRegisterMsg(file);
                 }
 
@@ -264,6 +261,10 @@ public class RegisteredActivity extends AppCompatActivity {
 
     private void startAction() {
         Intent intent = new Intent(RegisteredActivity.this, LoginActivity.class);
+        intent.putExtra("takePhotoPath", takePhotoPath);
+        intent.putExtra("username", username);
+        intent.putExtra("password", password);
+        intent.putExtra("number", number);
         startActivity(intent);
         finish();
     }

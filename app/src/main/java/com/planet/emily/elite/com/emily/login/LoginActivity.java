@@ -3,9 +3,10 @@ package com.planet.emily.elite.com.emily.login;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,12 +14,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.planet.emily.elite.R;
+import com.planet.emily.elite.app.MyConstants;
 import com.planet.emily.elite.bean.UserInfo;
 import com.planet.emily.elite.com.emily.home.HomeActivity;
+import com.planet.emily.elite.util.PhotoHelper;
 
 import cn.bmob.v3.Bmob;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.LogInListener;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -26,6 +30,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private EditText input_password;
     private Button btn_login;
     private TextView tv_sign_up;
+    private CircleImageView cv_user_image;
 
 
     private SharedPreferences preferences;
@@ -37,15 +42,25 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         Bmob.initialize(this, "889470321947c301aff932fc7d9a9e64");
         initView();
         preferences = getSharedPreferences("isLogin", Context.MODE_PRIVATE);
-
         initEvent();
     }
 
     private void initView() {
+        Intent intent = getIntent();
+        String takePhotoPath = intent.getStringExtra("takePhotoPath");
+        String password = intent.getStringExtra("password");
+        String number = intent.getStringExtra("number");
+
         input_number = findViewById(R.id.input_number);
         input_password = findViewById(R.id.input_password);
         btn_login = findViewById(R.id.btn_login);
         tv_sign_up = findViewById(R.id.tv_signup);
+        cv_user_image = findViewById(R.id.cv_user_image);
+
+        showPhoto(takePhotoPath);
+        input_number.setText(number);
+        input_password.setText(password);
+
     }
 
 
@@ -81,7 +96,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void done(UserInfo user, BmobException e) {
                 if (user != null) {
-                    Log.d("Bmob", user.toString());
                     toast("登录成功！");
                     startHome();
                     saveIsLogin();
@@ -122,5 +136,18 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         editor.putBoolean("isLogin", true);
         editor.apply();
     }
+
+
+    public void showPhoto(String photoPath) {
+        if (TextUtils.isEmpty(photoPath)) {
+            return;
+        }
+        Bitmap compressBitmap = PhotoHelper.compressPhoto(photoPath, MyConstants.DEFAULT_AVATAR_WIDTH, MyConstants.DEFAULT_AVATAR_HEIGHT);
+        if (compressBitmap != null) {
+
+            cv_user_image.setImageBitmap(compressBitmap);
+        }
+    }
+
 
 }

@@ -7,6 +7,14 @@
     tools:context=".com.emily.my.AboutActivity">
 
     <include layout="@layout/toolbar_about_planet"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="3dp"
+        android:background="@color/material_grey_300"
+        tools:ignore="PrivateResource" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
