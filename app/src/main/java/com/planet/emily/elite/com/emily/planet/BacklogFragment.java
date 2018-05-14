@@ -9,12 +9,10 @@ import android.view.ViewGroup;
 import com.planet.emily.elite.R;
 import com.planet.emily.elite.bean.Comment;
 import com.planet.emily.elite.bean.PlanetCard;
-import com.planet.emily.elite.bean.PlanetInfo;
 
 import java.util.List;
 
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.datatype.BmobPointer;
 import cn.bmob.v3.exception.BmobException;
@@ -33,11 +31,11 @@ public class BacklogFragment extends Fragment {
         return view;
     }
 
-    private void QueryComment(String ObjectId){
+    private void QueryComment(String ObjectId) {
         BmobQuery<Comment> query = new BmobQuery<Comment>();
         PlanetCard planetCard = new PlanetCard();
         planetCard.setObjectId(ObjectId);
-        query.addWhereEqualTo("planetCard",new BmobPointer(planetCard));
+        query.addWhereEqualTo("planetCard", new BmobPointer(planetCard));
         query.include("user,planetCard.author");
         query.findObjects(new FindListener<Comment>() {
 

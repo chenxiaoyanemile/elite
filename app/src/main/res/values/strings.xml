@@ -1018,9 +1018,9 @@
     <string name="title_activity_dynamics_fragment">DynamicsFragment</string>
     <string name="letter">:</string>
     <string name="item_topic">#求职# #上海#</string>
-    <string name="item_content">学习 android 开发近一个月，最近两天写了个练手项目：模仿开发 ofo 共享单车，写了篇博客分享，欢迎大家提意见。</string>
+    <string name="item_content">学习 android 开发近一个月，最近两天写了个练手项目：模仿开发 ofo 共享单车，写了篇博客分享（https://www.jianshu.com/u/fe4c5bb1dc75），欢迎大家提意见。</string>
     <string name="planet_name">629实验室</string>
-    <string name="planet_description">区块链研发团队</string>
+    <string name="planet_description">产品研发团队</string>
     <string name="planet_principe">我们团队以幽默诙谐的态度，面对乏味无聊的技术，用扯淡的方式，分享技术的内涵。谈的是技术，更是我们的人生。</string>
     <string name="planet_share">分享</string>
     <string name="planet_share_number">50篇</string>

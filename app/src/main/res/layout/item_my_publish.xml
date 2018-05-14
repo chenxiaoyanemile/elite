@@ -12,7 +12,7 @@
         android:id="@+id/item_publish_topic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/publish_topic"
+        android:text="@string/planet_description"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size_xxl" />
 
@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/item_publish_topic"
+            android:text="@string/planet_name"
             android:textColor="@color/green"
             android:textSize="@dimen/text_size_l" />
 

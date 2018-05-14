@@ -71,10 +71,10 @@ public class PublishActivity extends AppCompatActivity {
     }
 
     private void initDate(){
-        String topic = "#求职# #上海#";
-        String content = "学习 android 开发近一个月，最近两天写了个练手项目：模仿开发 ofo 共享单车，写了篇博客分享，欢迎大家提意见。";
-        String community = "招聘/求职/跳槽";
-        String time = "2018-3-28";
+        String topic = "#产品研发团队#";
+        String content = "学习 android 开发近一个月，最近两天写了个练手项目：模仿开发 ofo 共享单车，写了篇博客分享（https://www.jianshu.com/u/fe4c5bb1dc75），欢迎大家提意见。";
+        String community = "629实验室";
+        String time = "2017-9-19";
 
         MyPublishItem publishItem = new MyPublishItem(topic,content,community,time);
         publishItems.add(publishItem);

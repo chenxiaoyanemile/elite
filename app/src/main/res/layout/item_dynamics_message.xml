@@ -48,7 +48,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/item_topic"
+                android:text="@string/planet_description"
                 android:textColor="@color/black_333333"
                 android:textSize="@dimen/text_size_xl" />
 
@@ -57,7 +57,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/item_collection"
+            android:text="@string/item_content"
             android:textSize="@dimen/text_size_xl"
             android:textColor="@color/black_333333"/>
 
@@ -76,7 +76,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/topic_one_text"
+                android:text="@string/planet_name"
                 android:gravity="right"
                 android:textSize="@dimen/text_size_s"
                 android:layout_weight="0.5"

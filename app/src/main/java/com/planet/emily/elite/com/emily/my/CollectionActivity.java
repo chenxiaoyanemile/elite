@@ -71,10 +71,10 @@ public class CollectionActivity extends AppCompatActivity {
     }
 
     private void initDate() {
-        String content = "学习 android 开发近一个月，最近两天写了个练手项目：模仿开发 ofo 共享单车，写了篇博客分享，欢迎大家提意见。";
-        String community = "招聘/求职/跳槽";
+        String content = "学习 android 开发近一个月，最近两天写了个练手项目：模仿开发 ofo 共享单车，写了篇博客分享（https://www.jianshu.com/u/fe4c5bb1dc75），欢迎大家提意见。";
+        String community = "629实验室";
         String author = "小之";
-        String time = "2018-3-28";
+        String time = "2017-9-19";
 
         MyCollectionItem collectionItem = new MyCollectionItem(content, community, author, time);
         collectionItems.add(collectionItem);
