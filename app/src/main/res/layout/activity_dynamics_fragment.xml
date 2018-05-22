@@ -6,8 +6,15 @@
     android:orientation="vertical"
     tools:context="com.planet.emily.elite.com.emily.dynamics.DynamicsFragment">
 
-    <include layout="@layout/item_dynamics_message">
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/layout_dynamics_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    </include>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_dynamics_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </android.support.v4.widget.SwipeRefreshLayout>
     
 </LinearLayout>
