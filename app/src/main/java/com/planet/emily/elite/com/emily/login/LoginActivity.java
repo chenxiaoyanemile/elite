@@ -1,6 +1,8 @@
 package com.planet.emily.elite.com.emily.login;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -30,21 +32,30 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private TextView tv_sign_up;
     private CircleImageView cv_user_image;
 
+    private SharedPreferences.Editor editor;
+    private String takePhotoPath;
+    private String number;
 
+
+    @SuppressLint("CommitPrefEdits")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         Bmob.initialize(this, "889470321947c301aff932fc7d9a9e64");
+
+        SharedPreferences sharedPreferences = getSharedPreferences("UserInformation", MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
         initView();
         initEvent();
     }
 
     private void initView() {
         Intent intent = getIntent();
-        String takePhotoPath = intent.getStringExtra("takePhotoPath");
+        takePhotoPath = intent.getStringExtra("takePhotoPath");
         String password = intent.getStringExtra("password");
-        String number = intent.getStringExtra("number");
+        number = intent.getStringExtra("number");
 
         input_number = findViewById(R.id.input_number);
         input_password = findViewById(R.id.input_password);
@@ -91,9 +102,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void done(UserInfo user, BmobException e) {
                 if (user != null) {
-                    toast("登录成功！" + user.getObjectId());
+                    toast("登录成功！" );
                     startHome();
-                    saveIsLogin();
+                    saveIsLogin(user.getObjectId(),user.getUsername());
                 } else {
                     toast("用户未注册！" + e.toString());
                 }
@@ -126,7 +137,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         finish();
     }
 
-    private void saveIsLogin() {
+    private void saveIsLogin(String userId, String userName) {
+        editor.putString("userId", userId);
+        editor.putString("userName",userName);
+        editor.putString("takePhotoPath",takePhotoPath);
+        editor.putString("number",number);
+        editor.apply();
 
     }
 

@@ -1,6 +1,8 @@
 package com.planet.emily.elite.com.emily.home;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,10 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.planet.emily.elite.R;
-import com.planet.emily.elite.bean.UserInfo;
 import com.planet.emily.elite.com.emily.my.AboutActivity;
 import com.planet.emily.elite.com.emily.my.CollectionActivity;
 import com.planet.emily.elite.com.emily.my.HelpActivity;
@@ -27,11 +27,6 @@ import java.io.File;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import cn.bmob.v3.BmobQuery;
-import cn.bmob.v3.datatype.BmobFile;
-import cn.bmob.v3.exception.BmobException;
-import cn.bmob.v3.listener.DownloadFileListener;
-import cn.bmob.v3.listener.QueryListener;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
@@ -62,57 +57,27 @@ public class MyProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_my_profile, container, false);
         ButterKnife.bind(this, view);
-        getData();
+        getUserData();
         return view;
     }
 
+    private void getUserData() {
+        SharedPreferences preferences = getActivity().getSharedPreferences("UserInformation", Context.MODE_PRIVATE);
+        String path = preferences.getString("takePhotoPath", "");
+        String userName = preferences.getString("userName", "");
+        username.setText(userName);
+        showAvatar(path);
 
-    private void getData() {
-
-        BmobQuery<UserInfo> bmobQuery = new BmobQuery<UserInfo>();
-        bmobQuery.getObject("7e1f860255", new QueryListener<UserInfo>() {
-            @Override
-            public void done(UserInfo user, BmobException e) {
-                if (e == null) {
-                    download(user.getPhoto());
-                    username.setText(user.getUsername());
-
-                } else {
-                    toast("查询失败：" + e.getMessage());
-                }
-            }
-        });
     }
 
-    private void download(BmobFile photo) {
-        photo.download(new DownloadFileListener() {
-            @Override
-            public void done(String path, BmobException e) {
-                if (e == null) {
-                    showAvatar(path);
-                } else {
-                    toast("加载图片失败：" + e.getMessage());
-                }
-            }
-
-            @Override
-            public void onProgress(Integer integer, long l) {
-
-            }
-        });
-    }
 
     private void showAvatar(String path) {
         Uri uri = Uri.fromFile(new File(path));
         avatar.setImageURI(uri);
     }
 
-    private void toast(String msg) {
-        Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
-    }
 
     @OnClick(R.id.tv_publish)
     public void clickPublish() {

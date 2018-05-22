@@ -1,6 +1,9 @@
 package com.planet.emily.elite.com.emily.my;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -14,13 +17,21 @@ import com.planet.emily.elite.bean.MyPublishItem;
 import com.planet.emily.elite.com.emily.dynamics.CommentActivity;
 import com.planet.emily.elite.com.emily.my.adapter.MyPublishRecyclerViewAdapter;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class PublishActivity extends AppCompatActivity {
+
+    @BindView(R.id.cv_publish_avatar)
+    CircleImageView cv_publish_avatar;
+
+    @BindView(R.id.tv_publish_username)
+    TextView tv_publish_username;
 
     @BindView(R.id.tv_publish_back)
     TextView tv_publish_back;
@@ -40,6 +51,7 @@ public class PublishActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_publish);
         ButterKnife.bind(this);
+        getUserData();
         initDate();
         initUI();
     }
@@ -68,6 +80,22 @@ public class PublishActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void getUserData(){
+        SharedPreferences preferences=getSharedPreferences("UserInformation", Context.MODE_PRIVATE);
+        String path = preferences.getString("takePhotoPath", "");
+        String userName = preferences.getString("userName", "");
+
+        tv_publish_username.setText(userName);
+        showAvatar(path);
+
+    }
+
+
+    private void showAvatar(String path) {
+        Uri uri = Uri.fromFile(new File(path));
+        cv_publish_avatar.setImageURI(uri);
     }
 
     private void initDate(){

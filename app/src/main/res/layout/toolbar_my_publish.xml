@@ -27,13 +27,16 @@
             android:background="@drawable/bg_avatar_round">
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/cv_publish_avatar"
                 style="@style/Avatar"
                 android:layout_width="71.0dip"
                 android:layout_height="71.0dip"
-                android:src="@mipmap/im_me"
-                android:layout_gravity="center" />
+                android:layout_gravity="center"
+                android:src="@mipmap/im_me" />
         </FrameLayout>
+
         <TextView
+            android:id="@+id/tv_publish_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
