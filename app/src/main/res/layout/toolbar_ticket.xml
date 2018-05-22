@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="5dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="8dp"
     android:orientation="horizontal">
 
     <TextView
@@ -21,23 +22,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="126dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
             android:text="@string/create_issues"
             android:textColor="@color/black"
             android:textSize="@dimen/text_size_xxl" />
 
-        <TextView
-            android:id="@+id/tv_wallet_details"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="16dp"
-            android:padding="3dp"
-            android:text="@string/submit"
-            tools:ignore="RelativeOverlap" />
     </RelativeLayout>
 
 </LinearLayout>
