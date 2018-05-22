@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginStart="16dp"
+    android:layout_marginStart="20dp"
     android:layout_marginTop="16dp">
 
         <LinearLayout
@@ -15,9 +15,10 @@
 
             <ImageView
                 android:id="@+id/iv_planet_avatar"
-                android:layout_width="160dp"
-                android:layout_height="wrap_content"
+                android:layout_width="140dp"
+                android:layout_height="100dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
                 android:contentDescription="@string/topic"
                 android:src="@mipmap/topic_03_1x" />
 

@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -25,6 +26,11 @@ import com.bumptech.glide.request.target.SimpleTarget;
 import com.jaeger.library.StatusBarUtil;
 import com.planet.emily.elite.R;
 import com.planet.emily.elite.com.emily.planet.adapter.ViewPagerAdapter;
+import com.planet.emily.elite.event.PlanetEvent;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,16 +40,18 @@ import jp.wasabeef.glide.transformations.BlurTransformation;
 public class PlanetActivity extends AppCompatActivity {
 
     private LinearLayout head_layout;
-    private TabLayout toolbar_tab;
-    private ViewPager main_vp_container;
     private CollapsingToolbarLayout mCollapsingToolbarLayout;
     private CoordinatorLayout root_layout;
+    private TextView tv_planet_name;
+    private TextView tv_planet_description;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_planet);
         initUI();
+        EventBus.getDefault().register(this);
 
     }
 
@@ -60,6 +68,9 @@ public class PlanetActivity extends AppCompatActivity {
         });
         head_layout = findViewById(R.id.head_layout);
         root_layout = findViewById(R.id.root_layout);
+        tv_planet_name = findViewById(R.id.tv_planet_name);
+        tv_planet_description = findViewById(R.id.tv_planet_description);
+
         //使用CollapsingToolbarLayout必须把title设置到CollapsingToolbarLayout上，设置到Toolbar上则不会显示
         mCollapsingToolbarLayout = findViewById(R.id
                 .collapsing_toolbar_layout);
@@ -73,8 +84,8 @@ public class PlanetActivity extends AppCompatActivity {
                 }
             }
         });
-        toolbar_tab = findViewById(R.id.toolbar_tab);
-        main_vp_container = findViewById(R.id.main_vp_container);
+        TabLayout toolbar_tab = findViewById(R.id.toolbar_tab);
+        ViewPager main_vp_container = findViewById(R.id.main_vp_container);
 
 
         List<Fragment> fragments = new ArrayList<>();
@@ -90,12 +101,9 @@ public class PlanetActivity extends AppCompatActivity {
                 (toolbar_tab));
         toolbar_tab.setOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener
                 (main_vp_container));
-        //tablayout和viewpager建立联系为什么不用下面这个方法呢？自己去研究一下，可能收获更多
-        //toolbar_tab.setupWithViewPager(main_vp_container);
+
         loadBlurAndSetStatusBar();
 
-       // ImageView head_iv = findViewById(R.id.head_iv);
-       // Glide.with(this).load(R.mipmap.bg_sq_group_cover).bitmapTransform(new RoundedCornersTransformation(this,90, 0)).into(head_iv);
     }
 
     /**
@@ -148,5 +156,20 @@ public class PlanetActivity extends AppCompatActivity {
         Intent intent = new Intent(PlanetActivity.this, PlanetProfileActivity.class);
         startActivity(intent);
         finish();
+    }
+
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onPlanetEvent(PlanetEvent event) {
+        String planetName = event.getPlanetName();
+        String planetDes = event.getPlanetDescription();
+        tv_planet_name.setText(planetName);
+        tv_planet_description.setText(planetDes);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
     }
 }

@@ -1,22 +1,26 @@
 package com.planet.emily.elite.com.emily.my;
 
+import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Toast;
 
 import com.planet.emily.elite.R;
-import com.planet.emily.elite.bean.MyCollectionItem;
-import com.planet.emily.elite.bean.MyPlanetItem;
+import com.planet.emily.elite.bean.PlanetInfo;
 import com.planet.emily.elite.com.emily.my.adapter.MyPlanetSortRecyclerViewAdapter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
 
 public class PlanetSortingActivity extends AppCompatActivity {
 
@@ -27,7 +31,7 @@ public class PlanetSortingActivity extends AppCompatActivity {
 
     private MyPlanetSortRecyclerViewAdapter myPlanetSortRecyclerViewAdapter;
 
-    ArrayList<MyPlanetItem> myPlanetItemsList = new ArrayList<>();
+    List<PlanetInfo> myPlanetItemsList = new ArrayList<>();
 
 
     @Override
@@ -35,11 +39,13 @@ public class PlanetSortingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_planet_sorting);
         ButterKnife.bind(this);
+        myPlanetSortRecyclerViewAdapter = new MyPlanetSortRecyclerViewAdapter(this);
+        initData();
         initUI();
     }
 
 
-    private void initUI(){
+    private void initUI() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         myPlanetSortRecyclerViewAdapter = new MyPlanetSortRecyclerViewAdapter(this);
         recycler_rank_item.setLayoutManager(linearLayoutManager);
@@ -60,16 +66,30 @@ public class PlanetSortingActivity extends AppCompatActivity {
 
     }
 
-    private void initData(){
-        String sortUrl = "";
-        String planetName ="629实验室";
-        String planetAvatarUrl ="";
-        String founderName = "小智";
+    private void initData() {
 
-        MyPlanetItem myPlanetItem = new MyPlanetItem(sortUrl,planetName,planetAvatarUrl,founderName);
-        myPlanetItemsList.add(myPlanetItem);
+
+        BmobQuery<PlanetInfo> query = new BmobQuery<>();
+        query.findObjects(new FindListener<PlanetInfo>() {
+            @Override
+            public void done(List<PlanetInfo> list, BmobException e) {
+                if (e == null) {
+                    myPlanetItemsList = list;
+                    myPlanetSortRecyclerViewAdapter.setCollectionItems(myPlanetItemsList);
+
+                } else {
+                    toast("获取数据失败！");
+                }
+            }
+        });
+
+
     }
 
+
+    private void toast(String msg) {
+        Toast.makeText(PlanetSortingActivity.this, msg, Toast.LENGTH_SHORT).show();
+    }
 
     @OnClick(R.id.tv_back_rank)
     public void onBack() {

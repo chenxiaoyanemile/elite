@@ -50,13 +50,14 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/tv_planet_name"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:gravity="center"
                             android:text="@string/planet_name"
                             android:textColor="#ffffff"
                             android:textSize="@dimen/text_size_xxl"
-                            android:textStyle="bold"
-                            android:gravity="center"/>
+                            android:textStyle="bold" />
 
                         <View
                             android:layout_width="28dp"
@@ -66,14 +67,15 @@
                             android:layout_gravity="center"/>
 
                         <TextView
+                            android:id="@+id/tv_planet_description"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="20dp"
+                            android:gravity="center"
                             android:text="@string/planet_description"
                             android:textColor="#ffffff"
                             android:textSize="@dimen/text_size_m"
-                            android:textStyle="bold"
-                            android:gravity="center"/>
+                            android:textStyle="bold" />
                     </LinearLayout>
 
                 </RelativeLayout>
