@@ -14,6 +14,7 @@ import com.planet.emily.elite.R;
 import com.planet.emily.elite.bean.PlanetInfo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import cn.bmob.v3.datatype.BmobFile;
 
@@ -25,7 +26,7 @@ public class PlanetRecyclerViewAdapter extends RecyclerView.Adapter<PlanetRecycl
     private Context mContext;
 
 
-    private ArrayList<PlanetInfo> planetInfos = new ArrayList<>();
+    private List<PlanetInfo> planetInfos = new ArrayList<>();
 
     public PlanetRecyclerViewAdapter(Context context) {
         this.mContext = context;
@@ -33,7 +34,7 @@ public class PlanetRecyclerViewAdapter extends RecyclerView.Adapter<PlanetRecycl
 
     }
 
-    public void setPublishItems(ArrayList<PlanetInfo> planetInfo) {
+    public void setPublishItems(List<PlanetInfo> planetInfo) {
         this.planetInfos = planetInfo;
         notifyItemMoved(0, planetInfo.size());
     }
@@ -50,7 +51,7 @@ public class PlanetRecyclerViewAdapter extends RecyclerView.Adapter<PlanetRecycl
 
 
         holder.tv_planet_name.setText(planetInfos.get(position).getPlanetName());
-        holder.tv_planet_founder.setText(planetInfos.get(position).getUserInfo().getUsername());
+        holder.tv_planet_founder.setText(planetInfos.get(position).getType());
 
         BmobFile file = planetInfos.get(position).getPhoto();
         Glide.with(mContext)
