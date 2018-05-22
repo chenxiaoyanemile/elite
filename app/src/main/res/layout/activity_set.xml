@@ -24,7 +24,7 @@
             android:layout_marginStart="20.0dip"
             android:drawablePadding="10.0dip"
             android:gravity="center_vertical"
-            android:text="@string/nickname"
+            android:text="@string/phone_number"
             android:textColor="@color/dark_black"
             android:textSize="@dimen/text_size_l" />
 
@@ -34,11 +34,11 @@
             android:layout_weight="1.0" />
 
         <TextView
+            android:id="@+id/tv_phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10.0dip"
-            android:contentDescription="@string/hello"
-            android:text="@string/app_name" />
+            android:text="@string/_15602282655" />
 
         <ImageView
             android:layout_width="wrap_content"

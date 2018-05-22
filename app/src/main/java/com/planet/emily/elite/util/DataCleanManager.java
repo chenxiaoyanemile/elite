@@ -205,4 +205,36 @@ public class DataCleanManager {
     public static String getCacheSize(File file) throws Exception {
         return getFormatSize(getFolderSize(file));
     }
+
+    /**
+     * 清除所有缓存
+     * @param context
+     */
+    public static void clearAllCache(Context context) {
+        //清除内部缓存
+        deleteDir(context.getCacheDir());
+        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+            //清除外部缓存
+            deleteDir(context.getExternalCacheDir());
+        }
+    }
+
+    /**
+     * 递归删除文件
+     * @param dir
+     * @return
+     */
+    private static boolean deleteDir(File dir) {
+        if (dir != null && dir.isDirectory()) {
+            String[] children = dir.list();
+            for (int i = 0; i < children.length; i++) {
+                boolean success = deleteDir(new File(dir, children[i]));
+                if (!success) {
+                    return false;
+                }
+            }
+        }
+        return dir.delete();
+    }
+
 }
