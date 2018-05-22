@@ -1,6 +1,7 @@
 package com.planet.emily.elite.com.emily.home;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -16,9 +17,6 @@ import com.planet.emily.elite.bean.PlanetInfo;
 import com.planet.emily.elite.com.emily.home.adapter.PlanetRecyclerViewAdapter;
 import com.planet.emily.elite.com.emily.planet.CreateNextStepActivity;
 import com.planet.emily.elite.com.emily.planet.PlanetActivity;
-import com.planet.emily.elite.event.PlanetEvent;
-
-import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +27,8 @@ import butterknife.OnClick;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class CommunityFragment extends Fragment {
 
@@ -41,11 +41,15 @@ public class CommunityFragment extends Fragment {
 
     private List<PlanetInfo> planetInfoList = new ArrayList<>();
 
+    private SharedPreferences.Editor editor;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_topics, container, false);
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("PlanetInfo", MODE_PRIVATE);
+        editor = sharedPreferences.edit();
         ButterKnife.bind(this, view);
         planetRecyclerViewAdapter = new PlanetRecyclerViewAdapter(getActivity());
         initData();
@@ -64,7 +68,7 @@ public class CommunityFragment extends Fragment {
                 String name = planetInfoList.get(position).getPlanetName();
                 String description = planetInfoList.get(position).getPlanetDescription();
                 String id = planetInfoList.get(position).getObjectId();
-                EventBus.getDefault().post(new PlanetEvent(id, name, description));
+                savePlanetInfo(id, name, description);
                 Intent intent = new Intent(getActivity(), PlanetActivity.class);
                 startActivity(intent);
 
@@ -78,6 +82,14 @@ public class CommunityFragment extends Fragment {
                 refreshLayout.setRefreshing(false);
             }
         });
+
+    }
+
+    private void savePlanetInfo(String Id, String planetName, String planetDes) {
+        editor.putString("Id", Id);
+        editor.putString("planetName", planetName);
+        editor.putString("planetDes", planetDes);
+        editor.apply();
 
     }
 

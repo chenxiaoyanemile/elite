@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import com.planet.emily.elite.R;
 import com.planet.emily.elite.app.MyConstants;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -79,5 +81,6 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
+
 
 }

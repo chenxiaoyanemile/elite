@@ -1,7 +1,9 @@
 package com.planet.emily.elite.com.emily.planet;
 
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
@@ -26,11 +28,6 @@ import com.bumptech.glide.request.target.SimpleTarget;
 import com.jaeger.library.StatusBarUtil;
 import com.planet.emily.elite.R;
 import com.planet.emily.elite.com.emily.planet.adapter.ViewPagerAdapter;
-import com.planet.emily.elite.event.PlanetEvent;
-
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,19 +42,33 @@ public class PlanetActivity extends AppCompatActivity {
     private TextView tv_planet_name;
     private TextView tv_planet_description;
 
+    private String planetName;
+    private String planetDes;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_planet);
         initUI();
-        EventBus.getDefault().register(this);
+        getUserData();
+
+    }
+
+    private void getUserData() {
+        SharedPreferences preferences = getSharedPreferences("PlanetInfo", Context.MODE_PRIVATE);
+        planetName = preferences.getString("planetName", "");
+        planetDes = preferences.getString("planetDes", "");
+        tv_planet_name.setText(planetName);
+        tv_planet_description.setText(planetDes);
 
     }
 
     private void initUI() {
         AppBarLayout app_bar_layout = findViewById(R.id.app_bar_layout);
         Toolbar mToolbar = findViewById(R.id.toolbar);
+        tv_planet_name = findViewById(R.id.tv_planet_name);
+        tv_planet_description = findViewById(R.id.tv_planet_description);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -68,8 +79,6 @@ public class PlanetActivity extends AppCompatActivity {
         });
         head_layout = findViewById(R.id.head_layout);
         root_layout = findViewById(R.id.root_layout);
-        tv_planet_name = findViewById(R.id.tv_planet_name);
-        tv_planet_description = findViewById(R.id.tv_planet_description);
 
         //使用CollapsingToolbarLayout必须把title设置到CollapsingToolbarLayout上，设置到Toolbar上则不会显示
         mCollapsingToolbarLayout = findViewById(R.id
@@ -78,7 +87,7 @@ public class PlanetActivity extends AppCompatActivity {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
                 if (verticalOffset <= -head_layout.getHeight() / 2) {
-                    mCollapsingToolbarLayout.setTitle("629实验室");
+                    mCollapsingToolbarLayout.setTitle(planetName);
                 } else {
                     mCollapsingToolbarLayout.setTitle(" ");
                 }
@@ -152,24 +161,11 @@ public class PlanetActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void assertSetPlanetProfile(){
+    private void assertSetPlanetProfile() {
         Intent intent = new Intent(PlanetActivity.this, PlanetProfileActivity.class);
         startActivity(intent);
         finish();
     }
 
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onPlanetEvent(PlanetEvent event) {
-        String planetName = event.getPlanetName();
-        String planetDes = event.getPlanetDescription();
-        tv_planet_name.setText(planetName);
-        tv_planet_description.setText(planetDes);
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        EventBus.getDefault().unregister(this);
-    }
 }
