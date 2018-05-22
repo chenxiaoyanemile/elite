@@ -3,7 +3,6 @@ package com.planet.emily.elite.com.emily.planet;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -12,7 +11,6 @@ import android.widget.Toast;
 import com.planet.emily.elite.R;
 import com.planet.emily.elite.bean.PlanetInfo;
 import com.planet.emily.elite.bean.UserInfo;
-import com.planet.emily.elite.com.emily.login.RegisteredActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -85,25 +83,25 @@ public class CreateNextStepActivity extends AppCompatActivity {
 
     }
 
-   private void createPlanet(String planetName, BmobFile photo, String planetDescription, String type, UserInfo userInfo){
-       UserInfo user = BmobUser.getCurrentUser(UserInfo.class);
-       PlanetInfo planetInfo = new PlanetInfo();
-       planetInfo.setPhoto(photo);
-       planetInfo.setPlanetName(planetName);
-       planetInfo.setPlanetDescription(planetDescription);
-       planetInfo.setType(type);
-       planetInfo.setUserInfo(userInfo);
-       planetInfo.save(new SaveListener<String>() {
-           @Override
-           public void done(String objectId,BmobException e) {
-               if(e==null){
-                   toast("创建成功");
-               }else{
-                   toast("创建失败："+e.getMessage());
-               }
-           }
-       });
-   }
+    private void createPlanet(String planetName, BmobFile photo, String planetDescription, String type, UserInfo userInfo) {
+        UserInfo user = BmobUser.getCurrentUser(UserInfo.class);
+        PlanetInfo planetInfo = new PlanetInfo();
+        planetInfo.setPhoto(photo);
+        planetInfo.setPlanetName(planetName);
+        planetInfo.setPlanetDescription(planetDescription);
+        planetInfo.setType(type);
+        planetInfo.setUserInfo(userInfo);
+        planetInfo.save(new SaveListener<String>() {
+            @Override
+            public void done(String objectId, BmobException e) {
+                if (e == null) {
+                    toast("创建成功");
+                } else {
+                    toast("创建失败：" + e.getMessage());
+                }
+            }
+        });
+    }
 
     private void toast(String msg) {
         Toast.makeText(CreateNextStepActivity.this, msg, Toast.LENGTH_SHORT).show();

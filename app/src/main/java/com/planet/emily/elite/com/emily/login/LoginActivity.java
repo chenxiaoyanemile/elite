@@ -1,8 +1,6 @@
 package com.planet.emily.elite.com.emily.login;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -33,15 +31,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private CircleImageView cv_user_image;
 
 
-    private SharedPreferences preferences;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         Bmob.initialize(this, "889470321947c301aff932fc7d9a9e64");
         initView();
-        preferences = getSharedPreferences("isLogin", Context.MODE_PRIVATE);
         initEvent();
     }
 
@@ -96,7 +91,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void done(UserInfo user, BmobException e) {
                 if (user != null) {
-                    toast("登录成功！");
+                    toast("登录成功！" + user.getObjectId());
                     startHome();
                     saveIsLogin();
                 } else {
@@ -132,9 +127,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void saveIsLogin() {
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putBoolean("isLogin", true);
-        editor.apply();
+
     }
 
 
@@ -144,7 +137,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
         Bitmap compressBitmap = PhotoHelper.compressPhoto(photoPath, MyConstants.DEFAULT_AVATAR_WIDTH, MyConstants.DEFAULT_AVATAR_HEIGHT);
         if (compressBitmap != null) {
-
             cv_user_image.setImageBitmap(compressBitmap);
         }
     }

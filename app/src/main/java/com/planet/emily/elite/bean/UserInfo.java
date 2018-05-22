@@ -21,6 +21,8 @@ public class UserInfo extends BmobUser{
 
     @Override
     public String toString() {
-        return "UserInfo{}";
+        return "UserInfo{" +
+                "photo=" + photo +
+                '}';
     }
 }
