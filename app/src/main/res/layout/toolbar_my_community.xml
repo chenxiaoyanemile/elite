@@ -6,16 +6,25 @@
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/primary_green"
-        android:title="@string/app_name" />
+        android:background="@color/primary_green" />
 
     <TextView
         style="@style/btn_style"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#fff5f6f7"
         android:text="@string/community_title"
         android:textColor="@color/primary_green" />
+
+    <ImageView
+        android:id="@+id/iv_add_planet"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="end"
+        android:layout_marginEnd="12dp"
+        android:layout_marginTop="12dp"
+        android:contentDescription="@string/hello"
+        android:src="@mipmap/ic_cross_min" />
 
 
 </FrameLayout>

@@ -9,6 +9,7 @@ public class PlanetInfo extends BmobObject{
     private BmobFile photo;
     private String planetDescription;
     private String type;
+    private UserInfo userInfo;
 
     public PlanetInfo() {
     }
@@ -20,10 +21,6 @@ public class PlanetInfo extends BmobObject{
     public void setUserInfo(UserInfo userInfo) {
         this.userInfo = userInfo;
     }
-
-    private UserInfo userInfo;
-
-
 
     public PlanetInfo(String planetName, BmobFile photo, String planetDescription, String type, UserInfo userInfo) {
         this.planetName = planetName;

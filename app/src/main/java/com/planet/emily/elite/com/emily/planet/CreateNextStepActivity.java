@@ -1,12 +1,15 @@
 package com.planet.emily.elite.com.emily.planet;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -19,6 +22,8 @@ import com.planet.emily.elite.bean.UserInfo;
 import com.planet.emily.elite.com.emily.base.TakePhotoDialog;
 import com.planet.emily.elite.util.PhotoHelper;
 
+import java.io.File;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -26,6 +31,7 @@ import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.datatype.BmobFile;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
+import cn.bmob.v3.listener.UploadFileListener;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class CreateNextStepActivity extends AppCompatActivity {
@@ -164,10 +170,7 @@ public class CreateNextStepActivity extends AppCompatActivity {
         String description = planetDescription.getText().toString().trim();
 
         if (!name.isEmpty() && type != null && !description.isEmpty() && !takePhotoPath.isEmpty()) {
-
-            Intent intent = new Intent(CreateNextStepActivity.this, PlanetActivity.class);
-            startActivity(intent);
-            finish();
+            savePhoto(name, takePhotoPath, description, type);
         } else if (takePhotoPath.isEmpty()) {
             toast("请选择星球头像！");
         } else if (name.isEmpty()) {
@@ -180,19 +183,42 @@ public class CreateNextStepActivity extends AppCompatActivity {
 
     }
 
-    private void createPlanet(String planetName, BmobFile photo, String planetDescription, String type, UserInfo userInfo) {
+    private String getUserId() {
+        SharedPreferences preferences = getSharedPreferences("UserInformation", Context.MODE_PRIVATE);
+        String id = preferences.getString("userId", "");
+        Log.d("userId", "userId" + id);
+        return id;
+
+    }
+
+    public void savePhoto(final String name, final String takePhotoPath, final String des, final String type) {
+        final BmobFile file = new BmobFile(new File(takePhotoPath));
+        file.upload(new UploadFileListener() {
+            @Override
+            public void done(BmobException e) {
+                if (e == null) {
+                    createPlanets(name, file, des, type);
+                }
+
+            }
+        });
+    }
+
+    private void createPlanets(String planetName, BmobFile photo, String planetDescription, String type) {
         UserInfo user = BmobUser.getCurrentUser(UserInfo.class);
+        user.setObjectId(getUserId());
         PlanetInfo planetInfo = new PlanetInfo();
         planetInfo.setPhoto(photo);
         planetInfo.setPlanetName(planetName);
         planetInfo.setPlanetDescription(planetDescription);
         planetInfo.setType(type);
-        planetInfo.setUserInfo(userInfo);
+        planetInfo.setUserInfo(user);
         planetInfo.save(new SaveListener<String>() {
             @Override
             public void done(String objectId, BmobException e) {
                 if (e == null) {
-                    toast("创建成功");
+                    toast("创建成功!");
+                    startAction();
                 } else {
                     toast("创建失败：" + e.getMessage());
                 }
@@ -211,6 +237,12 @@ public class CreateNextStepActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        finish();
+    }
+
+    private void startAction() {
+        Intent intent = new Intent(CreateNextStepActivity.this, PlanetActivity.class);
+        startActivity(intent);
         finish();
     }
 }
