@@ -5,5 +5,18 @@
     android:layout_height="match_parent"
     tools:context=".com.emily.planet.ProjectFragment">
 
-  <include layout="@layout/item_backlog"/>
+
+  <android.support.v4.widget.SwipeRefreshLayout
+      android:layout_width="fill_parent"
+      android:layout_height="match_parent"
+      android:id="@+id/swipe_refresh_version">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_version"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:scrollbarStyle="insideOverlay"
+        android:scrollbars="vertical" />
+  </android.support.v4.widget.SwipeRefreshLayout>
 </FrameLayout>

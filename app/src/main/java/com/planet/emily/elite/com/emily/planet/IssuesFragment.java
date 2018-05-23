@@ -90,7 +90,7 @@ public class IssuesFragment extends Fragment {
         PlanetInfo planetInfo = new PlanetInfo();
         planetInfo.setObjectId(getDataForPlanet());
         query.addWhereEqualTo("belongPlanet", planetInfo);
-        query.include("belongPlanet, author");
+        query.include("author");
         query.findObjects(new FindListener<PlanetIssue>() {
             @Override
             public void done(List<PlanetIssue> list, BmobException e) {

@@ -22,29 +22,74 @@
         android:orientation="vertical"
         android:padding="2dp">
 
-        <TextView
-            style="@style/planet_text_style"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Version: V 2.1.1" />
+            android:orientation="horizontal">
+            <TextView
+                style="@style/planet_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Version: " />
 
-        <TextView
-            style="@style/planet_text_style"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Status: RELEASED" />
+            <TextView
+                android:id="@+id/tv_project_version"
+                style="@style/planet_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
 
-        <TextView
-            style="@style/planet_text_style"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Time: 18/Jul/2018" />
+            android:orientation="horizontal">
+            <TextView
+                style="@style/planet_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status: " />
 
-        <TextView
-            style="@style/planet_text_style"
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/tv_project_status"
+                style="@style/planet_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Description: This version aims to tackle the remaining crash issues found on fabric" />
+            android:orientation="horizontal">
+            <TextView
+                style="@style/planet_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Time: " />
+
+            <TextView
+                android:id="@+id/tv_project_time"
+                style="@style/planet_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                style="@style/planet_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Description: " />
+
+            <TextView
+                android:id="@+id/tv_project_des"
+                style="@style/planet_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
     </LinearLayout>
 
 </RelativeLayout>
