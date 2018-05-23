@@ -9,6 +9,7 @@ public class PlanetIssue extends BmobObject{
     private String summary ;
     private String description;
     private String result;
+    private String version;
     private String priority;
     private String assignee;
     private PlanetInfo belongPlanet;
@@ -16,15 +17,25 @@ public class PlanetIssue extends BmobObject{
     public PlanetIssue() {
     }
 
-    public PlanetIssue(UserInfo author, String required, String summary, String description, String result, String priority, String assignee, PlanetInfo belongPlanet) {
+    public PlanetIssue(UserInfo author, String required, String summary, String description, String result,
+                       String version, String priority, String assignee, PlanetInfo belongPlanet) {
         this.author = author;
         this.required = required;
         this.summary = summary;
         this.description = description;
         this.result = result;
+        this.version = version;
         this.priority = priority;
         this.assignee = assignee;
         this.belongPlanet = belongPlanet;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
     }
 
     public UserInfo getAuthor() {
@@ -99,6 +110,7 @@ public class PlanetIssue extends BmobObject{
                 ", summary='" + summary + '\'' +
                 ", description='" + description + '\'' +
                 ", result='" + result + '\'' +
+                ", version='" + version + '\'' +
                 ", priority='" + priority + '\'' +
                 ", assignee='" + assignee + '\'' +
                 ", belongPlanet=" + belongPlanet +

@@ -22,51 +22,125 @@
                 android:layout_height="36dp"
                 android:layout_gravity="center_vertical"
                 android:src="@mipmap/ic_common_checked"/>
+
             <TextView
+                android:id="@+id/tv_issue_tittle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
-                android:text="Android #001 - 0117 change camera icon and replace by CTA button"
+                android:text="Android #001 - 0117 返回按钮无法正常跳转"
                 android:textColor="@color/black"
-                android:textSize="@dimen/text_size_xxl"/>
+                android:textSize="@dimen/text_size_xxl" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginStart="6dp"
             android:layout_marginBottom="6dp">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Version: A 2.5.0"
-                android:textSize="@dimen/text_size_xxl"/>
+                android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Assignee: Emily Chen"
-                android:textSize="@dimen/text_size_xxl"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="版本: "
+                    android:textSize="@dimen/text_size_xxl"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Status: To be test"
-                android:textSize="@dimen/text_size_xxl"/>
+                <TextView
+                    android:id="@+id/tv_issue_version"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" A 2.5.0"
+                    android:textSize="@dimen/text_size_xxl" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Priority: Medium"
-                android:textSize="@dimen/text_size_xxl"/>
+            </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Reporter: Christoph"
-                android:textSize="@dimen/text_size_xxl"/>
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="领取者: "
+                    android:textSize="@dimen/text_size_xxl"/>
+
+                <TextView
+                    android:id="@+id/tv_issue_assignee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" 秀丽"
+                    android:textSize="@dimen/text_size_xxl" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="期待结果: "
+                    android:textSize="@dimen/text_size_xxl"/>
+
+                <TextView
+                    android:id="@+id/tv_issue_result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="正常运行"
+                    android:textSize="@dimen/text_size_xxl" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="优先级: "
+                    android:textSize="@dimen/text_size_xxl"/>
+
+                <TextView
+                    android:id="@+id/tv_issue_priority"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="高"
+                    android:textSize="@dimen/text_size_xxl" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="提出者: "
+                    android:textSize="@dimen/text_size_xxl"/>
+
+                <TextView
+                    android:id="@+id/tv_issue_report"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="清风"
+                    android:textSize="@dimen/text_size_xxl" />
+
+            </LinearLayout>
+
+
         </LinearLayout>
 
 

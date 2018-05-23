@@ -53,13 +53,14 @@ public class CreateIssueActivity extends AppCompatActivity {
         String summary = et_summary.getText().toString().trim();
         String description = et_des.getText().toString().trim();
         String result = et_result.getText().toString().trim();
+        String version = et_version.getText().toString().trim();
         String priority = et_priority.getText().toString().trim();
         String assignee = et_assignee.getText().toString().trim();
 
         if (isNotEmpty(required) && isNotEmpty(summary) && isNotEmpty(description)
-                && isNotEmpty(result) && isNotEmpty(priority) && isNotEmpty(assignee)) {
+                && isNotEmpty(result)&&isNotEmpty(version) && isNotEmpty(priority) && isNotEmpty(assignee)) {
 
-            createProjectIssue(required,summary,description,result,priority,assignee);
+            createProjectIssue(required,summary,description,result,version,priority,assignee);
             finish();
 
         } else if (isEmpty(required)) {
@@ -70,6 +71,8 @@ public class CreateIssueActivity extends AppCompatActivity {
             toast("请填写详细描述！");
         } else if (isEmpty(result)) {
             toast("请填写期待的结果！");
+        } else if (isEmpty(result)) {
+            toast("请填写版本号！");
         } else if (isEmpty(priority)) {
             toast("请填写问题优先级！");
         } else if (isEmpty(assignee)) {
@@ -79,7 +82,7 @@ public class CreateIssueActivity extends AppCompatActivity {
     }
 
 
-    private void createProjectIssue(String required, String summary, String description, String result,String priority,String assignee) {
+    private void createProjectIssue(String required, String summary, String description, String result,String version, String priority,String assignee) {
         UserInfo user = BmobUser.getCurrentUser(UserInfo.class);
         user.setObjectId(getDataForUser());
         PlanetInfo planetInfo = new PlanetInfo();
@@ -90,6 +93,7 @@ public class CreateIssueActivity extends AppCompatActivity {
         planetIssue.setSummary(summary);
         planetIssue.setDescription(description);
         planetIssue.setResult(result);
+        planetIssue.setVersion(version);
         planetIssue.setPriority(priority);
         planetIssue.setAssignee(assignee);
         planetIssue.setBelongPlanet(planetInfo);
