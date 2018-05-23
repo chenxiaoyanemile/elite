@@ -18,15 +18,21 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.planet.emily.elite.R;
 import com.planet.emily.elite.bean.Comment;
+import com.planet.emily.elite.bean.PlanetCard;
+import com.planet.emily.elite.bean.UserInfo;
 import com.planet.emily.elite.com.emily.planet.PlanetActivity;
 import com.planet.emily.elite.view.MyCommentAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
+import cn.bmob.v3.listener.SaveListener;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class CommentActivity extends AppCompatActivity implements View.OnClickListener {
@@ -62,9 +68,9 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
     RelativeLayout rl_comment;
 
     private MyCommentAdapter myCommentAdapter;
-    private List<Comment> data;
 
-    private String id;
+    private String UserId;
+    private String CardId;
     private String username;
 
     @Override
@@ -79,11 +85,11 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
 
     private void initView() {
         Intent intent = getIntent();
+        CardId = intent.getStringExtra("id");
         String url = intent.getStringExtra("url");
         String username = intent.getStringExtra("username");
         String time = intent.getStringExtra("time");
         String content = intent.getStringExtra("content");
-
         Glide.with(this)
                 .load(url)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
@@ -96,13 +102,32 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
 
         // 初始化评论列表
         ListView comment_list = findViewById(R.id.comment_list);
-        // 初始化数据
-        data = new ArrayList<>();
-        // 初始化适配器
-        myCommentAdapter = new MyCommentAdapter(getApplicationContext(), data);
+
+        myCommentAdapter = new MyCommentAdapter(CommentActivity.this);
+
+        initData(CardId);
+
         // 为评论列表设置适配器
         comment_list.setAdapter(myCommentAdapter);
         setListener();
+    }
+
+    private void initData(String cardId) {
+        BmobQuery<Comment> query = new BmobQuery<>();
+        PlanetCard planetCard = new PlanetCard();
+        planetCard.setObjectId(cardId);
+        query.addWhereEqualTo("belongCard", planetCard);
+        query.findObjects(new FindListener<Comment>() {
+            @Override
+            public void done(List<Comment> list, BmobException e) {
+                if (e == null) {
+                    myCommentAdapter.setCommentList(list);
+
+                } else {
+                    toast("获取数据失败！");
+                }
+            }
+        });
     }
 
     /**
@@ -146,18 +171,44 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
         } else {
             // 生成评论数据
             Comment comment = new Comment();
-            comment.setName(username + "：");
-            comment.setContent(comment_content.getText().toString());
+            comment.setName(username);
+            String content = comment_content.getText().toString().trim();
+            comment.setContent(content);
             myCommentAdapter.addComment(comment);
             // 发送完，清空输入框
             comment_content.setText("");
-            Toast.makeText(getApplicationContext(), "评论成功！", Toast.LENGTH_SHORT).show();
+            sendMessage(CardId, content, UserId, username);
         }
+    }
+
+    private void sendMessage(String cardId, String content, String userId, String name) {
+
+        UserInfo user = BmobUser.getCurrentUser(UserInfo.class);
+        user.setObjectId(userId);
+        PlanetCard planetCard = new PlanetCard();
+        planetCard.setObjectId(cardId);
+
+        Comment comment = new Comment();
+        comment.setCommenter(user);
+        comment.setBelongCard(planetCard);
+        comment.setContent(content);
+        comment.setName(name);
+        comment.save(new SaveListener<String>() {
+            @Override
+            public void done(String objectId, BmobException e) {
+                if (e == null) {
+                    toast("评论成功!");
+                } else {
+                    toast("评论失败：" + e.getMessage());
+                }
+            }
+        });
+
     }
 
     private void getUserData() {
         SharedPreferences preferences = getSharedPreferences("UserInformation", Context.MODE_PRIVATE);
-        id = preferences.getString("userId", "");
+        UserId = preferences.getString("userId", "");
         username = preferences.getString("userName", "");
     }
 
@@ -192,5 +243,8 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
         finish();
     }
 
+    private void toast(String msg) {
+        Toast.makeText(CommentActivity.this, msg, Toast.LENGTH_SHORT).show();
+    }
 
 }

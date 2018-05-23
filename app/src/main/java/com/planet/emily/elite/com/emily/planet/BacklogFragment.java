@@ -70,11 +70,13 @@ public class BacklogFragment extends Fragment {
         myShareAdapter.setOnItemClickListener(new MyShareAdapter.OnItemClickListener() {
             @Override
             public void OnItemClick(View view, int position) {
+                String id = planetCardArrayList.get(position).getObjectId();
                 String url = planetCardArrayList.get(position).getAuthor().getPhoto().getUrl();
                 String username = planetCardArrayList.get(position).getAuthor().getUsername();
                 String time = planetCardArrayList.get(position).getCreatedAt();
                 String content = planetCardArrayList.get(position).getCardContent();
                 Intent in = new Intent(getActivity(), CommentActivity.class);
+                in.putExtra("id",id);
                 in.putExtra("url",url);
                 in.putExtra("username",username);
                 in.putExtra("time",time);
