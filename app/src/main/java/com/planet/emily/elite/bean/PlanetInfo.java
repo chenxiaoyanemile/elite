@@ -2,6 +2,7 @@ package com.planet.emily.elite.bean;
 
 import cn.bmob.v3.BmobObject;
 import cn.bmob.v3.datatype.BmobFile;
+import cn.bmob.v3.datatype.BmobRelation;
 
 public class PlanetInfo extends BmobObject{
 
@@ -10,6 +11,11 @@ public class PlanetInfo extends BmobObject{
     private String planetDescription;
     private String type;
     private UserInfo userInfo;
+    private BmobRelation members;
+
+    public PlanetInfo(String objectId) {
+        setObjectId(objectId);
+    }
 
     public PlanetInfo() {
     }
@@ -28,6 +34,16 @@ public class PlanetInfo extends BmobObject{
         this.planetDescription = planetDescription;
         this.type = type;
         this.userInfo = userInfo;
+    }
+
+
+
+    public BmobRelation getMembers() {
+        return members;
+    }
+
+    public void setMembers(BmobRelation members) {
+        this.members = members;
     }
 
     public String getPlanetName() {

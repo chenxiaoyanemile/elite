@@ -11,6 +11,10 @@ public class UserInfo extends BmobUser{
 
     }
 
+    public UserInfo(String userId) {
+        setObjectId(userId);
+    }
+
     public BmobFile getPhoto() {
         return photo;
     }

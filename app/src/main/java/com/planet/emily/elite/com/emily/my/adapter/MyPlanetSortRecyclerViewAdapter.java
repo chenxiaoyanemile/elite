@@ -59,6 +59,8 @@ public class MyPlanetSortRecyclerViewAdapter extends RecyclerView.Adapter<MyPlan
                 .error(R.mipmap.topic_03_1x)
                 .into(holder.iv_planet_avatar);
 
+        holder.itemView.setTag(position);
+
 
     }
 
@@ -81,9 +83,9 @@ public class MyPlanetSortRecyclerViewAdapter extends RecyclerView.Adapter<MyPlan
         ViewHolder(View itemView) {
             super(itemView);
             iv_rank_sort = itemView.findViewById(R.id.iv_rank_sort);
-            iv_planet_avatar = itemView.findViewById(R.id.iv_planet_avatar);
-            tv_planet_name = itemView.findViewById(R.id.tv_planet_name);
-            tv_planet_founder = itemView.findViewById(R.id.tv_planet_founder);
+            iv_planet_avatar = itemView.findViewById(R.id.iv_planet_sort_avatar);
+            tv_planet_name = itemView.findViewById(R.id.tv_planet_sort_name);
+            tv_planet_founder = itemView.findViewById(R.id.tv_planet_sort_founder);
             iv_planet_enter = itemView.findViewById(R.id.iv_planet_enter);
 
             itemView.setOnClickListener(new View.OnClickListener() {

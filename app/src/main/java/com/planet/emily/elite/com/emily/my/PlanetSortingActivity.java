@@ -1,5 +1,6 @@
 package com.planet.emily.elite.com.emily.my;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -53,6 +54,11 @@ public class PlanetSortingActivity extends AppCompatActivity {
         myPlanetSortRecyclerViewAdapter.setOnItemClickListener(new MyPlanetSortRecyclerViewAdapter.OnItemClickListener() {
             @Override
             public void OnItemClick(View view, int position) {
+                String id = myPlanetItemsList.get(position).getObjectId();
+                Intent intent = new Intent(PlanetSortingActivity.this, AddPlanetActivity.class);
+                intent.putExtra("id",id);
+                startActivity(intent);
+                finish();
 
             }
         });
