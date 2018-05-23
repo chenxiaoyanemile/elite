@@ -3,18 +3,18 @@ package com.planet.emily.elite.bean;
 import cn.bmob.v3.BmobObject;
 
 public class PlanetCard extends BmobObject{
+
     private UserInfo author;
     private String cardTitle;
     private String cardContent;
-    private String cardTime;
-    private Comment comments;
+    private PlanetInfo belongPlanet;
 
-    public PlanetCard(UserInfo author, String cardTitle, String cardContent, String cardTime, Comment comments) {
+
+    public PlanetCard(UserInfo author, String cardTitle, String cardContent, PlanetInfo belongPlanet) {
         this.author = author;
         this.cardTitle = cardTitle;
         this.cardContent = cardContent;
-        this.cardTime = cardTime;
-        this.comments = comments;
+        this.belongPlanet = belongPlanet;
     }
 
     public UserInfo getAuthor() {
@@ -41,20 +41,13 @@ public class PlanetCard extends BmobObject{
         this.cardContent = cardContent;
     }
 
-    public String getCardTime() {
-        return cardTime;
+
+    public PlanetInfo getBelongPlanet() {
+        return belongPlanet;
     }
 
-    public void setCardTime(String cardTime) {
-        this.cardTime = cardTime;
-    }
-
-    public Comment getComments() {
-        return comments;
-    }
-
-    public void setComments(Comment comments) {
-        this.comments = comments;
+    public void setBelongPlanet(PlanetInfo belongPlanet) {
+        this.belongPlanet = belongPlanet;
     }
 
     public PlanetCard() {
@@ -66,8 +59,7 @@ public class PlanetCard extends BmobObject{
                 "author=" + author +
                 ", cardTitle='" + cardTitle + '\'' +
                 ", cardContent='" + cardContent + '\'' +
-                ", cardTime='" + cardTime + '\'' +
-                ", comments=" + comments +
+                ", belongPlanet=" + belongPlanet +
                 '}';
     }
 }

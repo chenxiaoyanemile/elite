@@ -1,6 +1,8 @@
 package com.planet.emily.elite.com.emily.planet;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -12,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.planet.emily.elite.R;
+import com.planet.emily.elite.bean.PlanetInfo;
 import com.planet.emily.elite.bean.PlanetIssue;
 import com.planet.emily.elite.com.emily.planet.adapter.MyIssueAdapter;
 
@@ -84,6 +87,10 @@ public class IssuesFragment extends Fragment {
 
     private void getPlanetIssueData() {
         BmobQuery<PlanetIssue> query = new BmobQuery<>();
+        PlanetInfo planetInfo = new PlanetInfo();
+        planetInfo.setObjectId(getDataForPlanet());
+        query.addWhereEqualTo("belongPlanet", planetInfo);
+        query.include("belongPlanet, author");
         query.findObjects(new FindListener<PlanetIssue>() {
             @Override
             public void done(List<PlanetIssue> list, BmobException e) {
@@ -98,6 +105,11 @@ public class IssuesFragment extends Fragment {
         });
     }
 
+
+    private String getDataForPlanet() {
+        SharedPreferences preferences = getActivity().getSharedPreferences("PlanetInfo", Context.MODE_PRIVATE);
+        return preferences.getString("Id", "");
+    }
 
     private void toast(String msg) {
         Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();

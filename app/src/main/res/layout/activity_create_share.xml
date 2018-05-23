@@ -15,18 +15,18 @@
         tools:ignore="PrivateResource" />
 
     <EditText
-        android:id="@+id/et_title"
+        android:id="@+id/et_share_title"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:hint="@string/share_title"
         android:background="@drawable/setting_bg"
+        android:hint="@string/share_title"
         android:inputType="textShortMessage" />
 
     <EditText
-        android:id="@+id/et_content"
+        android:id="@+id/et_share_content"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginEnd="20dp"
@@ -35,7 +35,7 @@
         android:background="@drawable/setting_bg"
         android:gravity="start"
         android:hint="@string/say_something"
-        android:inputType="textImeMultiLine"
+        android:inputType="textMultiLine"
         tools:ignore="TextFields" />
 
 

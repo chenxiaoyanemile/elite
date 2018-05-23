@@ -133,4 +133,14 @@ public class CreateIssueActivity extends AppCompatActivity {
     private void toast(String msg) {
         Toast.makeText(CreateIssueActivity.this, msg, Toast.LENGTH_SHORT).show();
     }
+
+    @OnClick(R.id.tv_back_issue)
+    public void onBack() {
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
 }
