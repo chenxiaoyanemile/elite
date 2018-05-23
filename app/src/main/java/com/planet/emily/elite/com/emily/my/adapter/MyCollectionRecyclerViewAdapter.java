@@ -8,9 +8,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.planet.emily.elite.R;
-import com.planet.emily.elite.bean.MyCollectionItem;
+import com.planet.emily.elite.bean.PlanetIssue;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by emily on 2018/3/28
@@ -22,7 +23,7 @@ public class MyCollectionRecyclerViewAdapter extends RecyclerView.Adapter<MyColl
     private LayoutInflater layoutInflater;
 
 
-    private ArrayList<MyCollectionItem> collectionItems = new ArrayList<>();
+    private List<PlanetIssue> planetIssueList = new ArrayList<>();
 
     public MyCollectionRecyclerViewAdapter(Context context) {
 
@@ -30,8 +31,8 @@ public class MyCollectionRecyclerViewAdapter extends RecyclerView.Adapter<MyColl
 
     }
 
-    public void setCollectionItems(ArrayList<MyCollectionItem> collectionItems) {
-        this.collectionItems = collectionItems;
+    public void setCollectionItems(List<PlanetIssue> collectionItems) {
+        this.planetIssueList = collectionItems;
         notifyItemMoved(0, collectionItems.size());
     }
 
@@ -45,11 +46,9 @@ public class MyCollectionRecyclerViewAdapter extends RecyclerView.Adapter<MyColl
     @Override
     public void onBindViewHolder(MyCollectionRecyclerViewAdapter.ViewHolder holder, int position) {
 
-        holder.tv_collection_content.setText(collectionItems.get(0).getContent());
-        holder.tv_collection_topic.setText(collectionItems.get(0).getCommunity());
-        holder.tv_collection_author.setText(collectionItems.get(0).getAuthor());
-        holder.tv_collection_time.setText(collectionItems.get(0).getTime());
-
+        holder.tv_collection_content.setText(planetIssueList.get(position).getSummary());
+        holder.tv_collection_topic.setText(planetIssueList.get(position).getBelongPlanet().getPlanetName());
+        holder.tv_collection_time.setText(planetIssueList.get(position).getCreatedAt());
 
         holder.itemView.setTag(position);
 
@@ -58,14 +57,13 @@ public class MyCollectionRecyclerViewAdapter extends RecyclerView.Adapter<MyColl
 
     @Override
     public int getItemCount() {
-        return collectionItems.size();
+        return planetIssueList.size();
     }
 
 
     class ViewHolder extends RecyclerView.ViewHolder {
         TextView tv_collection_content;
         TextView tv_collection_topic;
-        TextView tv_collection_author;
         TextView tv_collection_time;
 
 
@@ -73,7 +71,6 @@ public class MyCollectionRecyclerViewAdapter extends RecyclerView.Adapter<MyColl
             super(itemView);
             tv_collection_content = itemView.findViewById(R.id.tv_collection_content);
             tv_collection_topic = itemView.findViewById(R.id.tv_collection_topic);
-            tv_collection_author = itemView.findViewById(R.id.tv_collection_author);
             tv_collection_time = itemView.findViewById(R.id.tv_collection_time);
 
             itemView.setOnClickListener(new View.OnClickListener() {

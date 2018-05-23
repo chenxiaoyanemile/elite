@@ -8,9 +8,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.planet.emily.elite.R;
-import com.planet.emily.elite.bean.MyPublishItem;
+import com.planet.emily.elite.bean.PlanetCard;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by emily on 2018/3/28
@@ -22,7 +23,7 @@ public class MyPublishRecyclerViewAdapter extends RecyclerView.Adapter<MyPublish
     private LayoutInflater layoutInflater;
 
 
-    private ArrayList<MyPublishItem> publishItems = new ArrayList<>();
+    private List<PlanetCard> planetCardArrayList = new ArrayList<>();
 
     public MyPublishRecyclerViewAdapter(Context context) {
 
@@ -30,9 +31,9 @@ public class MyPublishRecyclerViewAdapter extends RecyclerView.Adapter<MyPublish
 
     }
 
-    public void setPublishItems(ArrayList<MyPublishItem> publishItems) {
-        this.publishItems = publishItems;
-        notifyItemMoved(0, publishItems.size());
+    public void setPlanetCardArrayList(List<PlanetCard> planetCards) {
+        this.planetCardArrayList = planetCards;
+        notifyItemMoved(0, planetCards.size());
     }
 
     @Override
@@ -45,17 +46,17 @@ public class MyPublishRecyclerViewAdapter extends RecyclerView.Adapter<MyPublish
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 
-        holder.item_publish_topic.setText(publishItems.get(0).getTopic());
-        holder.item_publish_content.setText(publishItems.get(0).getContent());
-        holder.item_publish_community.setText(publishItems.get(0).getCommunity());
-        holder.item_publish_time.setText(publishItems.get(0).getPublish_time());
+        holder.item_publish_topic.setText(planetCardArrayList.get(position).getCardTitle());
+        holder.item_publish_content.setText(planetCardArrayList.get(position).getCardContent());
+        holder.item_publish_community.setText(planetCardArrayList.get(position).getBelongPlanet().getPlanetName());
+        holder.item_publish_time.setText(planetCardArrayList.get(position).getCreatedAt());
 
         holder.itemView.setTag(position);
     }
 
     @Override
     public int getItemCount() {
-        return publishItems.size();
+        return planetCardArrayList.size();
     }
 
 

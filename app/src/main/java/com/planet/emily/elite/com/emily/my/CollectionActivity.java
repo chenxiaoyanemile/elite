@@ -1,6 +1,8 @@
 package com.planet.emily.elite.com.emily.my;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -8,17 +10,23 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.planet.emily.elite.R;
-import com.planet.emily.elite.bean.MyCollectionItem;
+import com.planet.emily.elite.bean.PlanetIssue;
+import com.planet.emily.elite.bean.UserInfo;
 import com.planet.emily.elite.com.emily.dynamics.CommentActivity;
 import com.planet.emily.elite.com.emily.my.adapter.MyCollectionRecyclerViewAdapter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
 
 public class CollectionActivity extends AppCompatActivity {
 
@@ -32,13 +40,14 @@ public class CollectionActivity extends AppCompatActivity {
     RecyclerView recycler_collection_item;
 
     private MyCollectionRecyclerViewAdapter myCollectionRecyclerViewAdapter;
-    ArrayList<MyCollectionItem> collectionItems = new ArrayList<>();
+    List<PlanetIssue> planetIssueList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_collection);
         ButterKnife.bind(this);
+        myCollectionRecyclerViewAdapter = new MyCollectionRecyclerViewAdapter(this);
         initDate();
         initUI();
     }
@@ -46,8 +55,6 @@ public class CollectionActivity extends AppCompatActivity {
     private void initUI() {
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        myCollectionRecyclerViewAdapter = new MyCollectionRecyclerViewAdapter(this);
-        myCollectionRecyclerViewAdapter.setCollectionItems(collectionItems);
         recycler_collection_item.setLayoutManager(linearLayoutManager);
         recycler_collection_item.setAdapter(myCollectionRecyclerViewAdapter);
         myCollectionRecyclerViewAdapter.setOnItemClickListener(new MyCollectionRecyclerViewAdapter.OnItemClickListener() {
@@ -71,15 +78,32 @@ public class CollectionActivity extends AppCompatActivity {
     }
 
     private void initDate() {
-        String content = "学习 android 开发近一个月，最近两天写了个练手项目：模仿开发 ofo 共享单车，写了篇博客分享（https://www.jianshu.com/u/fe4c5bb1dc75），欢迎大家提意见。";
-        String community = "629实验室";
-        String author = "小之";
-        String time = "2017-9-19";
+        BmobQuery<PlanetIssue> query = new BmobQuery<>();
+        UserInfo userInfo = new UserInfo(getUserId());
+        query.addWhereEqualTo("author", userInfo);
+        query.include("belongPlanet");
+        query.findObjects(new FindListener<PlanetIssue>() {
+            @Override
+            public void done(List<PlanetIssue> list, BmobException e) {
+                if (e == null) {
+                    planetIssueList = list;
+                    myCollectionRecyclerViewAdapter.setCollectionItems(planetIssueList);
 
-        MyCollectionItem collectionItem = new MyCollectionItem(content, community, author, time);
-        collectionItems.add(collectionItem);
+                } else {
+                    toast("获取数据失败！");
+                }
+            }
+        });
     }
 
+    private String getUserId() {
+        SharedPreferences preferences = getSharedPreferences("UserInformation", Context.MODE_PRIVATE);
+        return preferences.getString("userId", "");
+    }
+
+    private void toast(String msg) {
+        Toast.makeText(CollectionActivity.this, msg, Toast.LENGTH_SHORT).show();
+    }
 
     @OnClick(R.id.tv_back_collection)
     public void onBack() {
