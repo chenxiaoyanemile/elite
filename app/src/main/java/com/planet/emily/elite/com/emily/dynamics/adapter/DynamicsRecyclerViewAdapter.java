@@ -10,9 +10,10 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.planet.emily.elite.R;
-import com.planet.emily.elite.bean.MyDynamics;
+import com.planet.emily.elite.bean.Comment;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import cn.bmob.v3.datatype.BmobFile;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -25,7 +26,7 @@ public class DynamicsRecyclerViewAdapter extends RecyclerView.Adapter<DynamicsRe
     private Context mContext;
 
 
-    private ArrayList<MyDynamics> dynamicsArrayList = new ArrayList<>();
+    private List<Comment> commentArrayList = new ArrayList<>();
 
     public DynamicsRecyclerViewAdapter(Context context) {
         this.mContext = context;
@@ -33,9 +34,9 @@ public class DynamicsRecyclerViewAdapter extends RecyclerView.Adapter<DynamicsRe
 
     }
 
-    public void setPublishItems(ArrayList<MyDynamics> dynamics) {
-        this.dynamicsArrayList = dynamics;
-        notifyItemMoved(0, dynamics.size());
+    public void setCommentArrayList(List<Comment> comments) {
+        this.commentArrayList = comments;
+        notifyItemMoved(0, comments.size());
     }
 
     @Override
@@ -48,13 +49,12 @@ public class DynamicsRecyclerViewAdapter extends RecyclerView.Adapter<DynamicsRe
     @Override
     public void onBindViewHolder(DynamicsRecyclerViewAdapter.ViewHolder holder, int position) {
 
-        holder.tv_author_name.setText(dynamicsArrayList.get(position).getAuthor().getUsername());
-        holder.item_tile.setText(dynamicsArrayList.get(position).getTitle());
-        holder.item_content.setText(dynamicsArrayList.get(position).getContent());
-        holder.item_time.setText(dynamicsArrayList.get(position).getCommunity());
-        holder.item_planet.setText(dynamicsArrayList.get(position).getPublish_time());
+        holder.tv_author_name.setText(commentArrayList.get(position).getCommenter().getUsername());
+        holder.item_content.setText(commentArrayList.get(position).getContent());
+        holder.item_time.setText(commentArrayList.get(position).getCreatedAt());
+        holder.item_planet.setText(commentArrayList.get(position).getBelongCard().getCardTitle());
 
-        BmobFile file = dynamicsArrayList.get(position).getAuthor().getPhoto();
+        BmobFile file = commentArrayList.get(position).getCommenter().getPhoto();
         Glide.with(mContext)
                 .load(file.getFileUrl())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
@@ -66,7 +66,7 @@ public class DynamicsRecyclerViewAdapter extends RecyclerView.Adapter<DynamicsRe
 
     @Override
     public int getItemCount() {
-        return dynamicsArrayList.size();
+        return commentArrayList.size();
     }
 
 
@@ -74,7 +74,6 @@ public class DynamicsRecyclerViewAdapter extends RecyclerView.Adapter<DynamicsRe
 
         CircleImageView cv_author_avatar;
         TextView tv_author_name;
-        TextView item_tile;
         TextView item_content;
         TextView item_time;
         TextView item_planet;
@@ -84,7 +83,6 @@ public class DynamicsRecyclerViewAdapter extends RecyclerView.Adapter<DynamicsRe
             super(itemView);
             cv_author_avatar = itemView.findViewById(R.id.cv_author_avatar);
             tv_author_name = itemView.findViewById(R.id.tv_author_name);
-            item_tile = itemView.findViewById(R.id.tv_title);
             item_content = itemView.findViewById(R.id.tv_content);
             item_time = itemView.findViewById(R.id.tv_time);
             item_planet = itemView.findViewById(R.id.tv_planet_name);

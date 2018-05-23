@@ -1,6 +1,7 @@
 package com.planet.emily.elite.com.emily.dynamics;
 
-import android.content.Intent;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -9,16 +10,21 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.planet.emily.elite.R;
-import com.planet.emily.elite.bean.MyDynamics;
+import com.planet.emily.elite.bean.Comment;
 import com.planet.emily.elite.bean.UserInfo;
 import com.planet.emily.elite.com.emily.dynamics.adapter.DynamicsRecyclerViewAdapter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
 
 public class DynamicsFragment extends Fragment {
 
@@ -28,7 +34,7 @@ public class DynamicsFragment extends Fragment {
     RecyclerView recyclerView;
 
     private DynamicsRecyclerViewAdapter dynamicsRecyclerViewAdapter;
-    ArrayList<MyDynamics> myDynamics = new ArrayList<>();
+    ArrayList<Comment> commentArrayList = new ArrayList<>();
 
     public static DynamicsFragment newInstance() {
         Bundle args = new Bundle();
@@ -43,7 +49,8 @@ public class DynamicsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_dynamics_fragment, container, false);
         ButterKnife.bind(this, view);
-        //initDate();
+        dynamicsRecyclerViewAdapter = new DynamicsRecyclerViewAdapter(getActivity());
+        initDate();
         initUI();
         return view;
     }
@@ -51,14 +58,12 @@ public class DynamicsFragment extends Fragment {
     private void initUI() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         dynamicsRecyclerViewAdapter = new DynamicsRecyclerViewAdapter(getActivity());
-        dynamicsRecyclerViewAdapter.setPublishItems(myDynamics);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(dynamicsRecyclerViewAdapter);
         dynamicsRecyclerViewAdapter.setOnItemClickListener(new DynamicsRecyclerViewAdapter.OnItemClickListener() {
             @Override
             public void OnItemClick(View view, int position) {
-                Intent in = new Intent(getActivity(), CommentActivity.class);
-                startActivity(in);
+                //TODO
 
             }
         });
@@ -74,15 +79,30 @@ public class DynamicsFragment extends Fragment {
     }
 
     private void initDate() {
+        BmobQuery<Comment> query = new BmobQuery<>();
+        UserInfo userInfo = new UserInfo(getUserData());
+        query.addWhereEqualTo("commenter", userInfo);
+        query.include("commenter");
+        query.findObjects(new FindListener<Comment>() {
+            @Override
+            public void done(List<Comment> list, BmobException e) {
+                if (e == null) {
+                    dynamicsRecyclerViewAdapter.setCommentArrayList(list);
 
-        UserInfo userInfo = new UserInfo();
-        String title = "#产品研发#";
-        String content = "学习 android 开发近一个月，最近两天写了个练手项目：模仿开发 ofo 共享单车，写了篇博客分享（https://www.jianshu.com/u/fe4c5bb1dc75），欢迎大家提意见。";
-        String community = "629实验室";
-        String time = "2017-9-19";
+                } else {
+                    toast("获取数据失败！");
+                }
+            }
+        });
+    }
 
-        MyDynamics myDynamic = new MyDynamics(userInfo, title, content, community, time);
-        myDynamics.add(myDynamic);
+    private String getUserData() {
+        SharedPreferences preferences = getActivity().getSharedPreferences("UserInformation", Context.MODE_PRIVATE);
+        return preferences.getString("userId", "");
+    }
+
+    private void toast(String msg) {
+        Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
     }
 
 

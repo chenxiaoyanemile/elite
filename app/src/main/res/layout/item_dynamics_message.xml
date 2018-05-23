@@ -51,7 +51,7 @@
                 android:id="@+id/tv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/planet_description"
+                android:text="评论说："
                 android:textColor="@color/black_333333"
                 android:textSize="@dimen/text_size_xl" />
 
