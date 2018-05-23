@@ -1,5 +1,6 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_all"
@@ -22,33 +23,35 @@
             android:orientation="horizontal">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/circleImageView"
+                android:id="@+id/cv_comment_avatar"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:src="@mipmap/im_me" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/tv_comment_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="17dp"
-                android:layout_toEndOf="@+id/circleImageView"
+                android:layout_toEndOf="@+id/cv_comment_avatar"
                 android:text="@string/name_collecton"
                 android:textColor="@color/create_question"
                 android:textSize="@dimen/text_size_xl" />
 
             <TextView
+                android:id="@+id/tv_create_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/textView"
-                android:layout_below="@+id/textView"
+                android:layout_alignStart="@+id/tv_comment_name"
+                android:layout_below="@+id/tv_comment_name"
                 android:text="@string/item_publish_time"
                 android:textSize="@dimen/text_size_s" />
 
         </RelativeLayout>
 
         <TextView
+            android:id="@+id/tv_comment_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/item_content"
@@ -86,19 +89,19 @@
             android:layout_marginEnd="24dp">
 
             <TextView
-                android:id="@+id/chat"
+                android:id="@+id/tv_comment_like"
                 style="@style/ForegroundTextItemWithArrow"
-                android:layout_width="wrap_content"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/shape_item_admire"
-                android:layout_marginTop="10.0dip"
                 android:layout_marginEnd="12dp"
+                android:layout_marginTop="10.0dip"
+                android:layout_weight="1"
+                android:background="@drawable/shape_item_admire"
                 android:drawablePadding="10.0dip"
                 android:drawableStart="@mipmap/ic_topic_detail_top_liked"
-                android:text="@string/like"
-                android:textColor="@color/white"
                 android:gravity="center"
-                android:layout_weight="1"/>
+                android:text="@string/like"
+                android:textColor="@color/white" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -106,19 +109,19 @@
                 android:layout_weight="2"/>
 
             <TextView
-                android:id="@+id/comment"
+                android:id="@+id/tv_comment_commenter"
                 style="@style/ForegroundTextItemWithArrow"
-                android:layout_width="wrap_content"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/shape_item_praise"
-                android:layout_marginTop="10.0dip"
-                android:drawablePadding="10.0dip"
                 android:layout_marginEnd="12dp"
+                android:layout_marginTop="10.0dip"
+                android:layout_weight="1"
+                android:background="@drawable/shape_item_praise"
+                android:drawablePadding="10.0dip"
                 android:drawableStart="@mipmap/ic_topic_comment_pressed"
-                android:text="@string/comment"
-                android:textColor="@color/white"
                 android:gravity="center"
-                android:layout_weight="1"/>
+                android:text="@string/comment"
+                android:textColor="@color/white" />
 
         </LinearLayout>
 

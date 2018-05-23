@@ -13,18 +13,18 @@
         android:orientation="horizontal">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/circleImageView"
+            android:id="@+id/cv_user_avatar"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:src="@mipmap/im_me" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/tv_author_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_marginStart="17dp"
-            android:layout_toEndOf="@+id/circleImageView"
+            android:layout_toEndOf="@+id/cv_user_avatar"
             android:text="@string/name_collecton"
             android:textColor="@color/create_question"
             android:textSize="@dimen/text_size_xl" />
@@ -32,8 +32,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/textView"
-            android:layout_below="@+id/textView"
+            android:layout_alignStart="@+id/tv_author_name"
+            android:layout_below="@+id/tv_author_name"
             android:text="@string/item_publish_time"
             android:textSize="@dimen/text_size_s" />
 

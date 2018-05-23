@@ -1,8 +1,8 @@
 package com.planet.emily.elite.com.emily.dynamics;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -14,6 +14,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.planet.emily.elite.R;
 import com.planet.emily.elite.bean.Comment;
 import com.planet.emily.elite.com.emily.planet.PlanetActivity;
@@ -25,10 +27,26 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class CommentActivity extends AppCompatActivity implements View.OnClickListener {
 
-    @BindView(R.id.comment)
+    @BindView(R.id.cv_comment_avatar)
+    CircleImageView userAvatar;
+
+    @BindView(R.id.tv_comment_name)
+    TextView commenter;
+
+    @BindView(R.id.tv_create_time)
+    TextView crateTime;
+
+    @BindView(R.id.tv_comment_content)
+    TextView commentContent;
+
+    @BindView(R.id.tv_comment_like)
+    TextView like;
+
+    @BindView(R.id.tv_comment_commenter)
     TextView comment;
 
     @BindView(R.id.hide_down)
@@ -45,17 +63,37 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
 
     private MyCommentAdapter myCommentAdapter;
     private List<Comment> data;
-    private Activity activity;
+
+    private String id;
+    private String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comment);
         ButterKnife.bind(this);
+        getUserData();
         initView();
     }
 
+
     private void initView() {
+        Intent intent = getIntent();
+        String url = intent.getStringExtra("url");
+        String username = intent.getStringExtra("username");
+        String time = intent.getStringExtra("time");
+        String content = intent.getStringExtra("content");
+
+        Glide.with(this)
+                .load(url)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .error(R.mipmap.im_me)
+                .into(userAvatar);
+
+        commenter.setText(username);
+        crateTime.setText(time);
+        commentContent.setText(content);
+
         // 初始化评论列表
         ListView comment_list = findViewById(R.id.comment_list);
         // 初始化数据
@@ -79,7 +117,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.comment:
+            case R.id.tv_comment_commenter:
                 rl_comment.setVisibility(View.VISIBLE);
                 // 弹出输入法
                 InputMethodManager imm = (InputMethodManager) getApplicationContext().getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -108,7 +146,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
         } else {
             // 生成评论数据
             Comment comment = new Comment();
-            comment.setName("评论者" + (data.size() + 1) + "：");
+            comment.setName(username + "：");
             comment.setContent(comment_content.getText().toString());
             myCommentAdapter.addComment(comment);
             // 发送完，清空输入框
@@ -117,11 +155,30 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
-    @OnClick(R.id.tv_return)
-    public void clickReturn() {
-
+    private void getUserData() {
+        SharedPreferences preferences = getSharedPreferences("UserInformation", Context.MODE_PRIVATE);
+        id = preferences.getString("userId", "");
+        username = preferences.getString("userName", "");
     }
 
+    @OnClick(R.id.tv_return)
+    public void clickReturn() {
+        finish();
+    }
+
+    Boolean flag = false;
+
+    @OnClick(R.id.tv_comment_like)
+    public void clickLike() {
+
+        if (!flag) {
+            like.setBackgroundResource(R.drawable.sel_comment_like);
+            flag = true;
+        } else {
+            like.setBackgroundResource(R.drawable.shape_item_admire);
+            flag = false;
+        }
+    }
 
     @OnClick(R.id.tv_enter)
     public void clickEnter() {
@@ -132,7 +189,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onBackPressed() {
-
+        finish();
     }
 
 
