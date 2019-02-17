@@ -8,6 +8,8 @@ Emily Chen
 
 V 1.0
 
+![图片 1.png](https://upload-images.jianshu.io/upload_images/2245754-cdd1c00f76031525.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 # branch
 1. master
 
